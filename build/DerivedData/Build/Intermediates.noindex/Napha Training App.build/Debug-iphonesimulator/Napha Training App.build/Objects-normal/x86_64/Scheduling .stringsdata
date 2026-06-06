@@ -7,7 +7,7 @@
         "key": "Scheduling",
         "location": {
           "startingColumn": 38,
-          "startingLine": 50
+          "startingLine": 54
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Save",
         "location": {
           "startingColumn": 36,
-          "startingLine": 54
+          "startingLine": 58
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "NAPFA Date",
         "location": {
           "startingColumn": 19,
-          "startingLine": 74
+          "startingLine": 78
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Test date",
         "location": {
           "startingColumn": 24,
-          "startingLine": 77
+          "startingLine": 81
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "Choose at least three workout days",
         "location": {
           "startingColumn": 23,
-          "startingLine": 126
+          "startingLine": 130
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "%lld/3",
         "location": {
           "startingColumn": 22,
-          "startingLine": 100
+          "startingLine": 104
         }
       },
       {
@@ -55,7 +55,7 @@
         "key": "Workout Days",
         "location": {
           "startingColumn": 23,
-          "startingLine": 97
+          "startingLine": 101
         }
       },
       {
@@ -63,7 +63,7 @@
         "key": "Workout Timing",
         "location": {
           "startingColumn": 19,
-          "startingLine": 138
+          "startingLine": 142
         }
       },
       {
@@ -71,7 +71,7 @@
         "key": "No days selected",
         "location": {
           "startingColumn": 40,
-          "startingLine": 143
+          "startingLine": 147
         }
       },
       {
@@ -79,7 +79,7 @@
         "key": "",
         "location": {
           "startingColumn": 40,
-          "startingLine": 152
+          "startingLine": 156
         }
       },
       {
@@ -87,7 +87,7 @@
         "key": "If today's workout is already complete, reminders are skipped.",
         "location": {
           "startingColumn": 18,
-          "startingLine": 177
+          "startingLine": 190
         }
       },
       {
@@ -95,7 +95,15 @@
         "key": "Reminders",
         "location": {
           "startingColumn": 19,
-          "startingLine": 168
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Workout reminders",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 175
         }
       }
     ]
