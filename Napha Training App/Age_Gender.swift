@@ -8,6 +8,8 @@ struct Age_Gender: View {
 
     @State private var sex = true
     @State private var birthdate = Date()
+    @State private var hasPickedBirthdate = false
+    @State private var hasPickedSex = false
     @Environment(\.dismiss) private var dismiss
 
     private let baseStartYear = 2005
@@ -60,6 +62,7 @@ struct Age_Gender: View {
         VStack(alignment: .leading, spacing: 16) {
             profileFields
         }
+        .frame(maxWidth: .infinity, minHeight: 520, alignment: .center)
     }
 
     @ViewBuilder
@@ -75,6 +78,7 @@ struct Age_Gender: View {
                 displayedComponents: .date
             )
             .onChange(of: birthdate) {
+                hasPickedBirthdate = true
                 saveProfile()
             }
 
@@ -95,6 +99,12 @@ struct Age_Gender: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .onAppear {
+            if start {
+                hasPickedBirthdate = UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted)
+                hasPickedSex = UserDefaults.standard.bool(forKey: AppKeys.genderCompleted)
+            }
+        }
     }
 
     private var sexBinding: Binding<Bool> {
@@ -102,8 +112,11 @@ struct Age_Gender: View {
             sex
         } set: { newValue in
             sex = newValue
+            hasPickedSex = true
             info.Gender = newValue
             UserDefaults.standard.set(newValue, forKey: AppKeys.sex)
+            UserDefaults.standard.set(true, forKey: AppKeys.genderCompleted)
+            updateProfileCompletionFlag()
         }
     }
 
@@ -126,6 +139,8 @@ struct Age_Gender: View {
         let endDate = calculatedEndDate()
         let storedBirthdate = defaults.object(forKey: AppKeys.birthdate) as? Date ?? startDate
         birthdate = min(max(storedBirthdate, startDate), endDate)
+        hasPickedBirthdate = defaults.bool(forKey: AppKeys.birthdateCompleted)
+        hasPickedSex = defaults.bool(forKey: AppKeys.genderCompleted)
         saveProfile()
     }
 
@@ -135,6 +150,17 @@ struct Age_Gender: View {
         UserDefaults.standard.set(sex, forKey: AppKeys.sex)
         UserDefaults.standard.set(birthdate, forKey: AppKeys.birthdate)
         UserDefaults.standard.set(age, forKey: AppKeys.age)
+        if hasPickedBirthdate {
+            UserDefaults.standard.set(true, forKey: AppKeys.birthdateCompleted)
+        }
+        if hasPickedSex {
+            UserDefaults.standard.set(true, forKey: AppKeys.genderCompleted)
+        }
+        updateProfileCompletionFlag()
+    }
+
+    private func updateProfileCompletionFlag() {
+        UserDefaults.standard.set(hasPickedBirthdate && hasPickedSex, forKey: AppKeys.profileCompleted)
     }
 }
 

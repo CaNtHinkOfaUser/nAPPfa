@@ -20,12 +20,13 @@ struct StartingTabView: View {
     @Binding var selectedTimes: [Date]
     @Binding var schedSheet: Bool
     @Binding var showLogin: Bool
+    @State private var showRequirements = false
     
     var body: some View {
         VStack(spacing: 0) {
             progressHeader
 
-            TabView(selection: $selection) {
+            TabView(selection: guardedSelection) {
                 Age_Gender(start: .constant(true), info: $info, ageFirstTime: $ageFirstTime, ageSheet: $ageSheet)
                     .tag(0)
 
@@ -92,6 +93,17 @@ struct StartingTabView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 8)
 
+                if !canFinish {
+                    VStack(alignment: .leading, spacing: 8) {
+                        RequirementRow(text: "Birthdate selected", isMet: UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted))
+                        RequirementRow(text: "Gender selected", isMet: UserDefaults.standard.bool(forKey: AppKeys.genderCompleted))
+                        RequirementRow(text: "At least 3 workout days and times", isMet: AppState.isScheduleComplete(days: selectedDays, times: selectedTimes))
+                    }
+                    .padding(14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                }
+
                 Button {
                     finishOnboarding()
                 } label: {
@@ -103,6 +115,7 @@ struct StartingTabView: View {
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .padding(.top, 8)
+                .disabled(!canFinish)
 
                 Spacer(minLength: 56)
             }
@@ -111,7 +124,30 @@ struct StartingTabView: View {
         .scrollIndicators(.hidden)
     }
 
+    private var guardedSelection: Binding<Int> {
+        Binding {
+            selection
+        } set: { newValue in
+            guard newValue <= selection || canNavigate(to: newValue) else {
+                showRequirements = true
+                return
+            }
+            selection = newValue
+        }
+    }
+
+    private var canFinish: Bool {
+        AppState.isProfileComplete() && AppState.isScheduleComplete(days: selectedDays, times: selectedTimes)
+    }
+
+    private func canNavigate(to step: Int) -> Bool {
+        if step >= 1 && !AppState.isProfileComplete() { return false }
+        if step >= 3 && !AppState.isScheduleComplete(days: selectedDays, times: selectedTimes) { return false }
+        return true
+    }
+
     private func finishOnboarding() {
+        guard canFinish else { return }
         let defaults = UserDefaults.standard
         defaults.set(false, forKey: AppKeys.firstTime)
         defaults.set(selectedDays, forKey: AppKeys.selectedDays)
@@ -120,6 +156,17 @@ struct StartingTabView: View {
         NotificationCoordinator.scheduleWorkoutNotifications(selectedDays: selectedDays, selectedTimes: selectedTimes)
         AppState.persistWidgetSummary(selectedDays: selectedDays, selectedTimes: selectedTimes)
         showLogin = false
+    }
+}
+
+private struct RequirementRow: View {
+    let text: String
+    let isMet: Bool
+
+    var body: some View {
+        Label(text, systemImage: isMet ? "checkmark.circle.fill" : "circle")
+            .font(.footnote.weight(.semibold))
+            .foregroundStyle(isMet ? .green : .secondary)
     }
 }
 
