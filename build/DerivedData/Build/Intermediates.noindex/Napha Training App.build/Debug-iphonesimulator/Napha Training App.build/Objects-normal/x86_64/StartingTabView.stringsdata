@@ -7,7 +7,7 @@
         "key": "Step %lld of 4",
         "location": {
           "startingColumn": 22,
-          "startingLine": 50
+          "startingLine": 51
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "You're set",
         "location": {
           "startingColumn": 22,
-          "startingLine": 86
+          "startingLine": 87
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Your profile, goals, and schedule are saved. You can change them anytime from Home or Settings.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 89
+          "startingLine": 90
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Start Training",
         "location": {
           "startingColumn": 27,
-          "startingLine": 98
+          "startingLine": 110
         }
       }
     ]

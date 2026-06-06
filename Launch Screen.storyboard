@@ -28,6 +28,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nAPPfa training, neatly tracked." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-1a-2b">
+                                <rect key="frame" x="24" y="519" width="345" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" red="0.35" green="0.35" blue="0.38" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,6 +43,9 @@
                             <constraint firstItem="title-1a-2b" firstAttribute="top" secondItem="logo-1a-2b" secondAttribute="bottom" constant="16" id="title-top"/>
                             <constraint firstItem="title-1a-2b" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="title-leading"/>
                             <constraint firstItem="title-1a-2b" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="title-trailing"/>
+                            <constraint firstItem="subtitle-1a-2b" firstAttribute="top" secondItem="title-1a-2b" secondAttribute="bottom" constant="8" id="subtitle-top"/>
+                            <constraint firstItem="subtitle-1a-2b" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="24" id="subtitle-leading"/>
+                            <constraint firstItem="subtitle-1a-2b" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" constant="-24" id="subtitle-trailing"/>
                         </constraints>
                     </view>
                 </viewController>

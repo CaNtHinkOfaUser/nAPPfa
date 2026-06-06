@@ -69,7 +69,10 @@ struct Workout: View {
                 }
             }
             .onChange(of: isWorkingOut) { _, working in
-                workoutSession.locksTabBar = working
+                workoutSession.locksTabBar = working || sessionCompleted
+            }
+            .onChange(of: sessionCompleted) { _, completed in
+                workoutSession.locksTabBar = isWorkingOut || completed
             }
             .onDisappear {
                 if !isWorkingOut && !sessionCompleted {
@@ -79,7 +82,10 @@ struct Workout: View {
         }
     }
 
+    @ViewBuilder
     private var stationPicker: some View {
+        let stations = AppState.enabledGoalStations(from: info)
+
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text("Choose a station")
@@ -90,8 +96,13 @@ struct Workout: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
-                ForEach(NAPFAStation.allCases) { station in
-                    stationCard(station)
+                if stations.isEmpty {
+                    ContentUnavailableView("No stations selected", systemImage: "target", description: Text("Tick stations in Goals to show them here."))
+                        .frame(maxWidth: .infinity, minHeight: 280)
+                } else {
+                    ForEach(stations) { station in
+                        stationCard(station)
+                    }
                 }
             }
             .padding(.horizontal, 18)
@@ -217,6 +228,8 @@ struct Workout: View {
 
     private var breakView: some View {
         VStack(spacing: 20) {
+            Spacer()
+
             Text("Rest")
                 .font(.title2.weight(.bold))
                 .foregroundStyle(.secondary)
@@ -263,6 +276,8 @@ struct Workout: View {
                 .buttonStyle(.borderedProminent)
             }
             .padding(.bottom, 16)
+
+            Spacer()
         }
     }
 
@@ -396,6 +411,7 @@ struct Workout: View {
         isWorkingOut = false
         isBreak = false
         sessionCompleted = true
+        workoutSession.locksTabBar = true
     }
 
     private func finishWorkout() {

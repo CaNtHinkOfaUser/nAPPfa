@@ -7,7 +7,7 @@
         "key": "Workout reminder",
         "location": {
           "startingColumn": 16,
-          "startingLine": 653
+          "startingLine": 698
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Workout now",
         "location": {
           "startingColumn": 20,
-          "startingLine": 654
+          "startingLine": 699
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Reschedule",
         "location": {
           "startingColumn": 20,
-          "startingLine": 657
+          "startingLine": 702
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Not now",
         "location": {
           "startingColumn": 20,
-          "startingLine": 663
+          "startingLine": 708
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "Would you like to start your session now or reschedule it?",
         "location": {
           "startingColumn": 18,
-          "startingLine": 665
+          "startingLine": 710
         }
       }
     ]

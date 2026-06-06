@@ -57,11 +57,13 @@ struct Statistics: View {
         let streak = AppState.currentStreak(selectedDays: selectedDays, selectedTimes: selectedTimes)
 
         return HStack(spacing: 14) {
+            Spacer()
+
             Image(systemName: "flame.fill")
                 .font(.system(size: 44, weight: .bold))
                 .foregroundStyle(.orange)
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .center, spacing: 4) {
                 Text("Current streak")
                     .font(.headline)
                 Text("\(streak) \(streak == 1 ? "day" : "days")")
