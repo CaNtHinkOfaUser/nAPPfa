@@ -7,7 +7,7 @@ import SwiftUI
 
 struct SplashScreen: View {
     @State private var isActive = false
-    @State private var contentOpacity = 0.0
+    @State private var contentOpacity = 1.0
 
     var body: some View {
         Group {
@@ -42,9 +42,6 @@ struct SplashScreen: View {
                     .opacity(contentOpacity)
                 }
                 .onAppear {
-                    withAnimation(.easeOut(duration: 0.55)) {
-                        contentOpacity = 1
-                    }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.15) {
                         withAnimation(.easeInOut(duration: 0.35)) {
                             isActive = true

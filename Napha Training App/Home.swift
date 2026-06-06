@@ -137,6 +137,12 @@ struct Home: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
                 .padding(.bottom, 100)
+                .overlay(alignment: .top) {
+                    if AppState.birthdayMessage() != nil {
+                        ConfettiBurst()
+                            .allowsHitTesting(false)
+                    }
+                }
             }
             .background(Color(.systemGroupedBackground))
             .navigationBarHidden(true)
@@ -209,7 +215,7 @@ struct Home: View {
     }
 
     private var streakTile: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .center, spacing: 6) {
             Label("Streak", systemImage: "flame.fill")
                 .font(.caption.weight(.bold))
             Text("\(streak)")
@@ -219,7 +225,7 @@ struct Home: View {
         }
         .foregroundStyle(.black)
         .padding(12)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color.yellow, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 
@@ -287,7 +293,7 @@ struct Home: View {
                 Spacer()
             } else {
                 VStack(spacing: 6) {
-                    ForEach(schedule.prefix(3), id: \.day) { item in
+                    ForEach(schedule, id: \.day) { item in
                         HStack {
                             Text(AppState.shortDayName(item.day))
                                 .font(.caption.weight(.black))
@@ -298,9 +304,10 @@ struct Home: View {
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.secondary)
                         }
+                        .frame(maxHeight: .infinity)
                     }
                 }
-                Spacer(minLength: 0)
+                .frame(maxHeight: .infinity)
             }
         }
         .padding(12)
@@ -325,18 +332,26 @@ struct Home: View {
                 Spacer()
             } else {
                 VStack(alignment: .leading, spacing: 6) {
-                    ForEach(goals.prefix(2)) { goal in
+                    ForEach(goals) { goal in
                         HStack(spacing: 8) {
-                            Image(systemName: NAPFAStation(rawValue: goal.station)?.icon ?? "target")
+                            let station = NAPFAStation(rawValue: goal.station)
+                            Image(systemName: station?.icon ?? "target")
                                 .font(.caption)
                                 .foregroundStyle(.blue)
-                            Text(goal.text)
-                                .font(.caption.weight(.semibold))
-                                .lineLimit(1)
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text(goal.text)
+                                    .font(.caption.weight(.semibold))
+                                    .lineLimit(1)
+                                Text(targetText(for: station))
+                                    .font(.caption2.weight(.bold))
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(1)
+                            }
                         }
+                        .frame(maxHeight: .infinity)
                     }
                 }
-                Spacer(minLength: 0)
+                .frame(maxHeight: .infinity)
             }
         }
         .padding(12)
@@ -349,6 +364,33 @@ struct Home: View {
         nextWorkout = AppState.nextWorkoutDate(days: homeSelectedDays, times: homeSelectedTimed)
         prevWorkout = UserDefaults.standard.string(forKey: AppKeys.previousWorkout) ?? prevWorkout
         NotificationCoordinator.scheduleWorkoutNotifications(selectedDays: homeSelectedDays, selectedTimes: homeSelectedTimed)
+    }
+
+    private func targetText(for station: NAPFAStation?) -> String {
+        guard let station, let index = NAPFAStation.allCases.firstIndex(of: station), info.targ.indices.contains(index), !info.targ[index].isEmpty else {
+            return "Target not set"
+        }
+        return "Target \(info.targ[index])"
+    }
+}
+
+private struct ConfettiBurst: View {
+    private let colors: [Color] = [.pink, .yellow, .green, .blue, .purple, .orange]
+
+    var body: some View {
+        TimelineView(.animation) { timeline in
+            Canvas { context, size in
+                let tick = timeline.date.timeIntervalSinceReferenceDate
+                for index in 0..<42 {
+                    let x = size.width * CGFloat((Double((index * 37) % 100) / 100.0))
+                    let speed = 22 + Double(index % 7) * 8
+                    let y = CGFloat((tick * speed + Double(index * 19)).truncatingRemainder(dividingBy: 210)) - 30
+                    let rect = CGRect(x: x, y: y, width: 6, height: 10)
+                    context.fill(Path(roundedRect: rect, cornerRadius: 2), with: .color(colors[index % colors.count]))
+                }
+            }
+        }
+        .frame(height: 210)
     }
 }
 
