@@ -1,0 +1,216 @@
+{
+  "source": "/Users/Rai/Downloads/nAPPfa/Napha Training App/Workout.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Workout",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add an extra set?",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 320
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose a station",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sets adapt to your previous and target grades.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 89
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ · %@ → %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "Video",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "Set %lld of %lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 165
+        }
+      },
+      {
+        "comment": "",
+        "key": "Form video",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 190
+        }
+      },
+      {
+        "comment": "",
+        "key": "45s Rest",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 200
+        }
+      },
+      {
+        "comment": "",
+        "key": "Finish",
+        "location": {
+          "startingColumn": 68,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "Next Set",
+        "location": {
+          "startingColumn": 79,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rest",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 220
+        }
+      },
+      {
+        "comment": "",
+        "key": "seconds left",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 241
+        }
+      },
+      {
+        "comment": "",
+        "key": "Skip Rest",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 252
+        }
+      },
+      {
+        "comment": "",
+        "key": "Next Set",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 260
+        }
+      },
+      {
+        "comment": "",
+        "key": "End Rest",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 260
+        }
+      },
+      {
+        "comment": "",
+        "key": "Workout complete",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 278
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add extra set",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 297
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 305
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add extra set",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 324
+        }
+      },
+      {
+        "comment": "",
+        "key": "No thanks",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 325
+        }
+      },
+      {
+        "comment": "",
+        "key": "Optional bonus set for the same station.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 327
+        }
+      },
+      {
+        "comment": "",
+        "key": "Workout done today",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 337
+        }
+      },
+      {
+        "comment": "",
+        "key": "Come back on your next scheduled session.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 340
+        }
+      }
+    ]
+  },
+  "version": 1
+}

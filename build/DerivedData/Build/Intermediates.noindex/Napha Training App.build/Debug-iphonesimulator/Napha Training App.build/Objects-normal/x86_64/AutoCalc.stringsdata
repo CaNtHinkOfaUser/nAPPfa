@@ -1,0 +1,104 @@
+{
+  "source": "/Users/Rai/Downloads/nAPPfa/Napha Training App/AutoCalc.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Auto Calculation",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 12
+        }
+      },
+      {
+        "comment": "",
+        "key": "Result",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "Based On",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reference",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "Value",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Grade",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Age",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sex",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open NAPFA standards",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 51
+        }
+      }
+    ]
+  },
+  "version": 1
+}

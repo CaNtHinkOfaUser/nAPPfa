@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>files</key>
+	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		ll7Y8xKz7oJH42jYF+PNvUPe3pg=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		0jKMocdrv3dMonQ9KwEaSBp2aFA=
+		</data>
+		<key>Assets.car</key>
+		<data>
+		QoZeXQ20uznaX5d0mFodtvfo6KU=
+		</data>
+		<key>Info.plist</key>
+		<data>
+		aHzxdxUw7IcyRYiv9ZwhQ7JkkYw=
+		</data>
+		<key>Launch Screen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
+		<data>
+		ylxZa2BeODjceoA4ADsGFmhNORg=
+		</data>
+		<key>Launch Screen.storyboardc/Info.plist</key>
+		<data>
+		n2t8gsDpfE6XkhG31p7IQJRxTxU=
+		</data>
+		<key>Launch Screen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
+		<data>
+		ZVgM1+KwZcZnwhgaI0F7Bt1ba2c=
+		</data>
+		<key>Napha Training App.debug.dylib</key>
+		<data>
+		N0ocwc4VgqzZYWMux2St33VhqQY=
+		</data>
+		<key>PkgInfo</key>
+		<data>
+		n57qDP4tZfLD1rCS43W0B4LQjzE=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/Info.plist</key>
+		<data>
+		GYRTuBOJif7Q3b+7QO1kQIQ28JM=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/Metadata.appintents/extract.actionsdata</key>
+		<data>
+		4b/sgd2aucD8bYFnY8MHj2807mw=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/Metadata.appintents/version.json</key>
+		<data>
+		8degCEXm7POdSt5EtS3QX4zRTAE=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/_CodeSignature/CodeResources</key>
+		<data>
+		LBB96qrr0PYhM+cfJwD88oXXJhw=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/__preview.dylib</key>
+		<data>
+		ml5RqCgrNOh2myW9aqhfAhovkI4=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/nAPPfa widgetExtension</key>
+		<data>
+		VolpXCnb/F9MRyKJk0G+4AqFmCg=
+		</data>
+		<key>PlugIns/nAPPfa widgetExtension.appex/nAPPfa widgetExtension.debug.dylib</key>
+		<data>
+		qat35HcPl9BehyejcUz1bIELpO8=
+		</data>
+		<key>__preview.dylib</key>
+		<data>
+		usmE0e/YZpeu/JBPjGmT98/qEgI=
+		</data>
+	</dict>
+	<key>files2</key>
+	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			R3+z85YrwsmTYgxq+dPppSmYJg7O0ebpY/3cO73Di/w=
+			</data>
+		</dict>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RuBmSqN1NIET0J8CGZEvVPDST06HjoavZXcZBL02UYs=
+			</data>
+		</dict>
+		<key>Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			g4N6oYNGG2geN3GiXjX7+fNZ2K/LnXJ7P+gGbGtSM4E=
+			</data>
+		</dict>
+		<key>Launch Screen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vYQiGphIwM57WwFeUD72VMrEpkBWpEaT4i6AeLXg//A=
+			</data>
+		</dict>
+		<key>Launch Screen.storyboardc/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HyVdXMU7Ux4/KalAao30mpWOK/lEPT4gvYN09wf31cg=
+			</data>
+		</dict>
+		<key>Launch Screen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VPNjf2cf66XxnoLsT0p/tEi7PPwPsYDwiapXH8jwU+I=
+			</data>
+		</dict>
+		<key>Napha Training App.debug.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			sNRQZYGnUpcv8PlXm4RLKBoo5xcxI8elQxDGEvEWcrs=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wgVXNdwY2IqSiXaikxlnmV8fjZSk8MfOIjxot2r0kZ8=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/Metadata.appintents/extract.actionsdata</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jIvfGrfglmwgxyxKdCHhtg1w+iTsp/a9mdStlMPhskE=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/Metadata.appintents/version.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			de+hbfqeu9iNgvz92EBuAPGTqXCPdEqrXTYU9IRNTLQ=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LhOCxI2FcnbMCK8GtdKCO6cvZ14yCrOQyT2eeSk0qXI=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/__preview.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0XnwF4AP7ADpomlBWAmBR0iu2ABrk+16PZeI+jCkCuU=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/nAPPfa widgetExtension</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VmoIwwpbH79yX3yjXrn4hIyTATu3CDQf4EJnpnrJcAc=
+			</data>
+		</dict>
+		<key>PlugIns/nAPPfa widgetExtension.appex/nAPPfa widgetExtension.debug.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LdLi9Jb16juiXzqfqO+7M6i+KSFH7I2ff12XHF3wEAI=
+			</data>
+		</dict>
+		<key>__preview.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JQc7Z/D+wts64QW7ms52Bhmx7X6nwDT/tRnOHEo1U/4=
+			</data>
+		</dict>
+	</dict>
+	<key>rules</key>
+	<dict>
+		<key>^.*</key>
+		<true/>
+		<key>^.*\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>1000</real>
+		</dict>
+		<key>^.*\.lproj/locversion.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
+		<key>^version.plist$</key>
+		<true/>
+	</dict>
+	<key>rules2</key>
+	<dict>
+		<key>.*\.dSYM($|/)</key>
+		<dict>
+			<key>weight</key>
+			<real>11</real>
+		</dict>
+		<key>^(.*/)?\.DS_Store$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>2000</real>
+		</dict>
+		<key>^.*</key>
+		<true/>
+		<key>^.*\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>1000</real>
+		</dict>
+		<key>^.*\.lproj/locversion.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
+		<key>^Info\.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^PkgInfo$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^embedded\.provisionprofile$</key>
+		<dict>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^version\.plist$</key>
+		<dict>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+	</dict>
+</dict>
+</plist>

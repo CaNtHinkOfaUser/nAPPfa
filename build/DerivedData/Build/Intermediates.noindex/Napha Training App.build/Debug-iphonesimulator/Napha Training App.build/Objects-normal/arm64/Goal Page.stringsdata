@@ -1,0 +1,288 @@
+{
+  "source": "/Users/Rai/Downloads/nAPPfa/Napha Training App/Goal Page.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Clear all goals?",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Goal Setting",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "This removes your custom goal list.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 83
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standards",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standards calculator",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standards PDF reference",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 119
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto Calculation",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "Previous and Target Results",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 145
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add a goal below to track it on Home.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 174
+        }
+      },
+      {
+        "comment": "",
+        "key": "My Goals",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 165
+        }
+      },
+      {
+        "comment": "",
+        "key": "Example: 45 sit-ups",
+        "location": {
+          "startingColumn": 74,
+          "startingLine": 181
+        }
+      },
+      {
+        "comment": "",
+        "key": "Goal",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 181
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 182
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add Goal",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 198
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standards calculator",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standards PDF reference",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 213
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto Calculation",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 220
+        }
+      },
+      {
+        "comment": "",
+        "key": "Explain auto calculation",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 228
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standards",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 232
+        }
+      },
+      {
+        "comment": "",
+        "key": "Previous and Target Results",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 243
+        }
+      },
+      {
+        "comment": "",
+        "key": "Explain previous and target results",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "No custom goals",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 259
+        }
+      },
+      {
+        "comment": "",
+        "key": "Example: 45 sit-ups",
+        "location": {
+          "startingColumn": 70,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "Goal",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "Station",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 268
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add Goal",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 283
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear All",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 290
+        }
+      },
+      {
+        "comment": "",
+        "key": "My Goals",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 295
+        }
+      },
+      {
+        "comment": "",
+        "key": "Explain goal deletion",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 303
+        }
+      },
+      {
+        "comment": "",
+        "key": "Previous",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 331
+        }
+      },
+      {
+        "comment": "",
+        "key": "Target",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 339
+        }
+      }
+    ]
+  },
+  "version": 1
+}
