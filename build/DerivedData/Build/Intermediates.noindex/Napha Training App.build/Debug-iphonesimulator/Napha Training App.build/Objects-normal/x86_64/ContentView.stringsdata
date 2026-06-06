@@ -1,0 +1,48 @@
+{
+  "source": "/Users/Rai/Downloads/nAPPfa/Napha Training App/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Workout reminder",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 653
+        }
+      },
+      {
+        "comment": "",
+        "key": "Workout now",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 654
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reschedule",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 657
+        }
+      },
+      {
+        "comment": "",
+        "key": "Not now",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 663
+        }
+      },
+      {
+        "comment": "",
+        "key": "Would you like to start your session now or reschedule it?",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 665
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -10,6 +10,8 @@ final class SoundManager {
     static let instance = SoundManager()
 
     private var player: AVAudioPlayer?
+    private var toneEngine: AVAudioEngine?
+    private var tonePlayer: AVAudioPlayerNode?
 
     func playSound() {
         let extensions = ["caf", "wav", "mp3", "m4a"]
@@ -39,21 +41,21 @@ final class SoundManager {
         let duration = 0.55
         let frequency = 880.0
         let frameCount = Int(sampleRate * duration)
-        var samples = [Int16](repeating: 0, count: frameCount)
-
-        for index in 0..<frameCount {
-            let time = Double(index) / sampleRate
-            let envelope = 1.0 - (time / duration)
-            let sample = sin(2.0 * Double.pi * frequency * time) * envelope
-            samples[index] = Int16(max(-1, min(1, sample)) * 32_000)
-        }
 
         let format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1)!
         guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: AVAudioFrameCount(frameCount)) else { return }
+        guard let channel = buffer.floatChannelData?[0] else {
+            AudioServicesPlayAlertSound(SystemSoundID(1322))
+            return
+        }
+
         buffer.frameLength = AVAudioFrameCount(frameCount)
-        let channel = buffer.int16ChannelData![0]
+
         for index in 0..<frameCount {
-            channel[index] = samples[index]
+            let time = Double(index) / sampleRate
+            let envelope = Float(1.0 - (time / duration))
+            let sample = Float(sin(2.0 * Double.pi * frequency * time))
+            channel[index] = sample * envelope
         }
 
         do {
@@ -61,6 +63,8 @@ final class SoundManager {
             try AVAudioSession.sharedInstance().setActive(true)
             let engine = AVAudioPlayerNode()
             let audioEngine = AVAudioEngine()
+            toneEngine = audioEngine
+            tonePlayer = engine
             audioEngine.attach(engine)
             audioEngine.connect(engine, to: audioEngine.mainMixerNode, format: format)
             try audioEngine.start()
@@ -68,6 +72,10 @@ final class SoundManager {
             engine.play()
             DispatchQueue.main.asyncAfter(deadline: .now() + duration + 0.05) {
                 audioEngine.stop()
+                if self.toneEngine === audioEngine {
+                    self.toneEngine = nil
+                    self.tonePlayer = nil
+                }
             }
         } catch {
             AudioServicesPlayAlertSound(SystemSoundID(1322))
@@ -106,10 +114,17 @@ enum AppKeys {
     static let sex = "sex"
     static let age = "age"
     static let birthdate = "birthdate"
+    static let profileCompleted = "profileCompleted"
+    static let birthdateCompleted = "birthdateCompleted"
+    static let genderCompleted = "genderCompleted"
     static let previousGrades = "prev"
     static let targetGrades = "targ"
     static let enabledGrades = "Lin"
     static let goals = "sGoals"
+    static let remindersEnabled = "remindersEnabled"
+    static let reminderOneHour = "reminderOneHour"
+    static let reminderTenMinutes = "reminderTenMinutes"
+    static let reminderNow = "reminderNow"
     static let downloadDate = "DOWNLOADDATE"
     static let lastWorkoutDate = "lastWorkoutDate"
     static let workoutHistory = "workoutHistory"
@@ -424,7 +439,28 @@ enum AppState {
         let birthday = calendar.dateComponents([.month, .day], from: birthdate)
         let today = calendar.dateComponents([.month, .day], from: now)
 
-        return birthday.month == today.month && birthday.day == today.day ? "Birthday training bonus: choose one station you enjoy today." : nil
+        return birthday.month == today.month && birthday.day == today.day ? "Happy birthday - confetti mode is on." : nil
+    }
+
+    static func isProfileComplete() -> Bool {
+        let defaults = UserDefaults.standard
+        return defaults.bool(forKey: AppKeys.profileCompleted)
+            && defaults.bool(forKey: AppKeys.birthdateCompleted)
+            && defaults.bool(forKey: AppKeys.genderCompleted)
+    }
+
+    static func isScheduleComplete(days: [Int], times: [Date]) -> Bool {
+        days.count >= 3 && times.count == days.count
+    }
+
+    static func enabledGoalStations(from info: data) -> [NAPFAStation] {
+        let saved = UserDefaults.standard.object(forKey: AppKeys.enabledGrades) as? [Bool] ?? []
+        return NAPFAStation.allCases.enumerated().compactMap { index, station in
+            let enabled = saved.indices.contains(index) ? saved[index] : false
+            let hasSavedGrade = (info.prev.indices.contains(index) && !info.prev[index].isEmpty)
+                || (info.targ.indices.contains(index) && !info.targ[index].isEmpty)
+            return enabled || hasSavedGrade ? station : nil
+        }
     }
 
     static func persistWidgetSummary(selectedDays: [Int], selectedTimes: [Date]) {
@@ -523,11 +559,20 @@ enum NotificationCoordinator {
             }
             guard granted else { return }
 
-            let reminders: [(key: String, offset: TimeInterval, title: String)] = [
-                ("oneHour", 3600, "Workout in 1 hour"),
-                ("tenMinutes", 600, "Workout in 10 minutes"),
-                ("now", 0, "Workout time")
-            ]
+            let defaults = UserDefaults.standard
+            if defaults.object(forKey: AppKeys.remindersEnabled) == nil {
+                defaults.set(true, forKey: AppKeys.remindersEnabled)
+                defaults.set(true, forKey: AppKeys.reminderOneHour)
+                defaults.set(true, forKey: AppKeys.reminderTenMinutes)
+                defaults.set(true, forKey: AppKeys.reminderNow)
+            }
+            guard defaults.bool(forKey: AppKeys.remindersEnabled) else { return }
+
+            let reminders: [(key: String, offset: TimeInterval, title: String, enabled: Bool)] = [
+                ("oneHour", 3600, "Workout in 1 hour", defaults.bool(forKey: AppKeys.reminderOneHour)),
+                ("tenMinutes", 600, "Workout in 10 minutes", defaults.bool(forKey: AppKeys.reminderTenMinutes)),
+                ("now", 0, "Workout time", defaults.bool(forKey: AppKeys.reminderNow))
+            ].filter { $0.enabled }
 
             for (workoutIndex, workout) in upcoming.prefix(horizonDays).enumerated() {
                 for reminder in reminders {

@@ -1,0 +1,104 @@
+{
+  "source": "/Users/Rai/Downloads/nAPPfa/Napha Training App/Scheduling .swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Scheduling",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "NAPFA Date",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Test date",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose at least three workout days",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld/3",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Workout Days",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "Workout Timing",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 138
+        }
+      },
+      {
+        "comment": "",
+        "key": "No days selected",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 143
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "If today's workout is already complete, reminders are skipped.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reminders",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 168
+        }
+      }
+    ]
+  },
+  "version": 1
+}

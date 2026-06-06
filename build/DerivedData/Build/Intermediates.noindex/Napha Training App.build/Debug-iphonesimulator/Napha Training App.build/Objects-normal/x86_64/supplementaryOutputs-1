@@ -1,0 +1,18 @@
+"/Users/Rai/Downloads/nAPPfa/Profile.swift":
+  const-values: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Profile.swiftconstvalues"
+  object: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Profile.o"
+  diagnostics: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Profile.dia"
+  dependencies: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Profile.d"
+  swift-dependencies: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Profile.swiftdeps"
+"/Users/Rai/Downloads/nAPPfa/Napha Training App/StartingTabView.swift":
+  const-values: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.swiftconstvalues"
+  swift-dependencies: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.swiftdeps"
+  object: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.o"
+  dependencies: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.d"
+  diagnostics: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.dia"
+"/Users/Rai/Downloads/nAPPfa/Napha Training App/Settings.swift":
+  diagnostics: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.dia"
+  dependencies: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.d"
+  const-values: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.swiftconstvalues"
+  object: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.o"
+  swift-dependencies: "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.swiftdeps"

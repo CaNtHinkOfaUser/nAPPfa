@@ -1,0 +1,58 @@
+{
+  "" : {
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa widgetExtension-master.dia",
+    "emit-module-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa widgetExtension-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa widgetExtension-master-emit-module.dia",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa widgetExtension-master.swiftdeps"
+  },
+  "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/Rai/Downloads/nAPPfa/nAPPfa widget/AppIntent.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/AppIntent~partial.swiftmodule"
+  },
+  "/Users/Rai/Downloads/nAPPfa/nAPPfa widget/nAPPfa_widget.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widget~partial.swiftmodule"
+  },
+  "/Users/Rai/Downloads/nAPPfa/nAPPfa widget/nAPPfa_widgetBundle.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetBundle~partial.swiftmodule"
+  },
+  "/Users/Rai/Downloads/nAPPfa/nAPPfa widget/nAPPfa_widgetLiveActivity.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/nAPPfa widgetExtension.build/Objects-normal/arm64/nAPPfa_widgetLiveActivity~partial.swiftmodule"
+  }
+}

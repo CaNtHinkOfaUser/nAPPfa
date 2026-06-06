@@ -19,6 +19,10 @@ struct Scheduling_: View {
     @State private var times: [Date] = Array(repeating: Date(), count: 7)
     @State private var NAPFA_Date: Date = Date.now
     @State private var savedStatus = "Saved"
+    @State private var remindersEnabled = true
+    @State private var reminderOneHour = true
+    @State private var reminderTenMinutes = true
+    @State private var reminderNow = true
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 4)
 
@@ -56,7 +60,7 @@ struct Scheduling_: View {
                                 dismiss()
                             }
                             .fontWeight(.semibold)
-                            .disabled(selectedDays.count < 3)
+                            .disabled(!AppState.isScheduleComplete(days: selectedDays, times: selectedTimes))
                         }
                     }
                 }
@@ -168,11 +172,20 @@ struct Scheduling_: View {
             Label("Reminders", systemImage: "bell.badge")
                 .font(.title3.weight(.bold))
 
+            Toggle("Workout reminders", isOn: $remindersEnabled)
+                .font(.subheadline.weight(.semibold))
+                .onChange(of: remindersEnabled) {
+                    persistReminders()
+                }
+
             HStack(spacing: 10) {
-                ReminderPill(text: "1h")
-                ReminderPill(text: "10m")
-                ReminderPill(text: "Now")
+                ReminderTogglePill(text: "1h", isOn: $reminderOneHour, isEnabled: remindersEnabled)
+                ReminderTogglePill(text: "10m", isOn: $reminderTenMinutes, isEnabled: remindersEnabled)
+                ReminderTogglePill(text: "Now", isOn: $reminderNow, isEnabled: remindersEnabled)
             }
+            .onChange(of: reminderOneHour) { persistReminders() }
+            .onChange(of: reminderTenMinutes) { persistReminders() }
+            .onChange(of: reminderNow) { persistReminders() }
 
             Text("If today's workout is already complete, reminders are skipped.")
                 .font(.footnote)
@@ -219,6 +232,17 @@ struct Scheduling_: View {
             times = storedTimes
         }
 
+        if defaults.object(forKey: AppKeys.remindersEnabled) == nil {
+            defaults.set(true, forKey: AppKeys.remindersEnabled)
+            defaults.set(true, forKey: AppKeys.reminderOneHour)
+            defaults.set(true, forKey: AppKeys.reminderTenMinutes)
+            defaults.set(true, forKey: AppKeys.reminderNow)
+        }
+        remindersEnabled = defaults.bool(forKey: AppKeys.remindersEnabled)
+        reminderOneHour = defaults.bool(forKey: AppKeys.reminderOneHour)
+        reminderTenMinutes = defaults.bool(forKey: AppKeys.reminderTenMinutes)
+        reminderNow = defaults.bool(forKey: AppKeys.reminderNow)
+
         for (day, time) in zip(selectedDays, selectedTimes) where times.indices.contains(day) {
             times[day] = time
         }
@@ -245,20 +269,39 @@ struct Scheduling_: View {
         markSaved()
     }
 
+    private func persistReminders() {
+        let defaults = UserDefaults.standard
+        defaults.set(remindersEnabled, forKey: AppKeys.remindersEnabled)
+        defaults.set(reminderOneHour, forKey: AppKeys.reminderOneHour)
+        defaults.set(reminderTenMinutes, forKey: AppKeys.reminderTenMinutes)
+        defaults.set(reminderNow, forKey: AppKeys.reminderNow)
+        NotificationCoordinator.scheduleWorkoutNotifications(selectedDays: selectedDays, selectedTimes: selectedTimes)
+        markSaved()
+    }
+
     private func markSaved() {
         savedStatus = "Saved \(Date().formatted(date: .omitted, time: .shortened))"
     }
 }
 
-private struct ReminderPill: View {
+private struct ReminderTogglePill: View {
     let text: String
+    @Binding var isOn: Bool
+    let isEnabled: Bool
 
     var body: some View {
-        Text(text)
-            .font(.subheadline.weight(.bold))
-            .frame(width: 56, height: 36)
-            .background(.blue.opacity(0.12), in: Capsule())
-            .foregroundStyle(.blue)
+        Button {
+            guard isEnabled else { return }
+            isOn.toggle()
+        } label: {
+            Text(text)
+                .font(.subheadline.weight(.bold))
+                .frame(width: 56, height: 36)
+                .background(isOn && isEnabled ? .blue.opacity(0.14) : Color(.tertiarySystemFill), in: Capsule())
+                .foregroundStyle(isOn && isEnabled ? .blue : .secondary)
+        }
+        .buttonStyle(.plain)
+        .disabled(!isEnabled)
     }
 }
 

@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'Napha Training App' in project 'Napha Training App'
+➜ Explicit dependency on target 'nAPPfa widgetExtension' in project 'Napha Training App'
+Target 'nAPPfa widgetExtension' in project 'Napha Training App' (no dependencies)

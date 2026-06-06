@@ -24,17 +24,24 @@ struct Goal_Page: View {
     var body: some View {
         Group {
             if start {
-                OnboardingStepContainer(subtitle: "Goals") {
-                    goalFormList
+                NavigationStack {
+                    OnboardingStepContainer(subtitle: "Goals") {
+                        goalFormList
+                    }
                 }
             } else {
                 NavigationStack {
-                    Form {
-                        standardsSection
-                        resultSection
-                        customGoalsSection
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 20) {
+                            standardsCard
+                                .padding(.top, 8)
+                            resultsCardOnboarding
+                            customGoalsCardOnboarding
+                        }
+                        .padding(.horizontal, 18)
+                        .padding(.bottom, 28)
                     }
-                    .scrollContentBackground(.hidden)
+                    .background(Color(.systemGroupedBackground))
                     .navigationTitle("Goal Setting")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
@@ -102,22 +109,23 @@ struct Goal_Page: View {
 
     private var goalFormList: some View {
         VStack(spacing: 16) {
-            standardsCardOnboarding
+            standardsCard
             resultsCardOnboarding
             customGoalsCardOnboarding
         }
     }
 
-    private var standardsCardOnboarding: some View {
+    private var standardsCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Standards")
                 .font(.title3.weight(.bold))
-            Link(destination: URL(string: "https://www.napfatest.com/napfa-standards-2026")!) {
-                Label("Standards calculator", systemImage: "safari")
+
+            NavigationLink {
+                NAPFAStandardsView(isMale: info.Gender)
+            } label: {
+                Label(info.Gender ? "Male standards table" : "Female standards table", systemImage: "tablecells")
             }
-            Link(destination: URL(string: "https://www.stgabrielssec.moe.edu.sg/files/Sports%20CCA/NAPFA%20Standards.pdf")!) {
-                Label("Standards PDF reference", systemImage: "doc.text")
-            }
+
             Button {
                 showAutoCalc = true
             } label: {
@@ -175,22 +183,18 @@ struct Goal_Page: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
-            List {
+
+            VStack(spacing: 10) {
                 ForEach($goalDrafts) { $goal in
-                    VStack(alignment: .leading, spacing: 8) {
-                        TextField("Goal", text: $goal.text, prompt: Text("Example: 45 sit-ups"))
-                        Picker("Station", selection: $goal.station) {
-                            ForEach(NAPFAStation.allCases) { station in
-                                Text(station.rawValue).tag(station.rawValue)
-                            }
+                    GoalDraftEditor(goal: $goal) {
+                        if let index = goalDrafts.firstIndex(where: { $0.id == goal.id }) {
+                            goalDrafts.remove(at: index)
+                            saveAll()
                         }
-                        .pickerStyle(.menu)
                     }
                 }
-                .onDelete(perform: deleteGoals)
             }
-            .listStyle(.plain)
-            .frame(minHeight: max(120, CGFloat(goalDrafts.count) * 88))
+
             Button {
                 goalDrafts.append(GoalDraft())
                 saveAll()
@@ -261,16 +265,11 @@ struct Goal_Page: View {
             }
 
             ForEach($goalDrafts) { $goal in
-                VStack(alignment: .leading, spacing: 10) {
-                    TextField("Goal", text: $goal.text, prompt: Text("Example: 45 sit-ups"))
-                        .textInputAutocapitalization(.sentences)
-
-                    Picker("Station", selection: $goal.station) {
-                        ForEach(NAPFAStation.allCases) { station in
-                            Text(station.rawValue).tag(station.rawValue)
-                        }
+                GoalDraftEditor(goal: $goal) {
+                    if let index = goalDrafts.firstIndex(where: { $0.id == goal.id }) {
+                        goalDrafts.remove(at: index)
+                        saveAll()
                     }
-                    .pickerStyle(.menu)
                 }
                 .padding(.vertical, 6)
             }
@@ -328,20 +327,38 @@ struct Goal_Page: View {
 
             if enabledStations[index] {
                 HStack(spacing: 12) {
-                    Picker("Previous", selection: bindingForGrade($previousGrades, index)) {
-                        ForEach(gradeOptions, id: \.self) { grade in
-                            Text(grade).tag(grade)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Previous")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                        Picker("Previous", selection: bindingForGrade($previousGrades, index)) {
+                            ForEach(gradeOptions, id: \.self) { grade in
+                                Text(grade).tag(grade)
+                            }
                         }
+                        .pickerStyle(.menu)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
+                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
-                    .pickerStyle(.menu)
                     .frame(maxWidth: .infinity)
 
-                    Picker("Target", selection: bindingForGrade($targetGrades, index)) {
-                        ForEach(gradeOptions, id: \.self) { grade in
-                            Text(grade).tag(grade)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Target")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                        Picker("Target", selection: bindingForGrade($targetGrades, index)) {
+                            ForEach(gradeOptions, id: \.self) { grade in
+                                Text(grade).tag(grade)
+                            }
                         }
+                        .pickerStyle(.menu)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
+                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
-                    .pickerStyle(.menu)
                     .frame(maxWidth: .infinity)
                 }
             }
