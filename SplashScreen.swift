@@ -27,7 +27,6 @@ struct SplashScreen: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 120, height: 120)
-                            .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
                             .shadow(color: .black.opacity(0.12), radius: 16, y: 8)
 
                         Text("nAPPfa")

@@ -215,13 +215,15 @@ struct Home: View {
     }
 
     private var streakTile: some View {
-        VStack(alignment: .center, spacing: 6) {
+        VStack(alignment: .center, spacing: 2) {
             Label("Streak", systemImage: "flame.fill")
                 .font(.caption.weight(.bold))
             Text("\(streak)")
-                .font(.system(size: 34, weight: .black, design: .rounded))
+                .font(.system(size: 56, weight: .black, design: .rounded))
+                .minimumScaleFactor(0.8)
+                .lineLimit(1)
             Text(streak == 1 ? "day" : "days")
-                .font(.caption.weight(.semibold))
+                .font(.subheadline.weight(.semibold))
         }
         .foregroundStyle(.black)
         .padding(12)
@@ -367,10 +369,17 @@ struct Home: View {
     }
 
     private func targetText(for station: NAPFAStation?) -> String {
-        guard let station, let index = NAPFAStation.allCases.firstIndex(of: station), info.targ.indices.contains(index), !info.targ[index].isEmpty else {
-            return "Target not set"
+        guard let station, let index = NAPFAStation.allCases.firstIndex(of: station) else {
+            return "No grades set"
         }
-        return "Target \(info.targ[index])"
+
+        let hasPrev = info.prev.indices.contains(index) && !info.prev[index].isEmpty
+        let hasTarg = info.targ.indices.contains(index) && !info.targ[index].isEmpty
+
+        let prevGrade = hasPrev ? info.prev[index] : "Not set"
+        let targGrade = hasTarg ? info.targ[index] : "Not set"
+
+        return "\(prevGrade) → \(targGrade)"
     }
 }
 

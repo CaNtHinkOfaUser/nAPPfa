@@ -22,6 +22,7 @@ struct Workout: View {
     @State private var breakRemaining = 45
     @State private var breakTotal = 45
     @State private var breakSoundPlayed = false
+    @State private var alarmSoundLoopCount = 0
     @State private var elapsed = 0
     @State private var sessionCompleted = false
     @State private var completionRecorded = false
@@ -63,9 +64,11 @@ struct Workout: View {
                     breakRemaining -= 1
                 }
 
-                if isBreak, breakRemaining == 0, !breakSoundPlayed {
-                    SoundManager.instance.playSound()
-                    breakSoundPlayed = true
+                if isBreak, breakRemaining == 0 {
+                    if alarmSoundLoopCount % 3 == 0 {
+                        SoundManager.instance.playSound()
+                    }
+                    alarmSoundLoopCount += 1
                 }
             }
             .onChange(of: isWorkingOut) { _, working in
@@ -262,7 +265,7 @@ struct Workout: View {
                 Button {
                     stopBreak()
                 } label: {
-                    Label("Skip Rest", systemImage: "forward.fill")
+                    Label(breakRemaining == 0 ? "Continue" : "Skip Rest", systemImage: "forward.fill")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.bordered)
@@ -374,6 +377,7 @@ struct Workout: View {
         breakRemaining = 45
         breakTotal = 45
         breakSoundPlayed = false
+        alarmSoundLoopCount = 0
         completionRecorded = false
         isExtraSet = false
         sessionCompleted = false
@@ -387,6 +391,7 @@ struct Workout: View {
         breakRemaining = 45
         breakTotal = 45
         breakSoundPlayed = false
+        alarmSoundLoopCount = 0
         isBreak = true
     }
 
@@ -404,6 +409,7 @@ struct Workout: View {
         breakRemaining = 45
         breakTotal = 45
         breakSoundPlayed = false
+        alarmSoundLoopCount = 0
         isBreak = false
     }
 
@@ -432,6 +438,7 @@ struct Workout: View {
         breakRemaining = 45
         breakTotal = 45
         breakSoundPlayed = false
+        alarmSoundLoopCount = 0
         sessionCompleted = false
         isBreak = false
         isWorkingOut = true

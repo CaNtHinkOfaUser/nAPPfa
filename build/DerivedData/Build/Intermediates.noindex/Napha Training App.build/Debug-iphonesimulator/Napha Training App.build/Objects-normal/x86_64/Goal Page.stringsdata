@@ -124,18 +124,10 @@
       },
       {
         "comment": "",
-        "key": "Standards calculator",
-        "location": {
-          "startingColumn": 23,
-          "startingLine": 213
-        }
-      },
-      {
-        "comment": "",
         "key": "Standards PDF reference",
         "location": {
           "startingColumn": 23,
-          "startingLine": 217
+          "startingLine": 215
         }
       },
       {
@@ -143,7 +135,7 @@
         "key": "Auto Calculation",
         "location": {
           "startingColumn": 27,
-          "startingLine": 224
+          "startingLine": 222
         }
       },
       {
@@ -151,7 +143,7 @@
         "key": "Explain auto calculation",
         "location": {
           "startingColumn": 41,
-          "startingLine": 232
+          "startingLine": 230
         }
       },
       {
@@ -159,7 +151,7 @@
         "key": "Standards",
         "location": {
           "startingColumn": 18,
-          "startingLine": 236
+          "startingLine": 234
         }
       },
       {
@@ -167,7 +159,7 @@
         "key": "Previous and Target Results",
         "location": {
           "startingColumn": 22,
-          "startingLine": 247
+          "startingLine": 245
         }
       },
       {
@@ -175,7 +167,7 @@
         "key": "Explain previous and target results",
         "location": {
           "startingColumn": 37,
-          "startingLine": 255
+          "startingLine": 253
         }
       },
       {
@@ -183,7 +175,7 @@
         "key": "No custom goals",
         "location": {
           "startingColumn": 40,
-          "startingLine": 263
+          "startingLine": 261
         }
       },
       {
@@ -191,7 +183,7 @@
         "key": "Add Goal",
         "location": {
           "startingColumn": 23,
-          "startingLine": 282
+          "startingLine": 280
         }
       },
       {
@@ -199,7 +191,7 @@
         "key": "Clear All",
         "location": {
           "startingColumn": 27,
-          "startingLine": 289
+          "startingLine": 287
         }
       },
       {
@@ -207,7 +199,7 @@
         "key": "My Goals",
         "location": {
           "startingColumn": 22,
-          "startingLine": 294
+          "startingLine": 292
         }
       },
       {
@@ -215,7 +207,7 @@
         "key": "Explain goal deletion",
         "location": {
           "startingColumn": 37,
-          "startingLine": 302
+          "startingLine": 300
         }
       },
       {
@@ -223,7 +215,7 @@
         "key": "Previous",
         "location": {
           "startingColumn": 30,
-          "startingLine": 331
+          "startingLine": 329
         }
       },
       {
@@ -231,7 +223,7 @@
         "key": "Previous",
         "location": {
           "startingColumn": 32,
-          "startingLine": 334
+          "startingLine": 332
         }
       },
       {
@@ -239,7 +231,7 @@
         "key": "Target",
         "location": {
           "startingColumn": 30,
-          "startingLine": 348
+          "startingLine": 346
         }
       },
       {
@@ -247,7 +239,7 @@
         "key": "Target",
         "location": {
           "startingColumn": 32,
-          "startingLine": 351
+          "startingLine": 349
         }
       },
       {
@@ -255,7 +247,7 @@
         "key": "Example: 45 sit-ups",
         "location": {
           "startingColumn": 62,
-          "startingLine": 468
+          "startingLine": 466
         }
       },
       {
@@ -263,7 +255,7 @@
         "key": "Goal",
         "location": {
           "startingColumn": 23,
-          "startingLine": 468
+          "startingLine": 466
         }
       },
       {
@@ -271,7 +263,7 @@
         "key": "Station",
         "location": {
           "startingColumn": 23,
-          "startingLine": 474
+          "startingLine": 472
         }
       },
       {
@@ -279,7 +271,7 @@
         "key": "Station",
         "location": {
           "startingColumn": 24,
-          "startingLine": 480
+          "startingLine": 478
         }
       },
       {
@@ -287,7 +279,7 @@
         "key": "Delete goal",
         "location": {
           "startingColumn": 37,
-          "startingLine": 491
+          "startingLine": 489
         }
       },
       {
@@ -295,7 +287,7 @@
         "key": "Male Standards",
         "location": {
           "startingColumn": 35,
-          "startingLine": 545
+          "startingLine": 543
         }
       },
       {
@@ -303,7 +295,7 @@
         "key": "Female Standards",
         "location": {
           "startingColumn": 54,
-          "startingLine": 545
+          "startingLine": 543
         }
       },
       {
@@ -311,7 +303,7 @@
         "key": "NAPFA Standards (Secondary)",
         "location": {
           "startingColumn": 22,
-          "startingLine": 523
+          "startingLine": 521
         }
       },
       {
@@ -319,7 +311,7 @@
         "key": "Standards for Males",
         "location": {
           "startingColumn": 31,
-          "startingLine": 527
+          "startingLine": 525
         }
       },
       {
@@ -327,7 +319,7 @@
         "key": "Standards for Females",
         "location": {
           "startingColumn": 55,
-          "startingLine": 527
+          "startingLine": 525
         }
       }
     ]

@@ -6,7 +6,7 @@
 	<integer>11</integer>
 	<key>logs</key>
 	<dict>
-		<key>E833ED54-46FB-446A-90CD-F6998F6643FA</key>
+		<key>E6963F47-627E-4F6E-990F-3905ADFC814C</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,49 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>E833ED54-46FB-446A-90CD-F6998F6643FA.xcactivitylog</string>
+			<string>E6963F47-627E-4F6E-990F-3905ADFC814C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>6</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Napha Training App project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Napha Training App</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Napha Training App with scheme Napha Training App and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>803101275.45831704</real>
+			<key>timeStoppedRecording</key>
+			<real>803101294.60723996</real>
+			<key>title</key>
+			<string>Building project Napha Training App with scheme Napha Training App and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>E6963F47-627E-4F6E-990F-3905ADFC814C</string>
+		</dict>
+		<key>FE865014-22D6-474C-8607-52E63ECE9095</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FE865014-22D6-474C-8607-52E63ECE9095.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -40,13 +82,13 @@
 			<key>signature</key>
 			<string>Building project Napha Training App with scheme Napha Training App and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>802274747.54554105</real>
+			<real>802698405.64548695</real>
 			<key>timeStoppedRecording</key>
-			<real>802274754.11759806</real>
+			<real>802698406.26643002</real>
 			<key>title</key>
 			<string>Building project Napha Training App with scheme Napha Training App and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>E833ED54-46FB-446A-90CD-F6998F6643FA</string>
+			<string>FE865014-22D6-474C-8607-52E63ECE9095</string>
 		</dict>
 	</dict>
 </dict>

@@ -95,9 +95,11 @@ struct Age_Gender: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(.secondary)
             }
+
+            Spacer()
         }
         .padding(18)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .onAppear {
             if start {
