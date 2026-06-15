@@ -439,7 +439,7 @@ enum AppState {
         let birthday = calendar.dateComponents([.month, .day], from: birthdate)
         let today = calendar.dateComponents([.month, .day], from: now)
 
-        return birthday.month == today.month && birthday.day == today.day ? "Happy birthday - confetti mode is on." : nil
+        return birthday.month == today.month && birthday.day == today.day ? "Happy birthday!" : nil
     }
 
     static func isProfileComplete() -> Bool {

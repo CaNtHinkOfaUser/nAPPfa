@@ -29,17 +29,12 @@ struct AutoCalcView: View {
                     LabeledContent("Value", value: valueText)
                     LabeledContent("Grade", value: gradeText)
                         .fontWeight(.semibold)
+                        .foregroundStyle(.blue)
                 }
 
                 Section("Based On") {
                     LabeledContent("Age", value: "\(NAPFAGradeCalculator.normalizedAge(info.Age))")
                     LabeledContent("Sex", value: info.Gender ? "Male" : "Female")
-                }
-
-                Section("Reference") {
-                    Link(destination: URL(string: "https://www.napfatest.com/napfa-standards-2026")!) {
-                        Label("Open NAPFA standards", systemImage: "safari")
-                    }
                 }
             }
             .scrollContentBackground(.hidden)

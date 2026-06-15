@@ -95,7 +95,7 @@ enum WorkoutPlanner {
                 WorkoutStep(
                     station: station,
                     name: "Sit-ups",
-                    detail: "\(scaled(15, m))–\(scaled(25, m)) quality reps (prev \(display(previousGrade)) → \(display(targetGrade)))"
+                    detail: "\(scaled(15, m))–\(scaled(25, m)) quality reps"
                 )
             ]
         case .standingBroadJump:
@@ -105,7 +105,7 @@ enum WorkoutPlanner {
                 WorkoutStep(
                     station: station,
                     name: "Broad Jump Attempts",
-                    detail: "\(scaled(4, m)) measured jumps · aim \(display(targetGrade))"
+                    detail: "\(scaled(4, m)) measured jumps"
                 )
             ]
         case .sitAndReach:
@@ -113,7 +113,7 @@ enum WorkoutPlanner {
             return [
                 WorkoutStep(station: station, name: "Hamstring Stretch", detail: "\(hold)s each side"),
                 WorkoutStep(station: station, name: "Seated Reach Holds", detail: "\(scaled(4, m)) holds of \(hold)s"),
-                WorkoutStep(station: station, name: "Reach & Hold", detail: "Progress toward \(display(targetGrade)) flexibility")
+                WorkoutStep(station: station, name: "Reach & Hold", detail: "Progress flexibility gradually")
             ]
         case .inclinedPullUps:
             return [
@@ -136,7 +136,7 @@ enum WorkoutPlanner {
             let intervals = scaled(3, m)
             return [
                 WorkoutStep(station: station, name: "Warm-up Jog", detail: "\(warm) minutes easy"),
-                WorkoutStep(station: station, name: "Interval Pace", detail: "\(intervals) × 2 min at target \(display(targetGrade)) pace"),
+                WorkoutStep(station: station, name: "Interval Pace", detail: "\(intervals) × 2 min at target pace"),
                 WorkoutStep(station: station, name: "Cool Down", detail: "\(max(2, warm - 1)) minutes walk")
             ]
         }

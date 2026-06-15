@@ -7,7 +7,7 @@ struct Age_Gender: View {
     @Binding var ageSheet: Bool
 
     @State private var sex = true
-    @State private var birthdate = Date()
+    @State private var birthdate: Date?
     @State private var hasPickedBirthdate = false
     @State private var hasPickedSex = false
     @Environment(\.dismiss) private var dismiss
@@ -17,7 +17,8 @@ struct Age_Gender: View {
     private let calendar = Calendar.current
 
     private var age: Int {
-        calendar.dateComponents([.year], from: birthdate, to: Date()).year ?? 0
+        guard let birthdate else { return 0 }
+        return calendar.dateComponents([.year], from: birthdate, to: Date()).year ?? 0
     }
 
     var body: some View {
@@ -71,15 +72,28 @@ struct Age_Gender: View {
             Text("About Me")
                 .font(.title3.weight(.bold))
 
-            DatePicker(
-                "Birthdate",
-                selection: $birthdate,
-                in: calculatedStartDate()...calculatedEndDate(),
-                displayedComponents: .date
-            )
-            .onChange(of: birthdate) {
-                hasPickedBirthdate = true
-                saveProfile()
+            if let birthdate {
+                DatePicker(
+                    "Birthdate",
+                    selection: Binding(
+                        get: { birthdate },
+                        set: { newValue in
+                            self.birthdate = newValue
+                            hasPickedBirthdate = true
+                            saveProfile()
+                        }
+                    ),
+                    in: calculatedStartDate()...calculatedEndDate(),
+                    displayedComponents: .date
+                )
+            } else {
+                Button("Select Birthdate") {
+                    self.birthdate = Date.now
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(10)
+                .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 8))
+                .foregroundStyle(.blue)
             }
 
             Picker("Sex", selection: sexBinding) {
@@ -88,16 +102,20 @@ struct Age_Gender: View {
             }
             .pickerStyle(.segmented)
 
-            HStack {
-                Text("Age")
-                Spacer()
-                Text("\(age)")
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.secondary)
+            if age > 0 {
+                HStack {
+                    Text("Age")
+                    Spacer()
+                    Text("\(age)")
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.secondary)
+                }
             }
+
+            Spacer()
         }
         .padding(18)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .onAppear {
             if start {
@@ -135,10 +153,11 @@ struct Age_Gender: View {
     private func loadProfile() {
         let defaults = UserDefaults.standard
         sex = defaults.object(forKey: AppKeys.sex) as? Bool ?? info.Gender
-        let startDate = calculatedStartDate()
-        let endDate = calculatedEndDate()
-        let storedBirthdate = defaults.object(forKey: AppKeys.birthdate) as? Date ?? startDate
-        birthdate = min(max(storedBirthdate, startDate), endDate)
+        if let storedBirthdate = defaults.object(forKey: AppKeys.birthdate) as? Date {
+            let startDate = calculatedStartDate()
+            let endDate = calculatedEndDate()
+            birthdate = min(max(storedBirthdate, startDate), endDate)
+        }
         hasPickedBirthdate = defaults.bool(forKey: AppKeys.birthdateCompleted)
         hasPickedSex = defaults.bool(forKey: AppKeys.genderCompleted)
         saveProfile()
@@ -148,8 +167,10 @@ struct Age_Gender: View {
         info.Gender = sex
         info.Age = age
         UserDefaults.standard.set(sex, forKey: AppKeys.sex)
-        UserDefaults.standard.set(birthdate, forKey: AppKeys.birthdate)
-        UserDefaults.standard.set(age, forKey: AppKeys.age)
+        if let birthdate {
+            UserDefaults.standard.set(birthdate, forKey: AppKeys.birthdate)
+            UserDefaults.standard.set(age, forKey: AppKeys.age)
+        }
         if hasPickedBirthdate {
             UserDefaults.standard.set(true, forKey: AppKeys.birthdateCompleted)
         }

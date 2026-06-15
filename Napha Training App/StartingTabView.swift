@@ -97,6 +97,7 @@ struct StartingTabView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         RequirementRow(text: "Birthdate selected", isMet: UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted))
                         RequirementRow(text: "Gender selected", isMet: UserDefaults.standard.bool(forKey: AppKeys.genderCompleted))
+                        RequirementRow(text: "At least 1 station enabled", isMet: hasSelectedStation)
                         RequirementRow(text: "At least 3 workout days and times", isMet: AppState.isScheduleComplete(days: selectedDays, times: selectedTimes))
                     }
                     .padding(14)
@@ -136,8 +137,15 @@ struct StartingTabView: View {
         }
     }
 
+    private var hasSelectedStation: Bool {
+        !info.prev.allSatisfy(\.isEmpty) || !info.targ.allSatisfy(\.isEmpty)
+    }
+
     private var canFinish: Bool {
-        AppState.isProfileComplete() && AppState.isScheduleComplete(days: selectedDays, times: selectedTimes)
+        UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted) &&
+        UserDefaults.standard.bool(forKey: AppKeys.genderCompleted) &&
+        hasSelectedStation &&
+        AppState.isScheduleComplete(days: selectedDays, times: selectedTimes)
     }
 
     private func canNavigate(to step: Int) -> Bool {
