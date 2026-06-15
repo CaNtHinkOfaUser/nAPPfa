@@ -35,10 +35,10 @@ struct Goal_Page: View {
                 NavigationStack {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 20) {
-                            standardsCard
-                                .padding(.top, 8)
                             resultsCardOnboarding
                             customGoalsCardOnboarding
+                            standardsCard
+                                .padding(.top, 8)
                         }
                         .padding(.horizontal, 18)
                         .padding(.bottom, 28)
@@ -118,9 +118,9 @@ struct Goal_Page: View {
 
     private var goalFormList: some View {
         VStack(spacing: 16) {
-            standardsCard
             resultsCardOnboarding
             customGoalsCardOnboarding
+            standardsCard
         }
     }
 

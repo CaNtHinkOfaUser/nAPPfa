@@ -26,7 +26,7 @@ struct SplashScreen: View {
                         Image("naapfa_logo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 120, height: 120)
+                            .frame(width: 100, height: 100)
                             .shadow(color: .black.opacity(0.12), radius: 16, y: 8)
 
                         Text("nAPPfa")
