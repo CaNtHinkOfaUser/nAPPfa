@@ -88,7 +88,7 @@ struct Age_Gender: View {
                 )
             } else {
                 Button("Select Birthdate") {
-                    self.birthdate = calculatedEndDate()
+                    self.birthdate = Date.now
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(10)

@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Info.plist</key>
-		<data>
-		GYRTuBOJif7Q3b+7QO1kQIQ28JM=
-		</data>
 		<key>Metadata.appintents/extract.actionsdata</key>
 		<data>
 		4PkdUD3/jdZnZlsL3RosrbY57ms=
@@ -16,19 +12,15 @@
 		<data>
 		O4IMrfRH8b30lsWM58bbjWJoMWA=
 		</data>
-		<key>__preview.dylib</key>
-		<data>
-		ml5RqCgrNOh2myW9aqhfAhovkI4=
-		</data>
-		<key>nAPPfa widgetExtension.debug.dylib</key>
-		<data>
-		qat35HcPl9BehyejcUz1bIELpO8=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Metadata.appintents/extract.actionsdata</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			4PkdUD3/jdZnZlsL3RosrbY57ms=
+			</data>
 			<key>hash2</key>
 			<data>
 			N486T1MLD6lSauWSyN2wWui/wzYWJBiaEgGDe7f7yFA=
@@ -36,23 +28,13 @@
 		</dict>
 		<key>Metadata.appintents/version.json</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			O4IMrfRH8b30lsWM58bbjWJoMWA=
+			</data>
 			<key>hash2</key>
 			<data>
 			YUK+RF/MAtOTAd2PYcparvsPWbWp9um6JDoAfW4epFM=
-			</data>
-		</dict>
-		<key>__preview.dylib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			0XnwF4AP7ADpomlBWAmBR0iu2ABrk+16PZeI+jCkCuU=
-			</data>
-		</dict>
-		<key>nAPPfa widgetExtension.debug.dylib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			LdLi9Jb16juiXzqfqO+7M6i+KSFH7I2ff12XHF3wEAI=
 			</data>
 		</dict>
 	</dict>

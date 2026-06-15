@@ -48,7 +48,7 @@
 			<key>uniqueIdentifier</key>
 			<string>206EE272-D0C9-4666-AF82-3EA2557624E4</string>
 		</dict>
-		<key>8B991BF8-2D88-4D7F-82BC-F66D7D2CD3B5</key>
+		<key>DC2FA5B5-2636-4060-8E0E-D43DC736BC52</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -57,17 +57,17 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>8B991BF8-2D88-4D7F-82BC-F66D7D2CD3B5.xcactivitylog</string>
+			<string>DC2FA5B5-2636-4060-8E0E-D43DC736BC52.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>S</string>
+				<string>E</string>
 				<key>totalNumberOfAnalyzerIssues</key>
 				<integer>0</integer>
 				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
@@ -82,13 +82,13 @@
 			<key>signature</key>
 			<string>Building project Napha Training App with scheme Napha Training App and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>803198571.63646603</real>
+			<real>803223039.68067801</real>
 			<key>timeStoppedRecording</key>
-			<real>803198962.939533</real>
+			<real>803223044.90459597</real>
 			<key>title</key>
 			<string>Building project Napha Training App with scheme Napha Training App and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>8B991BF8-2D88-4D7F-82BC-F66D7D2CD3B5</string>
+			<string>DC2FA5B5-2636-4060-8E0E-D43DC736BC52</string>
 		</dict>
 	</dict>
 </dict>

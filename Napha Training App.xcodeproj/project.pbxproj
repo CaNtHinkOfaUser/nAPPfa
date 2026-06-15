@@ -7,20 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3101A6C42CA248200082724C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3101A6C32CA248200082724C /* Launch Screen.storyboard */; };
-		3101A6C62CA422370082724C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3101A6C52CA422370082724C /* Profile.swift */; };
-		311B2D652C983CCA0054CB58 /* AutoCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B2D642C983CCA0054CB58 /* AutoCalc.swift */; };
-		313420972C5B9E7800AEF150 /* Age_Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313420962C5B9E7800AEF150 /* Age_Gender.swift */; };
-		3134209B2C5C838200AEF150 /* Scheduling .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134209A2C5C838200AEF150 /* Scheduling .swift */; };
-		314BCB0F2C73369200F43C37 /* StartingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314BCB0E2C73369200F43C37 /* StartingTabView.swift */; };
-		3152F8072CBD343000D025F5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3152F8062CBD343000D025F5 /* WidgetKit.framework */; };
-		3152F8092CBD343000D025F5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3152F8082CBD343000D025F5 /* SwiftUI.framework */; };
-		3152F80C2CBD343000D025F5 /* nAPPfa_widgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F80B2CBD343000D025F5 /* nAPPfa_widgetBundle.swift */; };
-		3152F80E2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F80D2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift */; };
-		3152F8102CBD343000D025F5 /* nAPPfa_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F80F2CBD343000D025F5 /* nAPPfa_widget.swift */; };
-		3152F8122CBD343000D025F5 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152F8112CBD343000D025F5 /* AppIntent.swift */; };
-		3152F8142CBD343300D025F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3152F8132CBD343300D025F5 /* Assets.xcassets */; };
-		3152F8182CBD343300D025F5 /* nAPPfa widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		31B526922C65C54C007D413C /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B526912C65C54C007D413C /* SplashScreen.swift */; };
 		7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */; };
 		7705B7362C00621500111DBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7352C00621500111DBE /* ContentView.swift */; };
@@ -78,7 +64,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3101A6C32CA248200082724C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3101A6C52CA422370082724C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		311B2D642C983CCA0054CB58 /* AutoCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCalc.swift; sourceTree = "<group>"; };
 		313420962C5B9E7800AEF150 /* Age_Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Age_Gender.swift; sourceTree = "<group>"; };
@@ -176,7 +161,6 @@
 			children = (
 				3101A6C52CA422370082724C /* Profile.swift */,
 				31B526912C65C54C007D413C /* SplashScreen.swift */,
-				3101A6C32CA248200082724C /* Launch Screen.storyboard */,
 				7705B7322C00621500111DBE /* Napha Training App */,
 				7705B7432C00621700111DBE /* Napha Training AppTests */,
 				7705B74D2C00621700111DBE /* Napha Training AppUITests */,
@@ -385,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3101A6C42CA248200082724C /* Launch Screen.storyboard in Resources */,
 				7705B73B2C00621700111DBE /* Preview Assets.xcassets in Resources */,
 				7705B7382C00621700111DBE /* Assets.xcassets in Resources */,
 			);
