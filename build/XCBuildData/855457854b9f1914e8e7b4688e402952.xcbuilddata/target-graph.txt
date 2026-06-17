@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-Target 'Napha Training App' in project 'Napha Training App' (no dependencies)

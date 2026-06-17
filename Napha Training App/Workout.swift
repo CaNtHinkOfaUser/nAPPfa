@@ -136,21 +136,13 @@ struct Workout: View {
                 Spacer()
             }
 
-            HStack(spacing: 10) {
-                Button {
-                    startWorkout(station)
-                } label: {
-                    Label("Start", systemImage: "play.fill")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-
-                Link(destination: station.videoURL) {
-                    Label("Video", systemImage: "play.rectangle")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
+            Button {
+                startWorkout(station)
+            } label: {
+                Label("Start", systemImage: "play.fill")
+                    .frame(maxWidth: .infinity)
             }
+            .buttonStyle(.borderedProminent)
         }
         .padding(16)
         .background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
@@ -261,23 +253,14 @@ struct Workout: View {
             }
             .frame(width: 200, height: 200)
 
-            HStack(spacing: 12) {
-                Button {
-                    stopBreak()
-                } label: {
-                    Label(breakRemaining == 0 ? "Continue" : "Skip Rest", systemImage: "forward.fill")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-
-                Button {
-                    stopBreak()
-                } label: {
-                    Label(breakRemaining == 0 ? "Next Set" : "End Rest", systemImage: "stop.fill")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
+            Button {
+                stopBreak()
+            } label: {
+                Label(breakRemaining == 0 ? "Continue" : "Skip Rest", systemImage: "forward.fill")
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
             }
+            .buttonStyle(.borderedProminent)
             .padding(.bottom, 16)
 
             Spacer()

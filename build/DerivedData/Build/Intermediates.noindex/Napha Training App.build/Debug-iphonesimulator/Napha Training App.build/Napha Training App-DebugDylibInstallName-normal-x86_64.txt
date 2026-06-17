@@ -1,1 +1,0 @@
-@rpath/Napha Training App.debug.dylib

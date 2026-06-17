@@ -176,15 +176,15 @@ enum NAPFAStation: String, CaseIterable, Identifiable {
     private var tutorialVideoLink: String {
         switch self {
         case .sitUps:
-            return "https://www.youtube.com/watch?v=1fbU_MkV7EE"
+            return "https://www.youtube.com/watch?v=ILSg8_BlgIM"
         case .standingBroadJump:
-            return "https://www.youtube.com/watch?v=3v6tNSRchKA"
+            return "https://www.youtube.com/watch?v=hSunks_4wIE"
         case .sitAndReach:
-            return "https://www.youtube.com/watch?v=5VpYvYQq5p0"
+            return "https://www.youtube.com/watch?v=Br6be7YEmKM"
         case .inclinedPullUps:
             return "https://www.youtube.com/watch?v=eGo4IYlbE5g"
         case .shuttleRun:
-            return "https://www.youtube.com/watch?v=2yvZEFfYdA8"
+            return "https://www.youtube.com/watch?v=eQw7jWxH8dE"
         case .run:
             return "https://www.youtube.com/watch?v=brFHyOtTwH4"
         }
