@@ -19,8 +19,9 @@
     "activeArchitecture" : "undefined_arch",
     "activeRunDestination" : {
       "disableOnlyActiveArch" : true,
+      "hostTargetedPlatform" : null,
       "platform" : "iphonesimulator",
-      "sdk" : "iphonesimulator18.2",
+      "sdk" : "iphonesimulator26.5",
       "sdkVariant" : "iphonesimulator",
       "supportedArchitectures" : [
         "i386",
@@ -41,7 +42,7 @@
     "overrides" : {
       "commandLine" : {
         "table" : {
-          "SDKROOT" : "iphonesimulator18.2"
+          "SDKROOT" : "iphonesimulator26.5"
         }
       },
       "synthesized" : {

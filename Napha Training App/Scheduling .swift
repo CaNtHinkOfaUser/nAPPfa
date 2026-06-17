@@ -24,6 +24,16 @@ struct Scheduling_: View {
     @State private var reminderTenMinutes = true
     @State private var reminderNow = true
 
+    /// Snapshot captured on appear and used by Cancel to discard unsaved edits.
+    @State private var snapshotDays: [Int] = []
+    @State private var snapshotTimes: [Date] = []
+    @State private var snapshotTimesByDay: [Date] = Array(repeating: Date(), count: 7)
+    @State private var snapshotNAPFA: Date = Date.now
+    @State private var snapshotRemindersEnabled = true
+    @State private var snapshotOneHour = true
+    @State private var snapshotTenMinutes = true
+    @State private var snapshotNow = true
+
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 4)
 
     var body: some View {
@@ -54,9 +64,16 @@ struct Scheduling_: View {
                     .navigationTitle("Scheduling")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("Cancel") {
+                                revertSchedule()
+                                dismiss()
+                            }
+                        }
                         ToolbarItem(placement: .topBarTrailing) {
                             Button("Save") {
                                 persistSchedule()
+                                persistReminders()
                                 dismiss()
                             }
                             .fontWeight(.semibold)
@@ -68,9 +85,6 @@ struct Scheduling_: View {
         }
         .background(Color(.systemGroupedBackground))
         .onAppear(perform: loadSchedule)
-        .onChange(of: selectedDays) {
-            persistSchedule()
-        }
     }
 
     private var dateSection: some View {
@@ -82,7 +96,6 @@ struct Scheduling_: View {
                 .datePickerStyle(.compact)
                 .onChange(of: NAPFA_Date) {
                     info.NAPFA_Date = NAPFA_Date
-                    UserDefaults.standard.set(NAPFA_Date, forKey: AppKeys.napfaDate)
                     markSaved()
                 }
 
@@ -93,6 +106,7 @@ struct Scheduling_: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var daySection: some View {
@@ -135,6 +149,7 @@ struct Scheduling_: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var timeSection: some View {
@@ -165,6 +180,7 @@ struct Scheduling_: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var reminderSection: some View {
@@ -174,18 +190,12 @@ struct Scheduling_: View {
 
             Toggle("Workout reminders", isOn: $remindersEnabled)
                 .font(.subheadline.weight(.semibold))
-                .onChange(of: remindersEnabled) {
-                    persistReminders()
-                }
 
             HStack(spacing: 10) {
                 ReminderTogglePill(text: "1h", isOn: $reminderOneHour, isEnabled: remindersEnabled)
                 ReminderTogglePill(text: "10m", isOn: $reminderTenMinutes, isEnabled: remindersEnabled)
                 ReminderTogglePill(text: "Now", isOn: $reminderNow, isEnabled: remindersEnabled)
             }
-            .onChange(of: reminderOneHour) { persistReminders() }
-            .onChange(of: reminderTenMinutes) { persistReminders() }
-            .onChange(of: reminderNow) { persistReminders() }
 
             Text("If today's workout is already complete, reminders are skipped.")
                 .font(.footnote)
@@ -194,6 +204,7 @@ struct Scheduling_: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private func bindingForTime(_ day: Int) -> Binding<Date> {
@@ -202,7 +213,7 @@ struct Scheduling_: View {
         } set: { newValue in
             guard times.indices.contains(day) else { return }
             times[day] = newValue
-            persistSchedule()
+            markSaved()
         }
     }
 
@@ -213,7 +224,7 @@ struct Scheduling_: View {
             } else {
                 selectedDays.append(day)
             }
-            persistSchedule()
+            markSaved()
         }
     }
 
@@ -247,7 +258,17 @@ struct Scheduling_: View {
             times[day] = time
         }
 
-        persistSchedule()
+        // Snapshot persisted state for Cancel.
+        snapshotDays = selectedDays
+        snapshotTimes = selectedTimes
+        snapshotTimesByDay = times
+        snapshotNAPFA = NAPFA_Date
+        snapshotRemindersEnabled = remindersEnabled
+        snapshotOneHour = reminderOneHour
+        snapshotTenMinutes = reminderTenMinutes
+        snapshotNow = reminderNow
+
+        savedStatus = "Last saved"
     }
 
     private func persistSchedule() {
@@ -277,6 +298,32 @@ struct Scheduling_: View {
         defaults.set(reminderNow, forKey: AppKeys.reminderNow)
         NotificationCoordinator.scheduleWorkoutNotifications(selectedDays: selectedDays, selectedTimes: selectedTimes)
         markSaved()
+    }
+
+    /// Restore on-screen state and UserDefaults to the snapshot captured on appear.
+    private func revertSchedule() {
+        selectedDays = snapshotDays
+        selectedTimes = snapshotTimes
+        times = snapshotTimesByDay
+        NAPFA_Date = snapshotNAPFA
+        remindersEnabled = snapshotRemindersEnabled
+        reminderOneHour = snapshotOneHour
+        reminderTenMinutes = snapshotTenMinutes
+        reminderNow = snapshotNow
+        info.NAPFA_Date = snapshotNAPFA
+
+        let defaults = UserDefaults.standard
+        defaults.set(snapshotDays, forKey: AppKeys.selectedDays)
+        defaults.set(snapshotTimes, forKey: AppKeys.selectedTimes)
+        defaults.set(snapshotTimesByDay, forKey: AppKeys.scheduleTimes)
+        defaults.set(snapshotNAPFA, forKey: AppKeys.napfaDate)
+        defaults.set(snapshotRemindersEnabled, forKey: AppKeys.remindersEnabled)
+        defaults.set(snapshotOneHour, forKey: AppKeys.reminderOneHour)
+        defaults.set(snapshotTenMinutes, forKey: AppKeys.reminderTenMinutes)
+        defaults.set(snapshotNow, forKey: AppKeys.reminderNow)
+
+        _ = AppState.currentStreak(selectedDays: snapshotDays, selectedTimes: snapshotTimes)
+        NotificationCoordinator.scheduleWorkoutNotifications(selectedDays: snapshotDays, selectedTimes: snapshotTimes)
     }
 
     private func markSaved() {

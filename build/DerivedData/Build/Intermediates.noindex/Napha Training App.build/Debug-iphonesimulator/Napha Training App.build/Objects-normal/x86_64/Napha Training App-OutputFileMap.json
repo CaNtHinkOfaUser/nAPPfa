@@ -1,9 +1,30 @@
 {
   "" : {
-    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-master.dia",
-    "emit-module-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-master-emit-module.d",
-    "emit-module-diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-master-emit-module.dia",
-    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-master.swiftdeps"
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-primary.dia",
+    "emit-module-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-primary-emit-module.dia",
+    "pch" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha Training App-primary.swiftdeps"
+  },
+  "/Users/Rai/Downloads/nAPPfa/Napha Training App/Age_Gender.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Age_Gender~partial.swiftmodule"
+  },
+  "/Users/Rai/Downloads/nAPPfa/Napha Training App/AutoCalc.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/AutoCalc~partial.swiftmodule"
   },
   "/Users/Rai/Downloads/nAPPfa/Napha Training App/ContentView.swift" : {
     "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/ContentView.swiftconstvalues",
@@ -65,6 +86,16 @@
     "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha_Training_AppApp.swiftdeps",
     "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Napha_Training_AppApp~partial.swiftmodule"
   },
+  "/Users/Rai/Downloads/nAPPfa/Napha Training App/Scheduling .swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling .swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Scheduling ~partial.swiftmodule"
+  },
   "/Users/Rai/Downloads/nAPPfa/Napha Training App/Settings.swift" : {
     "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.swiftconstvalues",
     "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.d",
@@ -74,6 +105,16 @@
     "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.o",
     "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings.swiftdeps",
     "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Settings~partial.swiftmodule"
+  },
+  "/Users/Rai/Downloads/nAPPfa/Napha Training App/StartingTabView.swift" : {
+    "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.swiftconstvalues",
+    "dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.d",
+    "diagnostics" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.dia",
+    "index-unit-output-path" : "/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.o",
+    "llvm-bc" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.bc",
+    "object" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.o",
+    "swift-dependencies" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView.swiftdeps",
+    "swiftmodule" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/StartingTabView~partial.swiftmodule"
   },
   "/Users/Rai/Downloads/nAPPfa/Napha Training App/Statistics.swift" : {
     "const-values" : "/Users/Rai/Downloads/nAPPfa/build/DerivedData/Build/Intermediates.noindex/Napha Training App.build/Debug-iphonesimulator/Napha Training App.build/Objects-normal/x86_64/Statistics.swiftconstvalues",

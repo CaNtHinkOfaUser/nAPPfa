@@ -7,7 +7,7 @@
         "key": "Progression",
         "location": {
           "startingColumn": 30,
-          "startingLine": 35
+          "startingLine": 36
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Edit Goals",
         "location": {
           "startingColumn": 28,
-          "startingLine": 39
+          "startingLine": 40
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Current streak",
         "location": {
           "startingColumn": 22,
-          "startingLine": 67
+          "startingLine": 121
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "%lld %@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 69
+          "startingLine": 123
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "Workout History",
         "location": {
           "startingColumn": 19,
-          "startingLine": 82
+          "startingLine": 137
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "Targets",
         "location": {
           "startingColumn": 19,
-          "startingLine": 99
+          "startingLine": 155
         }
       },
       {
@@ -55,7 +55,7 @@
         "key": "No target grades",
         "location": {
           "startingColumn": 40,
-          "startingLine": 126
+          "startingLine": 182
         }
       },
       {
@@ -63,7 +63,7 @@
         "key": "%@ -> %@",
         "location": {
           "startingColumn": 30,
-          "startingLine": 118
+          "startingLine": 174
         }
       },
       {
@@ -71,7 +71,7 @@
         "key": "My Goals",
         "location": {
           "startingColumn": 19,
-          "startingLine": 136
+          "startingLine": 193
         }
       },
       {
@@ -79,7 +79,7 @@
         "key": "No saved goals",
         "location": {
           "startingColumn": 40,
-          "startingLine": 140
+          "startingLine": 197
         }
       }
     ]
