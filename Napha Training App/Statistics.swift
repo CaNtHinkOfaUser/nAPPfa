@@ -22,8 +22,9 @@ struct Statistics: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
-                    streakSummary
+                    badgesStrip
                         .padding(.top, 8)
+                    streakSummary
                     workoutSummary
                     gradeProgress
                     goalSummary
@@ -53,11 +54,64 @@ struct Statistics: View {
         }
     }
 
+    private var badgesStrip: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(progressionBadges) { badge in
+                    badge
+                }
+            }
+            .padding(.horizontal, 2)
+        }
+    }
+
+    private var progressionBadges: [ProgressionBadge] {
+        let streak = AppState.currentStreak(selectedDays: selectedDays, selectedTimes: selectedTimes)
+        let workouts = AppState.workoutHistory().count
+        let intensity = dominantIntensityLabel
+        let goalReached = goalsReachedCount
+
+        return [
+            ProgressionBadge(id: "streak", icon: "flame.fill", text: "\(streak) day streak", tint: .orange),
+            ProgressionBadge(id: "workouts", icon: "figure.strengthtraining.traditional", text: "\(workouts) workouts", tint: .blue),
+            ProgressionBadge(id: "intensity", icon: "bolt.fill", text: intensity, tint: .purple),
+            ProgressionBadge(
+                id: "goal",
+                icon: "checkmark.seal.fill",
+                text: goalReached > 0 ? "\(goalReached) goal met" : "Goal pending",
+                tint: goalReached > 0 ? .green : .gray
+            )
+        ]
+    }
+
+    private var dominantIntensityLabel: String {
+        let levels = NAPFAStation.allCases.indices.compactMap { index -> WorkoutIntensity? in
+            let prev = WorkoutPlanner.grade(at: index, in: info.prev)
+            let targ = WorkoutPlanner.grade(at: index, in: info.targ)
+            guard !prev.isEmpty, !targ.isEmpty else { return nil }
+            return WorkoutPlanner.intensity(previous: prev, target: targ)
+        }
+        guard let top = levels.max(by: { $0.multiplier < $1.multiplier }) else {
+            return "Not set"
+        }
+        return top.rawValue
+    }
+
+    private var goalsReachedCount: Int {
+        NAPFAStation.allCases.indices.reduce(0) { count, index in
+            let prev = WorkoutPlanner.grade(at: index, in: info.prev)
+            let targ = WorkoutPlanner.grade(at: index, in: info.targ)
+            guard !prev.isEmpty, !targ.isEmpty else { return count }
+            let reached = WorkoutPlanner.gradeValue(prev) >= WorkoutPlanner.gradeValue(targ)
+            return reached ? count + 1 : count
+        }
+    }
+
     private var streakSummary: some View {
         let streak = AppState.currentStreak(selectedDays: selectedDays, selectedTimes: selectedTimes)
 
         return HStack(spacing: 14) {
-            Spacer()
+            Spacer(minLength: 0)
 
             Image(systemName: "flame.fill")
                 .font(.system(size: 44, weight: .bold))
@@ -70,11 +124,12 @@ struct Statistics: View {
                     .font(.system(size: 34, weight: .black, design: .rounded))
             }
 
-            Spacer()
+            Spacer(minLength: 0)
         }
         .padding(18)
         .background(Color.yellow, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .foregroundStyle(.black)
+        .frame(maxWidth: .infinity)
     }
 
     private var workoutSummary: some View {
@@ -92,6 +147,7 @@ struct Statistics: View {
         }
         .padding(18)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var gradeProgress: some View {
@@ -129,6 +185,7 @@ struct Statistics: View {
         }
         .padding(18)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var goalSummary: some View {
@@ -160,6 +217,7 @@ struct Statistics: View {
         }
         .padding(18)
         .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private func grade(at index: Int, in values: [String]) -> String {
@@ -184,6 +242,26 @@ private struct StatTile: View {
         }
         .frame(maxWidth: .infinity, minHeight: 82)
         .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+}
+
+private struct ProgressionBadge: View, Identifiable {
+    let id: String
+    let icon: String
+    let text: String
+    let tint: Color
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: icon)
+                .font(.caption.weight(.bold))
+            Text(text)
+                .font(.caption.weight(.semibold))
+        }
+        .foregroundStyle(tint)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(tint.opacity(0.14), in: Capsule())
     }
 }
 

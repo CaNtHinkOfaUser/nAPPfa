@@ -21,6 +21,12 @@ struct Goal_Page: View {
     @State private var validationError: String = ""
     @State private var showValidationAlert = false
 
+    /// Snapshot captured on appear; restored by Cancel to discard in-flight edits.
+    @State private var snapshotPrev: [String] = []
+    @State private var snapshotTarg: [String] = []
+    @State private var snapshotEnabled: [Bool] = []
+    @State private var snapshotGoals: [[String]] = []
+
     private let gradeOptions = ["Not set", "A", "B", "C", "D", "E", "F", "NA"]
 
     var body: some View {
@@ -49,6 +55,7 @@ struct Goal_Page: View {
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
                             Button("Cancel") {
+                                revertChanges()
                                 dismiss()
                             }
                         }
@@ -139,7 +146,8 @@ struct Goal_Page: View {
                 showAutoCalc = true
             } label: {
                 HStack {
-                    Label("Auto Calculation", systemImage: "function")
+                    Label("Auto Calculation", systemImage: "calculator")
+                        .foregroundStyle(.blue)
                     Spacer()
                     Button {
                         showAutoCalcHelp = true
@@ -228,7 +236,8 @@ struct Goal_Page: View {
                 AutoCalcView(info: $info)
             } label: {
                 HStack {
-                    Label("Auto Calculation", systemImage: "function")
+                    Label("Auto Calculation", systemImage: "calculator")
+                        .foregroundStyle(.blue)
                     Spacer()
                     Button {
                         showAutoCalcHelp = true
@@ -412,7 +421,36 @@ struct Goal_Page: View {
 
         let savedGoals = defaults.object(forKey: AppKeys.goals) as? [[String]] ?? info.Goals
         goalDrafts = GoalDraft.fromSaved(savedGoals)
+
+        // Capture the persisted state so Cancel can fully restore it.
+        snapshotPrev = previousGrades
+        snapshotTarg = targetGrades
+        snapshotEnabled = enabledStations
+        snapshotGoals = GoalDraft.encode(goalDrafts)
+
         saveAll()
+    }
+
+    /// Restore on-screen state and UserDefaults to the snapshot captured on appear.
+    private func revertChanges() {
+        previousGrades = normalizeGrades(snapshotPrev)
+        targetGrades = normalizeGrades(snapshotTarg)
+        enabledStations = normalizeEnabled(snapshotEnabled)
+        goalDrafts = GoalDraft.fromSaved(snapshotGoals)
+
+        info.prev = previousGrades
+        info.targ = targetGrades
+        info.Goals = snapshotGoals
+
+        let defaults = UserDefaults.standard
+        defaults.set(previousGrades, forKey: AppKeys.previousGrades)
+        defaults.set(targetGrades, forKey: AppKeys.targetGrades)
+        defaults.set(enabledStations, forKey: AppKeys.enabledGrades)
+        defaults.set(snapshotGoals, forKey: AppKeys.goals)
+
+        let selectedDays = defaults.object(forKey: AppKeys.selectedDays) as? [Int] ?? []
+        let selectedTimes = defaults.object(forKey: AppKeys.selectedTimes) as? [Date] ?? []
+        AppState.persistWidgetSummary(selectedDays: selectedDays, selectedTimes: selectedTimes)
     }
 
     private func saveAll() {

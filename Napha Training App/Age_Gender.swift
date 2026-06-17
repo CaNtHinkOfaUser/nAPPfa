@@ -10,7 +10,14 @@ struct Age_Gender: View {
     @State private var birthdate: Date?
     @State private var hasPickedBirthdate = false
     @State private var hasPickedSex = false
+    @State private var showGenderSheet = false
     @Environment(\.dismiss) private var dismiss
+
+    /// Snapshot of persisted values captured on appear, used to restore when Cancel is tapped.
+    @State private var savedSex: Bool = true
+    @State private var savedBirthdate: Date?
+    @State private var savedHasPickedBirthdate = false
+    @State private var savedHasPickedSex = false
 
     private let baseStartYear = 2005
     private let baseEndYear = 2012
@@ -44,6 +51,12 @@ struct Age_Gender: View {
                     .navigationTitle("Profile")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("Cancel") {
+                                revertProfile()
+                                dismiss()
+                            }
+                        }
                         ToolbarItem(placement: .topBarTrailing) {
                             Button("Done") {
                                 saveProfile()
@@ -57,6 +70,16 @@ struct Age_Gender: View {
         }
         .background(Color(.systemGroupedBackground))
         .onAppear(perform: loadProfile)
+        .sheet(isPresented: $showGenderSheet) {
+            GenderSelectionView(info: $info, sex: $sex)
+                .presentationDetents([.fraction(0.45)])
+                .presentationDragIndicator(.visible)
+                .onDisappear {
+                    // Reflect the sheet's selection into local state without persisting yet.
+                    hasPickedSex = true
+                    info.Gender = sex
+                }
+        }
     }
 
     private var profileForm: some View {
@@ -72,47 +95,50 @@ struct Age_Gender: View {
             Text("About Me")
                 .font(.title3.weight(.bold))
 
-            if let birthdate {
-                DatePicker(
-                    "Birthdate",
-                    selection: Binding(
-                        get: { birthdate },
-                        set: { newValue in
-                            self.birthdate = newValue
-                            hasPickedBirthdate = true
-                            saveProfile()
-                        }
-                    ),
-                    in: calculatedStartDate()...calculatedEndDate(),
-                    displayedComponents: .date
-                )
-            } else {
-                Button("Select Birthdate") {
-                    self.birthdate = Date.now
+            VStack(alignment: .leading, spacing: 6) {
+                if let birthdate {
+                    DatePicker(
+                        "Birthdate",
+                        selection: Binding(
+                            get: { birthdate },
+                            set: { newValue in
+                                self.birthdate = newValue
+                                hasPickedBirthdate = true
+                            }
+                        ),
+                        in: calculatedStartDate()...calculatedEndDate(),
+                        displayedComponents: .date
+                    )
+                } else {
+                    Button("Select Birthdate") {
+                        self.birthdate = Date.now
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(10)
+                    .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 8))
+                    .foregroundStyle(.blue)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(10)
-                .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 8))
-                .foregroundStyle(.blue)
-            }
 
-            Picker("Sex", selection: sexBinding) {
-                Text("Female").tag(false)
-                Text("Male").tag(true)
-            }
-            .pickerStyle(.segmented)
-
-            if age > 0 {
-                HStack {
-                    Text("Age")
-                    Spacer()
-                    Text("\(age)")
-                        .fontWeight(.semibold)
+                if age > 0 {
+                    Text("Age: \(age)")
+                        .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.secondary)
                 }
             }
 
-            Spacer()
+            HStack {
+                Text("Sex:")
+                Spacer()
+                Button(action: {
+                    showGenderSheet.toggle()
+                }) {
+                    Text(sex ? "Male" : "Female")
+                        .foregroundColor(.black)
+                }
+                .labelsHidden()
+                .tint(.black)
+                .offset(x: -10)
+            }
         }
         .padding(18)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -122,19 +148,6 @@ struct Age_Gender: View {
                 hasPickedBirthdate = UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted)
                 hasPickedSex = UserDefaults.standard.bool(forKey: AppKeys.genderCompleted)
             }
-        }
-    }
-
-    private var sexBinding: Binding<Bool> {
-        Binding {
-            sex
-        } set: { newValue in
-            sex = newValue
-            hasPickedSex = true
-            info.Gender = newValue
-            UserDefaults.standard.set(newValue, forKey: AppKeys.sex)
-            UserDefaults.standard.set(true, forKey: AppKeys.genderCompleted)
-            updateProfileCompletionFlag()
         }
     }
 
@@ -158,9 +171,15 @@ struct Age_Gender: View {
             let endDate = calculatedEndDate()
             birthdate = min(max(storedBirthdate, startDate), endDate)
         }
+
         hasPickedBirthdate = defaults.bool(forKey: AppKeys.birthdateCompleted)
         hasPickedSex = defaults.bool(forKey: AppKeys.genderCompleted)
-        saveProfile()
+
+        // Snapshot for Cancel.
+        savedSex = sex
+        savedBirthdate = birthdate
+        savedHasPickedBirthdate = hasPickedBirthdate
+        savedHasPickedSex = hasPickedSex
     }
 
     private func saveProfile() {
@@ -180,8 +199,120 @@ struct Age_Gender: View {
         updateProfileCompletionFlag()
     }
 
+    /// Restore the on-screen state to the persisted snapshot, discarding in-flight edits.
+    private func revertProfile() {
+        sex = savedSex
+        birthdate = savedBirthdate
+        hasPickedBirthdate = savedHasPickedBirthdate
+        hasPickedSex = savedHasPickedSex
+        info.Gender = savedSex
+
+        // Re-publish saved values to UserDefaults so anything that reacted to
+        // live edits (e.g. info bindings) rolls back too.
+        if let savedBirthdate {
+            UserDefaults.standard.set(savedBirthdate, forKey: AppKeys.birthdate)
+        }
+        UserDefaults.standard.set(savedSex, forKey: AppKeys.sex)
+    }
+
     private func updateProfileCompletionFlag() {
         UserDefaults.standard.set(hasPickedBirthdate && hasPickedSex, forKey: AppKeys.profileCompleted)
+    }
+}
+
+struct GenderSelectionView: View {
+    @Binding var info: data
+    @Environment(\.presentationMode) var presentationMode
+    @State private var selectedGender: String? = "Male"
+    @Binding var sex: Bool
+
+    var body: some View {
+        VStack {
+            Text("Your sex")
+                .font(.headline)
+            Divider()
+
+            HStack {
+                GenderButton(gender: "Female", selectedGender: $selectedGender)
+                    .onChange(of: selectedGender) {
+                        if selectedGender == "Female" {
+                            sex = false
+                            info.Gender = false
+                        } else {
+                            sex = true
+                            info.Gender = true
+                        }
+                    }
+
+                GenderButton(gender: "Male", selectedGender: $selectedGender)
+                    .onChange(of: selectedGender) {
+                        if selectedGender == "Female" {
+                            sex = false
+                            info.Gender = false
+                        } else {
+                            sex = true
+                            info.Gender = true
+                        }
+                    }
+            }
+            .padding(.vertical)
+
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Save")
+                    .foregroundStyle(.white)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .padding(.horizontal)
+                    .contentShape(Rectangle())
+            }
+        }
+        .onAppear {
+            selectedGender = sex ? "Male" : "Female"
+        }
+    }
+}
+
+struct GenderButton: View {
+    var gender: String
+    @Binding var selectedGender: String?
+
+    var isSelected: Bool {
+        selectedGender == gender
+    }
+
+    var body: some View {
+        Button(action: {
+            withAnimation {
+                selectedGender = gender
+            }
+        }) {
+            VStack {
+                Image(systemName: isSelected ? "person.fill" : "person")
+                    .font(.system(size: 40))
+                    .foregroundColor(isSelected ? .white : .blue)
+
+                Text(gender)
+                    .font(.headline)
+                    .foregroundColor(isSelected ? .white : .blue)
+            }
+            .padding()
+            .frame(width: 155, height: 100)
+            .background(isSelected ? Color.blue : Color.white)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.blue, lineWidth: 2)
+            )
+        }
     }
 }
 

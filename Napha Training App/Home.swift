@@ -9,6 +9,27 @@ extension Notification.Name {
     static let workoutNotificationTapped = Notification.Name("workoutNotificationTapped")
 }
 
+/// Gives a card a lifted, tactile feel: soft shadow + press-down animation on tap.
+struct PopUpCard: ViewModifier {
+    @State private var isPressed = false
+
+    func body(content: Content) -> some View {
+        content
+            .shadow(color: .black.opacity(0.12), radius: 10, x: 0, y: 5)
+            .scaleEffect(isPressed ? 0.97 : 1)
+            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isPressed)
+            .simultaneousGesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { _ in isPressed = true }
+                    .onEnded { _ in isPressed = false }
+            )
+    }
+}
+
+extension View {
+    func popUpCard() -> some View { modifier(PopUpCard()) }
+}
+
 struct HelpTipSheet: View {
     let title: String
     let message: String
@@ -212,6 +233,7 @@ struct Home: View {
         .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var streakTile: some View {
@@ -229,6 +251,7 @@ struct Home: View {
         .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color.yellow, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var nextWorkoutTile: some View {
@@ -276,6 +299,7 @@ struct Home: View {
         .padding(14)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var scheduleTile: some View {
@@ -315,6 +339,7 @@ struct Home: View {
         .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private var goalsTile: some View {
@@ -359,6 +384,7 @@ struct Home: View {
         .padding(12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .modifier(PopUpCard())
     }
 
     private func refresh() {

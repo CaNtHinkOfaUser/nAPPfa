@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		31B526922C65C54C007D413C /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B526912C65C54C007D413C /* SplashScreen.swift */; };
+		31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314BCB0E2C73369200F43C37 /* StartingTabView.swift */; };
+		31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313420962C5B9E7800AEF150 /* Age_Gender.swift */; };
+		31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B2D642C983CCA0054CB58 /* AutoCalc.swift */; };
+		31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134209A2C5C838200AEF150 /* Scheduling .swift */; };
 		7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */; };
 		7705B7362C00621500111DBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7352C00621500111DBE /* ContentView.swift */; };
 		7705B7382C00621700111DBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B7372C00621700111DBE /* Assets.xcassets */; };
@@ -16,13 +20,13 @@
 		7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */; };
 		7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */; };
 		77B0B38B2C60C15E002102AA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0B38A2C60C15E002102AA /* Workout.swift */; };
-		B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */; };
 		77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C192C29670B0045BA5B /* Login.swift */; };
 		77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1B2C29673A0045BA5B /* Home.swift */; };
 		77BA9C1E2C296A960045BA5B /* Goal Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1D2C296A960045BA5B /* Goal Page.swift */; };
 		77BFA61A2C36E8830072B92E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFA6192C36E8830072B92E /* Settings.swift */; };
 		A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9793E692C734063008BF2BC /* CustomTabBar.swift */; };
 		A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E411132C8EE6E50014AF7A /* Statistics.swift */; };
+		B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +60,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				3152F8182CBD343300D025F5 /* nAPPfa widgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,13 +94,13 @@
 		7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITests.swift; sourceTree = "<group>"; };
 		7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		77B0B38A2C60C15E002102AA /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlanner.swift; sourceTree = "<group>"; };
 		77BA9C192C29670B0045BA5B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		77BA9C1B2C29673A0045BA5B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		77BA9C1D2C296A960045BA5B /* Goal Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal Page.swift"; sourceTree = "<group>"; };
 		77BFA6192C36E8830072B92E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A9793E692C734063008BF2BC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		A9E411132C8EE6E50014AF7A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3152F8092CBD343000D025F5 /* SwiftUI.framework in Frameworks */,
-				3152F8072CBD343000D025F5 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3152F8142CBD343300D025F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,10 +395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3152F80E2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift in Sources */,
-				3152F8122CBD343000D025F5 /* AppIntent.swift in Sources */,
-				3152F8102CBD343000D025F5 /* nAPPfa_widget.swift in Sources */,
-				3152F80C2CBD343000D025F5 /* nAPPfa_widgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,19 +403,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				77BFA61A2C36E8830072B92E /* Settings.swift in Sources */,
-				3101A6C62CA422370082724C /* Profile.swift in Sources */,
-				314BCB0F2C73369200F43C37 /* StartingTabView.swift in Sources */,
 				77BA9C1E2C296A960045BA5B /* Goal Page.swift in Sources */,
+				31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */,
 				77B0B38B2C60C15E002102AA /* Workout.swift in Sources */,
 				B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */,
 				A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */,
 				A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */,
-				3134209B2C5C838200AEF150 /* Scheduling .swift in Sources */,
 				77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */,
 				31B526922C65C54C007D413C /* SplashScreen.swift in Sources */,
-				313420972C5B9E7800AEF150 /* Age_Gender.swift in Sources */,
+				31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */,
+				31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */,
 				7705B7362C00621500111DBE /* ContentView.swift in Sources */,
-				311B2D652C983CCA0054CB58 /* AutoCalc.swift in Sources */,
+				31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */,
 				77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */,
 				7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */,
 			);
@@ -823,7 +818,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = 7705B7282C00621500111DBE /* Project object */;
 }

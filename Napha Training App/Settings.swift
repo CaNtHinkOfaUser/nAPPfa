@@ -29,7 +29,7 @@ struct Settings: View {
                         SettingsRow(title: "Goal setting", subtitle: "Grades & custom goals", icon: "target", color: .blue) {
                             goalSheetSettings = true
                         }
-                        SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "function", color: .purple) {
+                        SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "calculator", color: .blue) {
                             autoCalcSettings = true
                         }
                         SettingsRow(title: "Scheduling", subtitle: "Days, times, reminders", icon: "calendar.badge.clock", color: .green) {
@@ -78,24 +78,118 @@ struct Settings: View {
     }
 
     private var settingsHero: some View {
-        HStack(spacing: 14) {
-            Image("naapfa_logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 56, height: 56)
-                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        VStack(spacing: 14) {
+            HStack(spacing: 14) {
+                ZStack {
+                    Circle()
+                        .fill(
+                            AngularGradient(
+                                colors: [.orange, .pink, .purple, .blue, .orange],
+                                center: .center
+                            )
+                        )
+                    Image(systemName: "person.crop.circle.fill")
+                        .font(.system(size: 50))
+                        .foregroundStyle(.white, .gray.opacity(0.35))
+                        .background(Circle().fill(Color(.systemBackground)))
+                        .padding(3)
+                }
+                .frame(width: 64, height: 64)
 
-            VStack(alignment: .leading, spacing: 4) {
-                Text("nAPPfa")
-                    .font(.title2.weight(.bold))
-                Text("Train smarter for all 6 stations.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(profileName)
+                        .font(.title2.weight(.bold))
+                    Text(heroSubtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
             }
-            Spacer()
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(profileBadges) { badge in
+                        badge
+                    }
+                }
+                .padding(.horizontal, 2)
+            }
         }
         .padding(16)
         .background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .modifier(PopUpCard())
+    }
+
+    private var profileName: String {
+        "Your Profile"
+    }
+
+    private var heroSubtitle: String {
+        let sex = info.Gender ? "Male" : "Female"
+        let ageText = info.Age > 0 ? " · Age \(info.Age)" : ""
+        return "\(sex)\(ageText)"
+    }
+
+    private var profileBadges: [ProfileBadge] {
+        let streak = AppState.currentStreak(
+            selectedDays: selectedDaysSettings,
+            selectedTimes: selectedTimedSettings
+        )
+        let workouts = AppState.workoutHistory().count
+        let intensity = dominantIntensityLabel
+        let goalReached = goalsReachedCount
+
+        return [
+            ProfileBadge(
+                id: "streak",
+                icon: "flame.fill",
+                text: "\(streak) day streak",
+                tint: .orange
+            ),
+            ProfileBadge(
+                id: "workouts",
+                icon: "figure.strengthtraining.traditional",
+                text: "\(workouts) workouts",
+                tint: .blue
+            ),
+            ProfileBadge(
+                id: "intensity",
+                icon: "bolt.fill",
+                text: intensity,
+                tint: .purple
+            ),
+            ProfileBadge(
+                id: "goal",
+                icon: "checkmark.seal.fill",
+                text: goalReached > 0 ? "\(goalReached) goal met" : "Goal pending",
+                tint: goalReached > 0 ? .green : .gray
+            )
+        ]
+    }
+
+    /// The intensity label that best reflects the user's current targets.
+    private var dominantIntensityLabel: String {
+        let levels = NAPFAStation.allCases.indices.compactMap { index -> WorkoutIntensity? in
+            let prev = WorkoutPlanner.grade(at: index, in: info.prev)
+            let targ = WorkoutPlanner.grade(at: index, in: info.targ)
+            guard !prev.isEmpty, !targ.isEmpty else { return nil }
+            return WorkoutPlanner.intensity(previous: prev, target: targ)
+        }
+        guard let top = levels.max(by: { $0.multiplier < $1.multiplier }) else {
+            return "Not set"
+        }
+        return top.rawValue
+    }
+
+    /// Number of stations where the previous grade already meets/exceeds the target.
+    private var goalsReachedCount: Int {
+        NAPFAStation.allCases.indices.reduce(0) { count, index in
+            let prev = WorkoutPlanner.grade(at: index, in: info.prev)
+            let targ = WorkoutPlanner.grade(at: index, in: info.targ)
+            guard !prev.isEmpty, !targ.isEmpty else { return count }
+            let reached = WorkoutPlanner.gradeValue(prev) >= WorkoutPlanner.gradeValue(targ)
+            return reached ? count + 1 : count
+        }
     }
 
     private func settingsGroup(title: String, @ViewBuilder rows: () -> some View) -> some View {
@@ -149,6 +243,26 @@ private struct SettingsRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+    }
+}
+
+private struct ProfileBadge: View, Identifiable {
+    let id: String
+    let icon: String
+    let text: String
+    let tint: Color
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: icon)
+                .font(.caption.weight(.bold))
+            Text(text)
+                .font(.caption.weight(.semibold))
+        }
+        .foregroundStyle(tint)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(tint.opacity(0.14), in: Capsule())
     }
 }
 
