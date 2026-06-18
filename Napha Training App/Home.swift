@@ -9,20 +9,11 @@ extension Notification.Name {
     static let workoutNotificationTapped = Notification.Name("workoutNotificationTapped")
 }
 
-/// Gives a card a lifted, tactile feel: soft shadow + press-down animation on tap.
+/// Gives a card a lifted, tactile feel with a soft drop shadow. Purely visual — not interactive.
 struct PopUpCard: ViewModifier {
-    @State private var isPressed = false
-
     func body(content: Content) -> some View {
         content
             .shadow(color: .black.opacity(0.12), radius: 10, x: 0, y: 5)
-            .scaleEffect(isPressed ? 0.97 : 1)
-            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isPressed)
-            .simultaneousGesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged { _ in isPressed = true }
-                    .onEnded { _ in isPressed = false }
-            )
     }
 }
 

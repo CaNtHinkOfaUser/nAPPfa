@@ -79,15 +79,15 @@ struct StartingTabView: View {
             VStack(spacing: 22) {
                 Spacer(minLength: 24)
 
-                Image(systemName: "checkmark.seal.fill")
+                Image(systemName: canFinish ? "checkmark.seal.fill" : "xmark.seal.fill")
                     .font(.system(size: 76))
-                    .foregroundStyle(.green)
+                    .foregroundStyle(canFinish ? .green : .red)
                     .accessibilityHidden(true)
 
-                Text("You're set")
+                Text(canFinish ? "You're set" : "Requirements needed")
                     .font(.largeTitle.weight(.bold))
 
-                Text("Your profile, goals, and schedule are saved. You can change them anytime from Home or Settings.")
+                Text(canFinish ? "Your profile, goals, and schedule are saved. You can change them anytime from Home or Settings." : "Please complete your profile, goals, and workout schedule before starting training.")
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -95,8 +95,8 @@ struct StartingTabView: View {
 
                 if !canFinish {
                     VStack(alignment: .leading, spacing: 8) {
-                        RequirementRow(text: "Birthdate selected", isMet: UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted))
-                        RequirementRow(text: "Gender selected", isMet: UserDefaults.standard.bool(forKey: AppKeys.genderCompleted))
+                        RequirementRow(text: "Birthdate selected", isMet: birthdateCompleted)
+                        RequirementRow(text: "Sex selected", isMet: genderCompleted)
                         RequirementRow(text: "At least 1 station enabled", isMet: hasSelectedStation)
                         RequirementRow(text: "At least 3 workout days and times", isMet: AppState.isScheduleComplete(days: selectedDays, times: selectedTimes))
                     }
@@ -141,9 +141,17 @@ struct StartingTabView: View {
         !info.prev.allSatisfy(\.isEmpty) || !info.targ.allSatisfy(\.isEmpty)
     }
 
+    private var birthdateCompleted: Bool {
+        UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted)
+    }
+
+    private var genderCompleted: Bool {
+        UserDefaults.standard.bool(forKey: AppKeys.genderCompleted)
+    }
+
     private var canFinish: Bool {
-        UserDefaults.standard.bool(forKey: AppKeys.birthdateCompleted) &&
-        UserDefaults.standard.bool(forKey: AppKeys.genderCompleted) &&
+        birthdateCompleted &&
+        genderCompleted &&
         hasSelectedStation &&
         AppState.isScheduleComplete(days: selectedDays, times: selectedTimes)
     }
@@ -172,9 +180,9 @@ private struct RequirementRow: View {
     let isMet: Bool
 
     var body: some View {
-        Label(text, systemImage: isMet ? "checkmark.circle.fill" : "circle")
+        Label(text, systemImage: isMet ? "checkmark.circle.fill" : "xmark.circle.fill")
             .font(.footnote.weight(.semibold))
-            .foregroundStyle(isMet ? .green : .secondary)
+            .foregroundStyle(isMet ? .green : .red)
     }
 }
 

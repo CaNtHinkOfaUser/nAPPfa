@@ -192,11 +192,6 @@ struct Workout: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 8)
 
-            Link(destination: step.videoURL) {
-                Label("Form video", systemImage: "play.circle.fill")
-            }
-            .font(.subheadline.weight(.semibold))
-
             Spacer(minLength: 8)
 
             HStack(spacing: 12) {

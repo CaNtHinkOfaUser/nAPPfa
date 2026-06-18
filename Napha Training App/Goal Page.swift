@@ -94,7 +94,7 @@ struct Goal_Page: View {
             .alert("Clear all goals?", isPresented: $showClearAlert) {
                 Button("Clear", role: .destructive) {
                     goalDrafts = []
-                    saveAll()
+                    saveIfOnboarding()
                 }
                 Button("Cancel", role: .cancel) {}
             } message: {
@@ -107,16 +107,16 @@ struct Goal_Page: View {
             }
             .onAppear(perform: loadData)
             .onChange(of: previousGrades) {
-                saveAll()
+                saveIfOnboarding()
             }
             .onChange(of: targetGrades) {
-                saveAll()
+                saveIfOnboarding()
             }
             .onChange(of: enabledStations) {
-                saveAll()
+                saveIfOnboarding()
             }
             .onChange(of: goalDrafts) {
-                saveAll()
+                saveIfOnboarding()
             }
             .sheet(isPresented: $showAutoCalc) {
                 AutoCalcView(info: $info)
@@ -137,7 +137,11 @@ struct Goal_Page: View {
                 .font(.title3.weight(.bold))
 
             NavigationLink {
-                NAPFAStandardsView(isMale: info.Gender)
+                NAPFAStandardsView(
+                    isMale: info.Gender,
+                    age: info.Age,
+                    enabledStations: enabledStations
+                )
             } label: {
                 Label(info.Gender ? "Male standards table" : "Female standards table", systemImage: "tablecells")
             }
@@ -146,7 +150,7 @@ struct Goal_Page: View {
                 showAutoCalc = true
             } label: {
                 HStack {
-                    Label("Auto Calculation", systemImage: "calculator")
+                    Label("Auto Calculation", systemImage: "plus.forwardslash.minus")
                         .foregroundStyle(.blue)
                     Spacer()
                     Button {
@@ -206,7 +210,7 @@ struct Goal_Page: View {
                     GoalDraftEditor(goal: $goal) {
                         if let index = goalDrafts.firstIndex(where: { $0.id == goal.id }) {
                             goalDrafts.remove(at: index)
-                            saveAll()
+                            saveIfOnboarding()
                         }
                     }
                 }
@@ -214,7 +218,7 @@ struct Goal_Page: View {
 
             Button {
                 goalDrafts.append(GoalDraft())
-                saveAll()
+                saveIfOnboarding()
             } label: {
                 Label("Add Goal", systemImage: "plus.circle.fill")
             }
@@ -228,15 +232,11 @@ struct Goal_Page: View {
         Section {
             
 
-            Link(destination: URL(string: "https://www.stgabrielssec.moe.edu.sg/files/Sports%20CCA/NAPFA%20Standards.pdf")!) {
-                Label("Standards PDF reference", systemImage: "doc.text")
-            }
-
             NavigationLink {
                 AutoCalcView(info: $info)
             } label: {
                 HStack {
-                    Label("Auto Calculation", systemImage: "calculator")
+                    Label("Auto Calculation", systemImage: "plus.forwardslash.minus")
                         .foregroundStyle(.blue)
                     Spacer()
                     Button {
@@ -284,7 +284,7 @@ struct Goal_Page: View {
                 GoalDraftEditor(goal: $goal) {
                     if let index = goalDrafts.firstIndex(where: { $0.id == goal.id }) {
                         goalDrafts.remove(at: index)
-                        saveAll()
+                        saveIfOnboarding()
                     }
                 }
                 .padding(.vertical, 6)
@@ -293,7 +293,7 @@ struct Goal_Page: View {
 
             Button {
                 goalDrafts.append(GoalDraft())
-                saveAll()
+                saveIfOnboarding()
             } label: {
                 Label("Add Goal", systemImage: "plus.circle.fill")
             }
@@ -347,7 +347,7 @@ struct Goal_Page: View {
                         Text("Previous")
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.secondary)
-                        Picker("Previous", selection: bindingForGrade($previousGrades, index)) {
+                        Picker("Previous", selection: bindingForGrade($previousGrades, index, isPrevious: true)) {
                             ForEach(gradeOptions, id: \.self) { grade in
                                 Text(grade).tag(grade)
                             }
@@ -364,8 +364,8 @@ struct Goal_Page: View {
                         Text("Target")
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.secondary)
-                        Picker("Target", selection: bindingForGrade($targetGrades, index)) {
-                            ForEach(gradeOptions, id: \.self) { grade in
+                        Picker("Target", selection: bindingForGrade($targetGrades, index, isPrevious: false)) {
+                            ForEach(targetGradeOptions(for: previousGrades[index]), id: \.self) { grade in
                                 Text(grade).tag(grade)
                             }
                         }
@@ -395,13 +395,18 @@ struct Goal_Page: View {
         }
     }
 
-    private func bindingForGrade(_ grades: Binding<[String]>, _ index: Int) -> Binding<String> {
+    private func bindingForGrade(_ grades: Binding<[String]>, _ index: Int, isPrevious: Bool) -> Binding<String> {
         Binding {
             guard grades.wrappedValue.indices.contains(index) else { return "Not set" }
             return displayGrade(grades.wrappedValue[index])
         } set: { newValue in
             guard grades.wrappedValue.indices.contains(index) else { return }
             grades.wrappedValue[index] = storedGrade(newValue)
+            if isPrevious,
+               targetGrades.indices.contains(index),
+               !targetGradeOptions(for: grades.wrappedValue[index]).contains(displayGrade(targetGrades[index])) {
+                targetGrades[index] = storedGrade(displayGrade(grades.wrappedValue[index]))
+            }
         }
     }
 
@@ -428,7 +433,7 @@ struct Goal_Page: View {
         snapshotEnabled = enabledStations
         snapshotGoals = GoalDraft.encode(goalDrafts)
 
-        saveAll()
+        saveIfOnboarding()
     }
 
     /// Restore on-screen state and UserDefaults to the snapshot captured on appear.
@@ -476,7 +481,7 @@ struct Goal_Page: View {
 
     private func deleteGoals(at offsets: IndexSet) {
         goalDrafts.remove(atOffsets: offsets)
-        saveAll()
+        saveIfOnboarding()
     }
 
     private func validateAll() -> Bool {
@@ -535,6 +540,32 @@ struct Goal_Page: View {
     private func storedGrade(_ value: String) -> String {
         value == "Not set" || value == "false" ? "" : value
     }
+
+    private func saveIfOnboarding() {
+        guard start else { return }
+        saveAll()
+    }
+
+    private func targetGradeOptions(for previousGrade: String) -> [String] {
+        let previous = displayGrade(previousGrade)
+        guard previous != "Not set" else { return gradeOptions }
+        return gradeOptions.filter { grade in
+            grade == "Not set" || gradeRank(grade) >= gradeRank(previous)
+        }
+    }
+
+    private func gradeRank(_ grade: String) -> Int {
+        switch grade {
+        case "A": return 7
+        case "B": return 6
+        case "C": return 5
+        case "D": return 4
+        case "E": return 3
+        case "F": return 2
+        case "NA": return 1
+        default: return 0
+        }
+    }
 }
 
 private struct GoalDraftEditor: View {
@@ -588,25 +619,66 @@ private struct NAPFAStandardRow: Identifiable {
     let run: String
 }
 
+private struct StandardColumn: Identifiable {
+    var id: String { title }
+    let title: String
+    let width: CGFloat
+    let value: (NAPFAStandardRow) -> String
+
+    init(title: String, width: CGFloat, value: KeyPath<NAPFAStandardRow, String>) {
+        self.title = title
+        self.width = width
+        self.value = { row in row[keyPath: value] }
+    }
+}
+
 private struct NAPFAStandardsView: View {
     let isMale: Bool
-    @State private var selectedAge: String = ""
+    let age: Int
+    let enabledStations: [Bool]
+    @State private var showFocusedRows = true
 
     private var rows: [NAPFAStandardRow] {
         let allRows = isMale ? Self.maleRows : Self.femaleRows
-        guard !selectedAge.isEmpty else { return allRows }
-        return allRows.filter { $0.age == selectedAge }
+        guard showFocusedRows else { return allRows }
+        return rowsForAge(String(normalizedStandardsAge(age)), in: allRows)
     }
 
-    private var ageGroups: [String] {
-        let allRows = isMale ? Self.maleRows : Self.femaleRows
-        let ages = allRows.map { $0.age }.filter { !$0.isEmpty }
-        return Array(Set(ages)).sorted()
+    private var visibleColumns: [StandardColumn] {
+        var columns: [StandardColumn] = [
+            StandardColumn(title: "Age group", width: 72, value: \.age),
+            StandardColumn(title: "Performance grade", width: 112, value: \.grade),
+            StandardColumn(title: "Points", width: 58, value: \.points)
+        ]
+
+        let stationColumns: [(NAPFAStation, StandardColumn)] = [
+            (.sitUps, StandardColumn(title: "Sit-ups in 1 min", width: 92, value: \.sitUps)),
+            (.standingBroadJump, StandardColumn(title: "Standing Broad Jump", width: 112, value: \.jump)),
+            (.sitAndReach, StandardColumn(title: "Sit & Reach Distance", width: 104, value: \.reach)),
+            (.inclinedPullUps, StandardColumn(title: isMale ? "Pull-ups / Inclined" : "Inclined Pull-ups in 30 sec", width: 118, value: \.pullUps)),
+            (.shuttleRun, StandardColumn(title: "4 x 10m Shuttle Run Time", width: 120, value: \.shuttle)),
+            (.run, StandardColumn(title: "2.4 km Run-Walk time", width: 130, value: \.run))
+        ]
+
+        let selectedStationColumns = stationColumns.enumerated().compactMap { index, item in
+            enabledStations.indices.contains(index) && enabledStations[index] ? item.1 : nil
+        }
+
+        columns.append(contentsOf: showFocusedRows && !selectedStationColumns.isEmpty ? selectedStationColumns : stationColumns.map { $0.1 })
+        return columns
+    }
+
+    private var tableWidth: CGFloat {
+        visibleColumns.reduce(0) { $0 + $1.width }
+    }
+
+    private func normalizedStandardsAge(_ age: Int) -> Int {
+        min(max(age, 12), 19)
     }
 
     var body: some View {
-        ScrollView([.vertical, .horizontal]) {
-            GeometryReader { geometry in
+        GeometryReader { geometry in
+            ScrollView([.vertical, .horizontal]) {
                 VStack(alignment: .leading, spacing: 14) {
                     Text("NAPFA Standards (Secondary)")
                         .font(.title2.weight(.black))
@@ -616,13 +688,12 @@ private struct NAPFAStandardsView: View {
                         .font(.headline.weight(.bold))
                         .italic()
 
-                    Picker("Age Group", selection: $selectedAge) {
-                        Text("All ages").tag("")
-                        ForEach(ageGroups, id: \.self) { age in
-                            Text("Age \(age)").tag(age)
-                        }
+                    Toggle(isOn: $showFocusedRows) {
+                        Text(showFocusedRows ? "Focused standards" : "Full standards")
+                            .font(.subheadline.weight(.semibold))
                     }
-                    .pickerStyle(.segmented)
+                    .toggleStyle(.switch)
+                    .frame(maxWidth: min(tableWidth, geometry.size.width - 36), alignment: .leading)
 
                     LazyVStack(spacing: 0) {
                         standardsHeader(screenWidth: geometry.size.width)
@@ -644,32 +715,20 @@ private struct NAPFAStandardsView: View {
     }
 
     private func standardsHeader(screenWidth: CGFloat) -> some View {
-        let scaleFactor = min(1.0, (screenWidth - 36) / 920)
+        let scaleFactor = min(1.0, (screenWidth - 36) / tableWidth)
         return HStack(spacing: 0) {
-            tableCell("Age group", width: 72 * scaleFactor, isHeader: true)
-            tableCell("Performance grade", width: 112 * scaleFactor, isHeader: true)
-            tableCell("Points", width: 58 * scaleFactor, isHeader: true)
-            tableCell("Sit-ups in 1 min", width: 92 * scaleFactor, isHeader: true)
-            tableCell("Standing Broad Jump", width: 112 * scaleFactor, isHeader: true)
-            tableCell("Sit & Reach Distance", width: 104 * scaleFactor, isHeader: true)
-            tableCell(isMale ? "Pull-ups / Inclined" : "Inclined Pull-ups in 30 sec", width: 118 * scaleFactor, isHeader: true)
-            tableCell("4 x 10m Shuttle Run Time", width: 120 * scaleFactor, isHeader: true)
-            tableCell("2.4 km Run-Walk time", width: 130 * scaleFactor, isHeader: true)
+            ForEach(visibleColumns) { column in
+                tableCell(column.title, width: column.width * scaleFactor, isHeader: true)
+            }
         }
     }
 
     private func standardsRow(_ row: NAPFAStandardRow, screenWidth: CGFloat) -> some View {
-        let scaleFactor = min(1.0, (screenWidth - 36) / 920)
+        let scaleFactor = min(1.0, (screenWidth - 36) / tableWidth)
         return HStack(spacing: 0) {
-            tableCell(row.age, width: 72 * scaleFactor)
-            tableCell(row.grade, width: 112 * scaleFactor)
-            tableCell(row.points, width: 58 * scaleFactor)
-            tableCell(row.sitUps, width: 92 * scaleFactor)
-            tableCell(row.jump, width: 112 * scaleFactor)
-            tableCell(row.reach, width: 104 * scaleFactor)
-            tableCell(row.pullUps, width: 118 * scaleFactor)
-            tableCell(row.shuttle, width: 120 * scaleFactor)
-            tableCell(row.run, width: 130 * scaleFactor)
+            ForEach(visibleColumns) { column in
+                tableCell(column.value(row), width: column.width * scaleFactor)
+            }
         }
     }
 
@@ -688,6 +747,22 @@ private struct NAPFAStandardsView: View {
 
     private static func row(_ age: String, _ grade: String, _ points: String, _ sitUps: String, _ jump: String, _ reach: String, _ pullUps: String, _ shuttle: String, _ run: String) -> NAPFAStandardRow {
         NAPFAStandardRow(age: age, grade: grade, points: points, sitUps: sitUps, jump: jump, reach: reach, pullUps: pullUps, shuttle: shuttle, run: run)
+    }
+
+    private func rowsForAge(_ targetAge: String, in allRows: [NAPFAStandardRow]) -> [NAPFAStandardRow] {
+        var matchedRows: [NAPFAStandardRow] = []
+        var isCollecting = false
+
+        for row in allRows {
+            if !row.age.isEmpty {
+                isCollecting = row.age == targetAge
+            }
+            if isCollecting {
+                matchedRows.append(row)
+            }
+        }
+
+        return matchedRows.isEmpty ? allRows : matchedRows
     }
 
     private static let femaleRows: [NAPFAStandardRow] = [

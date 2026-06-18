@@ -138,6 +138,7 @@ enum AppKeys {
     static let widgetNextWorkout = "widgetNextWorkout"
     static let widgetStreak = "widgetStreak"
     static let widgetGoal = "widgetGoal"
+    static let darkModeEnabled = "darkModeEnabled"
 }
 
 enum NAPFAStation: String, CaseIterable, Identifiable {
@@ -641,6 +642,7 @@ struct ContentView: View {
     @State var selectedTab: Tab = .house
     @StateObject private var workoutSession = WorkoutSessionState()
     @State private var showNotificationChoice = false
+    @AppStorage(AppKeys.darkModeEnabled) private var darkModeEnabled = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -709,6 +711,7 @@ struct ContentView: View {
         } message: {
             Text("Would you like to start your session now or reschedule it?")
         }
+        .preferredColorScheme(darkModeEnabled ? ColorScheme.dark : nil)
     }
 
     @ViewBuilder

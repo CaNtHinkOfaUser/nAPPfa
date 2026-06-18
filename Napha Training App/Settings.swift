@@ -18,6 +18,7 @@ struct Settings: View {
     @State private var ageSheetSettings = false
     @State private var autoCalcSettings = false
     @State private var appeared = false
+    @AppStorage(AppKeys.darkModeEnabled) private var darkModeEnabled = false
 
     var body: some View {
         NavigationStack {
@@ -29,7 +30,7 @@ struct Settings: View {
                         SettingsRow(title: "Goal setting", subtitle: "Grades & custom goals", icon: "target", color: .blue) {
                             goalSheetSettings = true
                         }
-                        SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "calculator", color: .blue) {
+                        SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "plus.forwardslash.minus", color: .blue) {
                             autoCalcSettings = true
                         }
                         SettingsRow(title: "Scheduling", subtitle: "Days, times, reminders", icon: "calendar.badge.clock", color: .green) {
@@ -41,6 +42,16 @@ struct Settings: View {
                         SettingsRow(title: "Age and sex", subtitle: "Used for grade tables", icon: "person.crop.circle", color: .orange) {
                             ageSheetSettings = true
                         }
+                    }
+
+                    settingsGroup(title: "Appearance") {
+                        SettingsToggleRow(
+                            title: "Dark mode",
+                            subtitle: "Use a darker app appearance",
+                            icon: "moon.fill",
+                            color: .indigo,
+                            isOn: $darkModeEnabled
+                        )
                     }
                 }
                 .padding(.horizontal, 18)
@@ -243,6 +254,40 @@ private struct SettingsRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+    }
+}
+
+private struct SettingsToggleRow: View {
+    let title: String
+    var subtitle: String = ""
+    let icon: String
+    let color: Color
+    @Binding var isOn: Bool
+
+    var body: some View {
+        HStack(spacing: 14) {
+            Image(systemName: icon)
+                .font(.title3.weight(.semibold))
+                .foregroundStyle(color)
+                .frame(width: 40, height: 40)
+                .background(color.opacity(0.14), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.body.weight(.semibold))
+                if !subtitle.isEmpty {
+                    Text(subtitle)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Spacer()
+            Toggle(title, isOn: $isOn)
+                .labelsHidden()
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 12)
     }
 }
 

@@ -10,7 +10,6 @@ struct Age_Gender: View {
     @State private var birthdate: Date?
     @State private var hasPickedBirthdate = false
     @State private var hasPickedSex = false
-    @State private var showGenderSheet = false
     @Environment(\.dismiss) private var dismiss
 
     /// Snapshot of persisted values captured on appear, used to restore when Cancel is tapped.
@@ -70,16 +69,6 @@ struct Age_Gender: View {
         }
         .background(Color(.systemGroupedBackground))
         .onAppear(perform: loadProfile)
-        .sheet(isPresented: $showGenderSheet) {
-            GenderSelectionView(info: $info, sex: $sex)
-                .presentationDetents([.fraction(0.45)])
-                .presentationDragIndicator(.visible)
-                .onDisappear {
-                    // Reflect the sheet's selection into local state without persisting yet.
-                    hasPickedSex = true
-                    info.Gender = sex
-                }
-        }
     }
 
     private var profileForm: some View {
@@ -96,28 +85,19 @@ struct Age_Gender: View {
                 .font(.title3.weight(.bold))
 
             VStack(alignment: .leading, spacing: 6) {
-                if let birthdate {
-                    DatePicker(
-                        "Birthdate",
-                        selection: Binding(
-                            get: { birthdate },
-                            set: { newValue in
-                                self.birthdate = newValue
-                                hasPickedBirthdate = true
-                            }
-                        ),
-                        in: calculatedStartDate()...calculatedEndDate(),
-                        displayedComponents: .date
-                    )
-                } else {
-                    Button("Select Birthdate") {
-                        self.birthdate = Date.now
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(10)
-                    .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 8))
-                    .foregroundStyle(.blue)
-                }
+                DatePicker(
+                    "Birthdate",
+                    selection: Binding(
+                        get: { birthdate ?? calculatedEndDate() },
+                        set: { newValue in
+                            self.birthdate = newValue
+                            hasPickedBirthdate = true
+                            persistOnboardingProfileIfNeeded()
+                        }
+                    ),
+                    in: calculatedStartDate()...calculatedEndDate(),
+                    displayedComponents: .date
+                )
 
                 if age > 0 {
                     Text("Age: \(age)")
@@ -126,18 +106,13 @@ struct Age_Gender: View {
                 }
             }
 
-            HStack {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Sex:")
-                Spacer()
-                Button(action: {
-                    showGenderSheet.toggle()
-                }) {
-                    Text(sex ? "Male" : "Female")
-                        .foregroundColor(.black)
+
+                HStack(spacing: 12) {
+                    GenderButton(gender: "Female", selectedGender: genderSelection)
+                    GenderButton(gender: "Male", selectedGender: genderSelection)
                 }
-                .labelsHidden()
-                .tint(.black)
-                .offset(x: -10)
             }
         }
         .padding(18)
@@ -197,6 +172,23 @@ struct Age_Gender: View {
             UserDefaults.standard.set(true, forKey: AppKeys.genderCompleted)
         }
         updateProfileCompletionFlag()
+    }
+
+    private func persistOnboardingProfileIfNeeded() {
+        guard start else { return }
+        saveProfile()
+    }
+
+    private var genderSelection: Binding<String?> {
+        Binding {
+            sex ? "Male" : "Female"
+        } set: { selectedGender in
+            guard let selectedGender else { return }
+            sex = selectedGender == "Male"
+            info.Gender = sex
+            hasPickedSex = true
+            persistOnboardingProfileIfNeeded()
+        }
     }
 
     /// Restore the on-screen state to the persisted snapshot, discarding in-flight edits.
@@ -305,7 +297,7 @@ struct GenderButton: View {
                     .foregroundColor(isSelected ? .white : .blue)
             }
             .padding()
-            .frame(width: 155, height: 100)
+            .frame(maxWidth: .infinity, minHeight: 100)
             .background(isSelected ? Color.blue : Color.white)
             .cornerRadius(10)
             .overlay(
