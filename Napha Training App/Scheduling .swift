@@ -96,7 +96,7 @@ struct Scheduling_: View {
                 .datePickerStyle(.compact)
                 .onChange(of: NAPFA_Date) {
                     info.NAPFA_Date = NAPFA_Date
-                    markSaved()
+                    saveOnboardingScheduleIfNeeded()
                 }
 
             Label(savedStatus, systemImage: "checkmark.circle.fill")
@@ -213,7 +213,8 @@ struct Scheduling_: View {
         } set: { newValue in
             guard times.indices.contains(day) else { return }
             times[day] = newValue
-            markSaved()
+            syncSelectedTimesFromDays()
+            saveOnboardingScheduleIfNeeded()
         }
     }
 
@@ -224,7 +225,8 @@ struct Scheduling_: View {
             } else {
                 selectedDays.append(day)
             }
-            markSaved()
+            syncSelectedTimesFromDays()
+            saveOnboardingScheduleIfNeeded()
         }
     }
 
@@ -269,14 +271,11 @@ struct Scheduling_: View {
         snapshotNow = reminderNow
 
         savedStatus = "Last saved"
+        syncSelectedTimesFromDays()
     }
 
     private func persistSchedule() {
-        let sortedDays = selectedDays.sorted()
-        selectedDays = sortedDays
-        selectedTimes = sortedDays.compactMap { day in
-            times.indices.contains(day) ? times[day] : nil
-        }
+        syncSelectedTimesFromDays()
 
         let defaults = UserDefaults.standard
         defaults.set(selectedDays, forKey: AppKeys.selectedDays)
@@ -288,6 +287,22 @@ struct Scheduling_: View {
         _ = AppState.currentStreak(selectedDays: selectedDays, selectedTimes: selectedTimes)
         NotificationCoordinator.scheduleWorkoutNotifications(selectedDays: selectedDays, selectedTimes: selectedTimes)
         markSaved()
+    }
+
+    private func syncSelectedTimesFromDays() {
+        let sortedDays = selectedDays.sorted()
+        selectedDays = sortedDays
+        selectedTimes = sortedDays.compactMap { day in
+            times.indices.contains(day) ? times[day] : nil
+        }
+    }
+
+    private func saveOnboardingScheduleIfNeeded() {
+        if start {
+            persistSchedule()
+        } else {
+            markSaved()
+        }
     }
 
     private func persistReminders() {
