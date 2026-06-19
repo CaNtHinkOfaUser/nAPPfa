@@ -44,7 +44,7 @@ enum Tab: String, CaseIterable {
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
 
-    var body: some View {
+	var body: some View {
         HStack(spacing: 8) {
             ForEach(Tab.allCases, id: \.rawValue) { tab in
                 Button {
@@ -68,6 +68,7 @@ struct CustomTabBar: View {
             }
         }
         .padding(.horizontal, 12)
+		.symbolEffect(.drawOn)
         .padding(.top, 8)
         .padding(.bottom, 10)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 24, style: .continuous))

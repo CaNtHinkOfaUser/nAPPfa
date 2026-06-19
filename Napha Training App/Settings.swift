@@ -30,7 +30,7 @@ struct Settings: View {
 						SettingsRow(title: "Goal setting", subtitle: "Grades & custom goals", icon: "target", color: .blue) {
 							goalSheetSettings = true
 						}
-						SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "plus.forwardslash.minus", color: .blue) {
+						SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "candybarphone", color: .blue) {
 							autoCalcSettings = true
 						}
 						SettingsRow(title: "Scheduling", subtitle: "Days, times, reminders", icon: "calendar.badge.clock", color: .green) {

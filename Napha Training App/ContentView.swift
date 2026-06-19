@@ -533,6 +533,13 @@ enum AppState {
 	}
 }
 
+struct ReminderConfig {
+	let key: String
+	let offset: TimeInterval
+	let title: String
+	let enabled: Bool
+}
+
 enum NotificationCoordinator {
 	static let categoryIdentifier = "NAPFA_WORKOUT_REMINDER"
 	static let workoutActionIdentifier = "WORKOUT_NOW"
@@ -544,6 +551,29 @@ enum NotificationCoordinator {
 		"napfa.workout.now"
 	]
 	private static let horizonDays = 14
+	
+	private static func reminderConfigs(defaults: UserDefaults) -> [ReminderConfig] {
+		[
+			ReminderConfig(
+				key: "oneHour",
+				offset: 3600,
+				title: "Workout in 1 hour",
+				enabled: defaults.bool(forKey: AppKeys.reminderOneHour)
+			),
+			ReminderConfig(
+				key: "tenMinutes",
+				offset: 600,
+				title: "Workout in 10 minutes",
+				enabled: defaults.bool(forKey: AppKeys.reminderTenMinutes)
+			),
+			ReminderConfig(
+				key: "now",
+				offset: 0,
+				title: "Workout time",
+				enabled: defaults.bool(forKey: AppKeys.reminderNow)
+			)
+		]
+	}
 	
 	static func configureCategories() {
 		let workout = UNNotificationAction(
@@ -599,11 +629,7 @@ enum NotificationCoordinator {
 			}
 			guard defaults.bool(forKey: AppKeys.remindersEnabled) else { return }
 			
-			let reminders: [(key: String, offset: TimeInterval, title: String, enabled: Bool)] = [
-				("oneHour", 3600, "Workout in 1 hour", defaults.bool(forKey: AppKeys.reminderOneHour)),
-				("tenMinutes", 600, "Workout in 10 minutes", defaults.bool(forKey: AppKeys.reminderTenMinutes)),
-				("now", 0, "Workout time", defaults.bool(forKey: AppKeys.reminderNow))
-			].filter { $0.enabled }
+			let reminders = reminderConfigs(defaults: defaults).filter { $0.enabled }
 			
 			for (workoutIndex, workout) in upcoming.prefix(horizonDays).enumerated() {
 				for reminder in reminders {
@@ -631,7 +657,18 @@ enum NotificationCoordinator {
 	static func handle(response: UNNotificationResponse) {
 		let defaults = UserDefaults.standard
 		guard response.notification.request.content.categoryIdentifier == categoryIdentifier else { return }
-		defaults.set(true, forKey: AppKeys.showNotificationChoiceAlert)
+		// Map notification action to flags the UI can read when the app becomes active
+		switch response.actionIdentifier {
+		case workoutActionIdentifier:
+			// Open workout directly
+			defaults.set(true, forKey: AppKeys.openWorkoutFromNotification)
+		case rescheduleActionIdentifier:
+			// Open schedule UI to let user reschedule
+			defaults.set(true, forKey: AppKeys.openScheduleFromNotification)
+		default:
+			// Default tap on notification - show choice alert
+			defaults.set(true, forKey: AppKeys.showNotificationChoiceAlert)
+		}
 	}
 	
 	private static var allNotificationIdentifiers: [String] {
@@ -813,6 +850,22 @@ struct ContentView: View {
 	private func routeFromNotificationFlags() {
 		let defaults = UserDefaults.standard
 		
+		// If an explicit open-workout flag is set, navigate to workout immediately.
+		if defaults.bool(forKey: AppKeys.openWorkoutFromNotification) {
+			defaults.set(false, forKey: AppKeys.openWorkoutFromNotification)
+			selectedTab = .dumbbell
+			return
+		}
+		
+		// If an explicit open-schedule flag is set, open the scheduling sheet.
+		if defaults.bool(forKey: AppKeys.openScheduleFromNotification) {
+			defaults.set(false, forKey: AppKeys.openScheduleFromNotification)
+			SchedSheetCV = true
+			selectedTab = .house
+			return
+		}
+		
+		// Otherwise, if the generic choice alert flag is set, show the alert.
 		if defaults.bool(forKey: AppKeys.showNotificationChoiceAlert) {
 			defaults.set(false, forKey: AppKeys.showNotificationChoiceAlert)
 			showNotificationChoice = true
@@ -823,4 +876,3 @@ struct ContentView: View {
 #Preview {
 	ContentView()
 }
-
