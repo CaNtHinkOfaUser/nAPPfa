@@ -19,6 +19,8 @@ struct Napha_Training_AppApp: App {
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
             UNUserNotificationCenter.current().delegate = self
             NotificationCoordinator.configureCategories()
+            // Request permission proactively so notifications can be scheduled later.
+            NotificationCoordinator.requestAuthorization()
             return true
         }
 
@@ -28,7 +30,6 @@ struct Napha_Training_AppApp: App {
 
         func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
             NotificationCoordinator.handle(response: response)
-            NotificationCenter.default.post(name: .workoutNotificationTapped, object: nil)
             completionHandler()
         }
 

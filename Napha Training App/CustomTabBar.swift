@@ -2,8 +2,7 @@
 //  CustomTabBar.swift
 //  Napha Training App
 //
-//  Created by Alvarez Marco Lorenzo Tanzon on 19/8/24.
-//
+//  Created by Ishaan Rai
 
 import SwiftUI
 
@@ -68,13 +67,15 @@ struct CustomTabBar: View {
             }
         }
         .padding(.horizontal, 12)
-		.symbolEffect(.drawOn)
-        .padding(.top, 8)
+		.padding(.top, 8)
         .padding(.bottom, 10)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
         .padding(.horizontal, 16)
         .padding(.bottom, 8)
         .shadow(color: .black.opacity(0.08), radius: 14, y: 6)
+        #if compiler(>=5.9) && canImport(iOS)
+        .symbolEffect(.drawOn)
+        #endif
     }
 }
 

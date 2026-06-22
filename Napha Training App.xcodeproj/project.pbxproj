@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3100167D2FE6E24C00300583 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3101A6C52CA422370082724C /* Profile.swift */; };
 		31B526922C65C54C007D413C /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B526912C65C54C007D413C /* SplashScreen.swift */; };
 		31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314BCB0E2C73369200F43C37 /* StartingTabView.swift */; };
 		31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313420962C5B9E7800AEF150 /* Age_Gender.swift */; };
@@ -160,7 +161,6 @@
 		7705B7272C00621500111DBE = {
 			isa = PBXGroup;
 			children = (
-				3101A6C52CA422370082724C /* Profile.swift */,
 				31B526912C65C54C007D413C /* SplashScreen.swift */,
 				7705B7322C00621500111DBE /* Napha Training App */,
 				7705B7432C00621700111DBE /* Napha Training AppTests */,
@@ -185,6 +185,7 @@
 		7705B7322C00621500111DBE /* Napha Training App */ = {
 			isa = PBXGroup;
 			children = (
+				3101A6C52CA422370082724C /* Profile.swift */,
 				31B526902C64EDAA007D413C /* Napha-Training-App-Info.plist */,
 				314BCB0E2C73369200F43C37 /* StartingTabView.swift */,
 				A9E411132C8EE6E50014AF7A /* Statistics.swift */,
@@ -316,7 +317,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2650;
 				TargetAttributes = {
 					3152F8032CBD343000D025F5 = {
 						CreatedOnToolsVersion = 15.4;
@@ -411,6 +412,7 @@
 				A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */,
 				77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */,
 				31B526922C65C54C007D413C /* SplashScreen.swift in Sources */,
+				3100167D2FE6E24C00300583 /* Profile.swift in Sources */,
 				31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */,
 				31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */,
 				7705B7362C00621500111DBE /* ContentView.swift in Sources */,
@@ -572,6 +574,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -628,6 +631,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

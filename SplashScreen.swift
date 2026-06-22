@@ -30,7 +30,7 @@ struct SplashScreen: View {
                             .shadow(color: .black.opacity(0.12), radius: 16, y: 8)
 
                         Text("nAPPfa")
-                            .font(.system(size: 36, weight: .black, design: .rounded))
+                            .font(.system(size: 50, weight: .black, design: .rounded))
 
                         Text("nAPPfa training, neatly tracked.")
                             .font(.subheadline.weight(.medium))
