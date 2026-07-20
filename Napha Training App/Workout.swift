@@ -129,7 +129,7 @@ struct Workout: View {
 					.frame(width: 48)
 				
 				VStack(alignment: .leading, spacing: 4) {
-					Text(station.rawValue)
+					Text(station.displayName(age: info.Age, sex: info.Gender))
 						.font(.headline)
 					Text("\(level.rawValue) · \(display(prev)) → \(display(targ))")
 						.font(.caption.weight(.semibold))
@@ -282,7 +282,7 @@ struct Workout: View {
 				.monospacedDigit()
 			
 			if let selectedStation {
-				Text(selectedStation.rawValue)
+				Text(selectedStation.displayName(age: info.Age, sex: info.Gender))
 					.font(.title3.weight(.semibold))
 					.foregroundStyle(.secondary)
 			}
@@ -414,7 +414,7 @@ struct Workout: View {
 	
 	private func addExtraSet() {
 		guard let selectedStation else { return }
-		sessionSteps = WorkoutStep.extraSet(for: selectedStation)
+		sessionSteps = WorkoutStep.extraSet(for: selectedStation, age: info.Age, sex: info.Gender)
 		currentIndex = 0
 		breakRemaining = 45
 		breakTotal = 45

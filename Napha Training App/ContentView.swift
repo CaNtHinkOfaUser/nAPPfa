@@ -203,6 +203,21 @@ enum NAPFAStation: String, CaseIterable, Identifiable {
 		case .run: return "Aerobic base and pace control"
 		}
 	}
+	
+	func displayName(age: Int? = nil, sex: Bool? = nil) -> String {
+		// For presentation purposes, treat inclined pull-ups as straight pull-ups
+		// once the user's calculated age reaches 15. Keep stored enum values
+		// unchanged; this only affects displayed text.
+		guard self == .inclinedPullUps else { return rawValue }
+		if let age = age, age >= 15 {
+			return "Pull-ups"
+		}
+		return rawValue
+	}
+	
+	func displayName(for info: data) -> String {
+		displayName(age: info.Age, sex: info.Gender)
+	}
 }
 
 struct GoalDraft: Identifiable, Equatable {
@@ -592,10 +607,10 @@ enum NotificationCoordinator {
 			intentIdentifiers: [],
 			options: []
 		)
-
+		
 		UNUserNotificationCenter.current().setNotificationCategories([category])
 	}
-
+	
 	/// Prompt the user for notification permission. Called once at launch so that
 	/// scheduling later in the session actually registers requests.
 	static func requestAuthorization() {
@@ -612,25 +627,25 @@ enum NotificationCoordinator {
 			}
 		}
 	}
-
+	
 	static func cancelPendingWorkoutNotifications() {
 		UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: allNotificationIdentifiers)
 	}
-
+	
 	static func scheduleWorkoutNotifications(selectedDays: [Int], selectedTimes: [Date]) {
 		let workouts = AppState.upcomingWorkoutDates(days: selectedDays, times: selectedTimes, horizonDays: horizonDays)
 		scheduleWorkoutNotifications(for: workouts)
 		AppState.persistWidgetSummary(selectedDays: selectedDays, selectedTimes: selectedTimes)
 	}
-
+	
 	static func scheduleWorkoutNotifications(for workouts: [Date]) {
 		cancelPendingWorkoutNotifications()
-
+		
 		let upcoming = workouts.filter { workout in
 			!AppState.hasWorkedOutToday() || !Calendar.current.isDate(workout, inSameDayAs: Date())
 		}
 		guard !upcoming.isEmpty else { return }
-
+		
 		// Check current authorization status synchronously; only schedule if permitted.
 		// If permission is pending, the schedule is retried on app activation (refreshScheduleNotifications).
 		UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -643,7 +658,7 @@ enum NotificationCoordinator {
 				}
 				return
 			}
-
+			
 			let defaults = UserDefaults.standard
 			if defaults.object(forKey: AppKeys.remindersEnabled) == nil {
 				defaults.set(true, forKey: AppKeys.remindersEnabled)
@@ -652,20 +667,20 @@ enum NotificationCoordinator {
 				defaults.set(true, forKey: AppKeys.reminderNow)
 			}
 			guard defaults.bool(forKey: AppKeys.remindersEnabled) else { return }
-
+			
 			let reminders = reminderConfigs(defaults: defaults).filter { $0.enabled }
-
+			
 			for (workoutIndex, workout) in upcoming.prefix(horizonDays).enumerated() {
 				for reminder in reminders {
 					let fireDate = workout.addingTimeInterval(-reminder.offset)
 					guard fireDate > Date() else { continue }
-
+					
 					let content = UNMutableNotificationContent()
 					content.title = reminder.title
 					content.body = "Open nAPPfa to work out now or reschedule."
 					content.sound = .default
 					content.categoryIdentifier = categoryIdentifier
-
+					
 					let trigger = UNCalendarNotificationTrigger(
 						dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: fireDate),
 						repeats: false
@@ -679,7 +694,7 @@ enum NotificationCoordinator {
 			}
 		}
 	}
-
+	
 	static func handle(response: UNNotificationResponse) {
 		let defaults = UserDefaults.standard
 		guard response.notification.request.content.categoryIdentifier == categoryIdentifier else { return }

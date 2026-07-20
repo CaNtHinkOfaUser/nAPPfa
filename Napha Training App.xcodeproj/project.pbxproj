@@ -5,817 +5,813 @@
 	};
 	objectVersion = 56;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		3100167D2FE6E24C00300583 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3101A6C52CA422370082724C /* Profile.swift */; };
-		31B526922C65C54C007D413C /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B526912C65C54C007D413C /* SplashScreen.swift */; };
-		31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314BCB0E2C73369200F43C37 /* StartingTabView.swift */; };
-		31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313420962C5B9E7800AEF150 /* Age_Gender.swift */; };
-		31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B2D642C983CCA0054CB58 /* AutoCalc.swift */; };
-		31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134209A2C5C838200AEF150 /* Scheduling .swift */; };
-		7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */; };
-		7705B7362C00621500111DBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7352C00621500111DBE /* ContentView.swift */; };
-		7705B7382C00621700111DBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B7372C00621700111DBE /* Assets.xcassets */; };
-		7705B73B2C00621700111DBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B73A2C00621700111DBE /* Preview Assets.xcassets */; };
-		7705B7452C00621700111DBE /* Napha_Training_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */; };
-		7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */; };
-		7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */; };
-		77B0B38B2C60C15E002102AA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0B38A2C60C15E002102AA /* Workout.swift */; };
-		77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C192C29670B0045BA5B /* Login.swift */; };
-		77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1B2C29673A0045BA5B /* Home.swift */; };
-		77BA9C1E2C296A960045BA5B /* Goal Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1D2C296A960045BA5B /* Goal Page.swift */; };
-		77BFA61A2C36E8830072B92E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFA6192C36E8830072B92E /* Settings.swift */; };
-		A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9793E692C734063008BF2BC /* CustomTabBar.swift */; };
-		A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E411132C8EE6E50014AF7A /* Statistics.swift */; };
-		B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3152F8162CBD343300D025F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7705B7282C00621500111DBE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3152F8032CBD343000D025F5;
-			remoteInfo = "nAPPfa widgetExtension";
-		};
-		7705B7412C00621700111DBE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7705B7282C00621500111DBE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7705B72F2C00621500111DBE;
-			remoteInfo = "Napha Training App";
-		};
-		7705B74B2C00621700111DBE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7705B7282C00621500111DBE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7705B72F2C00621500111DBE;
-			remoteInfo = "Napha Training App";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3152F8192CBD343300D025F5 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		3101A6C52CA422370082724C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		311B2D642C983CCA0054CB58 /* AutoCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCalc.swift; sourceTree = "<group>"; };
-		313420962C5B9E7800AEF150 /* Age_Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Age_Gender.swift; sourceTree = "<group>"; };
-		3134209A2C5C838200AEF150 /* Scheduling .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scheduling .swift"; sourceTree = "<group>"; };
-		314BCB0E2C73369200F43C37 /* StartingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingTabView.swift; sourceTree = "<group>"; };
-		3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "nAPPfa widgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3152F8062CBD343000D025F5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		3152F8082CBD343000D025F5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		3152F80B2CBD343000D025F5 /* nAPPfa_widgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfa_widgetBundle.swift; sourceTree = "<group>"; };
-		3152F80D2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfa_widgetLiveActivity.swift; sourceTree = "<group>"; };
-		3152F80F2CBD343000D025F5 /* nAPPfa_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfa_widget.swift; sourceTree = "<group>"; };
-		3152F8112CBD343000D025F5 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
-		3152F8132CBD343300D025F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3152F8152CBD343300D025F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31B526902C64EDAA007D413C /* Napha-Training-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Napha-Training-App-Info.plist"; sourceTree = SOURCE_ROOT; };
-		31B526912C65C54C007D413C /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		7705B7302C00621500111DBE /* Napha Training App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Napha Training App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppApp.swift; sourceTree = "<group>"; };
-		7705B7352C00621500111DBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7705B7372C00621700111DBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7705B73A2C00621700111DBE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7705B7402C00621700111DBE /* Napha Training AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Napha Training AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppTests.swift; sourceTree = "<group>"; };
-		7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Napha Training AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITests.swift; sourceTree = "<group>"; };
-		7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		77B0B38A2C60C15E002102AA /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		77BA9C192C29670B0045BA5B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		77BA9C1B2C29673A0045BA5B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		77BA9C1D2C296A960045BA5B /* Goal Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal Page.swift"; sourceTree = "<group>"; };
-		77BFA6192C36E8830072B92E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		A9793E692C734063008BF2BC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		A9E411132C8EE6E50014AF7A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
-		B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlanner.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		3152F8012CBD343000D025F5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B72D2C00621500111DBE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B73D2C00621700111DBE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B7472C00621700111DBE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		3152F8052CBD343000D025F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3152F8062CBD343000D025F5 /* WidgetKit.framework */,
-				3152F8082CBD343000D025F5 /* SwiftUI.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3152F80A2CBD343000D025F5 /* nAPPfa widget */ = {
-			isa = PBXGroup;
-			children = (
-				3152F80B2CBD343000D025F5 /* nAPPfa_widgetBundle.swift */,
-				3152F80D2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift */,
-				3152F80F2CBD343000D025F5 /* nAPPfa_widget.swift */,
-				3152F8112CBD343000D025F5 /* AppIntent.swift */,
-				3152F8132CBD343300D025F5 /* Assets.xcassets */,
-				3152F8152CBD343300D025F5 /* Info.plist */,
-			);
-			path = "nAPPfa widget";
-			sourceTree = "<group>";
-		};
-		7705B7272C00621500111DBE = {
-			isa = PBXGroup;
-			children = (
-				31B526912C65C54C007D413C /* SplashScreen.swift */,
-				7705B7322C00621500111DBE /* Napha Training App */,
-				7705B7432C00621700111DBE /* Napha Training AppTests */,
-				7705B74D2C00621700111DBE /* Napha Training AppUITests */,
-				3152F80A2CBD343000D025F5 /* nAPPfa widget */,
-				3152F8052CBD343000D025F5 /* Frameworks */,
-				7705B7312C00621500111DBE /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		7705B7312C00621500111DBE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7705B7302C00621500111DBE /* Napha Training App.app */,
-				7705B7402C00621700111DBE /* Napha Training AppTests.xctest */,
-				7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */,
-				3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7705B7322C00621500111DBE /* Napha Training App */ = {
-			isa = PBXGroup;
-			children = (
-				3101A6C52CA422370082724C /* Profile.swift */,
-				31B526902C64EDAA007D413C /* Napha-Training-App-Info.plist */,
-				314BCB0E2C73369200F43C37 /* StartingTabView.swift */,
-				A9E411132C8EE6E50014AF7A /* Statistics.swift */,
-				7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */,
-				7705B7352C00621500111DBE /* ContentView.swift */,
-				A9793E692C734063008BF2BC /* CustomTabBar.swift */,
-				77BA9C1B2C29673A0045BA5B /* Home.swift */,
-				77B0B38A2C60C15E002102AA /* Workout.swift */,
-				B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */,
-				3134209A2C5C838200AEF150 /* Scheduling .swift */,
-				77BA9C1D2C296A960045BA5B /* Goal Page.swift */,
-				77BFA6192C36E8830072B92E /* Settings.swift */,
-				313420962C5B9E7800AEF150 /* Age_Gender.swift */,
-				311B2D642C983CCA0054CB58 /* AutoCalc.swift */,
-				77BA9C192C29670B0045BA5B /* Login.swift */,
-				7705B7372C00621700111DBE /* Assets.xcassets */,
-				7705B7392C00621700111DBE /* Preview Content */,
-			);
-			path = "Napha Training App";
-			sourceTree = "<group>";
-		};
-		7705B7392C00621700111DBE /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				7705B73A2C00621700111DBE /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		7705B7432C00621700111DBE /* Napha Training AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */,
-			);
-			path = "Napha Training AppTests";
-			sourceTree = "<group>";
-		};
-		7705B74D2C00621700111DBE /* Napha Training AppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */,
-				7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */,
-			);
-			path = "Napha Training AppUITests";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3152F81C2CBD343300D025F5 /* Build configuration list for PBXNativeTarget "nAPPfa widgetExtension" */;
-			buildPhases = (
-				3152F8002CBD343000D025F5 /* Sources */,
-				3152F8012CBD343000D025F5 /* Frameworks */,
-				3152F8022CBD343000D025F5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "nAPPfa widgetExtension";
-			productName = "nAPPfa widgetExtension";
-			productReference = 3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		7705B72F2C00621500111DBE /* Napha Training App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training App" */;
-			buildPhases = (
-				7705B72C2C00621500111DBE /* Sources */,
-				7705B72D2C00621500111DBE /* Frameworks */,
-				7705B72E2C00621500111DBE /* Resources */,
-				3152F8192CBD343300D025F5 /* Embed Foundation Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3152F8172CBD343300D025F5 /* PBXTargetDependency */,
-			);
-			name = "Napha Training App";
-			packageProductDependencies = (
-			);
-			productName = "Napha Training App";
-			productReference = 7705B7302C00621500111DBE /* Napha Training App.app */;
-			productType = "com.apple.product-type.application";
-		};
-		7705B73F2C00621700111DBE /* Napha Training AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppTests" */;
-			buildPhases = (
-				7705B73C2C00621700111DBE /* Sources */,
-				7705B73D2C00621700111DBE /* Frameworks */,
-				7705B73E2C00621700111DBE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7705B7422C00621700111DBE /* PBXTargetDependency */,
-			);
-			name = "Napha Training AppTests";
-			productName = "Napha Training AppTests";
-			productReference = 7705B7402C00621700111DBE /* Napha Training AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7705B7492C00621700111DBE /* Napha Training AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppUITests" */;
-			buildPhases = (
-				7705B7462C00621700111DBE /* Sources */,
-				7705B7472C00621700111DBE /* Frameworks */,
-				7705B7482C00621700111DBE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7705B74C2C00621700111DBE /* PBXTargetDependency */,
-			);
-			name = "Napha Training AppUITests";
-			productName = "Napha Training AppUITests";
-			productReference = 7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		7705B7282C00621500111DBE /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 2650;
-				TargetAttributes = {
-					3152F8032CBD343000D025F5 = {
-						CreatedOnToolsVersion = 15.4;
-					};
-					7705B72F2C00621500111DBE = {
-						CreatedOnToolsVersion = 15.4;
-					};
-					7705B73F2C00621700111DBE = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 7705B72F2C00621500111DBE;
-					};
-					7705B7492C00621700111DBE = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 7705B72F2C00621500111DBE;
+		
+		/* Begin PBXBuildFile section */
+			3100167D2FE6E24C00300583 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3101A6C52CA422370082724C /* Profile.swift */; };
+			31B526922C65C54C007D413C /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B526912C65C54C007D413C /* SplashScreen.swift */; };
+			31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314BCB0E2C73369200F43C37 /* StartingTabView.swift */; };
+			31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313420962C5B9E7800AEF150 /* Age_Gender.swift */; };
+			31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B2D642C983CCA0054CB58 /* AutoCalc.swift */; };
+			31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134209A2C5C838200AEF150 /* Scheduling .swift */; };
+			7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */; };
+			7705B7362C00621500111DBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7352C00621500111DBE /* ContentView.swift */; };
+			7705B7382C00621700111DBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B7372C00621700111DBE /* Assets.xcassets */; };
+			7705B73B2C00621700111DBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B73A2C00621700111DBE /* Preview Assets.xcassets */; };
+			7705B7452C00621700111DBE /* Napha_Training_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */; };
+			7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */; };
+			7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */; };
+			77B0B38B2C60C15E002102AA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0B38A2C60C15E002102AA /* Workout.swift */; };
+			77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C192C29670B0045BA5B /* Login.swift */; };
+			77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1B2C29673A0045BA5B /* Home.swift */; };
+			77BA9C1E2C296A960045BA5B /* Goal Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1D2C296A960045BA5B /* Goal Page.swift */; };
+			77BFA61A2C36E8830072B92E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFA6192C36E8830072B92E /* Settings.swift */; };
+			A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9793E692C734063008BF2BC /* CustomTabBar.swift */; };
+			A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E411132C8EE6E50014AF7A /* Statistics.swift */; };
+			B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */; };
+		/* End PBXBuildFile section */
+		
+		/* Begin PBXContainerItemProxy section */
+			3152F8162CBD343300D025F5 /* PBXContainerItemProxy */ = {
+				isa = PBXContainerItemProxy;
+				containerPortal = 7705B7282C00621500111DBE /* Project object */;
+				proxyType = 1;
+				remoteGlobalIDString = 3152F8032CBD343000D025F5;
+				remoteInfo = "nAPPfa widgetExtension";
+			};
+			7705B7412C00621700111DBE /* PBXContainerItemProxy */ = {
+				isa = PBXContainerItemProxy;
+				containerPortal = 7705B7282C00621500111DBE /* Project object */;
+				proxyType = 1;
+				remoteGlobalIDString = 7705B72F2C00621500111DBE;
+				remoteInfo = "Napha Training App";
+			};
+			7705B74B2C00621700111DBE /* PBXContainerItemProxy */ = {
+				isa = PBXContainerItemProxy;
+				containerPortal = 7705B7282C00621500111DBE /* Project object */;
+				proxyType = 1;
+				remoteGlobalIDString = 7705B72F2C00621500111DBE;
+				remoteInfo = "Napha Training App";
+			};
+		/* End PBXContainerItemProxy section */
+		
+		/* Begin PBXCopyFilesBuildPhase section */
+			3152F8192CBD343300D025F5 /* Embed Foundation Extensions */ = {
+				isa = PBXCopyFilesBuildPhase;
+				buildActionMask = 2147483647;
+				dstPath = "";
+				dstSubfolderSpec = 13;
+				files = (
+						 );
+						 name = "Embed Foundation Extensions";
+						 runOnlyForDeploymentPostprocessing = 0;
+			};
+		/* End PBXCopyFilesBuildPhase section */
+		
+		/* Begin PBXFileReference section */
+			3101A6C52CA422370082724C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+			311B2D642C983CCA0054CB58 /* AutoCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCalc.swift; sourceTree = "<group>"; };
+			313420962C5B9E7800AEF150 /* Age_Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Age_Gender.swift; sourceTree = "<group>"; };
+			3134209A2C5C838200AEF150 /* Scheduling .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scheduling .swift"; sourceTree = "<group>"; };
+			314BCB0E2C73369200F43C37 /* StartingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingTabView.swift; sourceTree = "<group>"; };
+			3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "nAPPfa widgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+			3152F8062CBD343000D025F5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+			3152F8082CBD343000D025F5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+			3152F80B2CBD343000D025F5 /* nAPPfa_widgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfa_widgetBundle.swift; sourceTree = "<group>"; };
+			3152F80D2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfa_widgetLiveActivity.swift; sourceTree = "<group>"; };
+			3152F80F2CBD343000D025F5 /* nAPPfa_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfa_widget.swift; sourceTree = "<group>"; };
+			3152F8112CBD343000D025F5 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+			3152F8132CBD343300D025F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+			3152F8152CBD343300D025F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+			31B526912C65C54C007D413C /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+			7705B7302C00621500111DBE /* Napha Training App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Napha Training App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+			7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppApp.swift; sourceTree = "<group>"; };
+			7705B7352C00621500111DBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+			7705B7372C00621700111DBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+			7705B73A2C00621700111DBE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+			7705B7402C00621700111DBE /* Napha Training AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Napha Training AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+			7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppTests.swift; sourceTree = "<group>"; };
+			7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Napha Training AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+			7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITests.swift; sourceTree = "<group>"; };
+			7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+			77B0B38A2C60C15E002102AA /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+			77BA9C192C29670B0045BA5B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+			77BA9C1B2C29673A0045BA5B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+			77BA9C1D2C296A960045BA5B /* Goal Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal Page.swift"; sourceTree = "<group>"; };
+			77BFA6192C36E8830072B92E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+			A9793E692C734063008BF2BC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+			A9E411132C8EE6E50014AF7A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+			B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlanner.swift; sourceTree = "<group>"; };
+		/* End PBXFileReference section */
+		
+		/* Begin PBXFrameworksBuildPhase section */
+			3152F8012CBD343000D025F5 /* Frameworks */ = {
+				isa = PBXFrameworksBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
+			};
+			7705B72D2C00621500111DBE /* Frameworks */ = {
+				isa = PBXFrameworksBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
+			};
+			7705B73D2C00621700111DBE /* Frameworks */ = {
+				isa = PBXFrameworksBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
+			};
+			7705B7472C00621700111DBE /* Frameworks */ = {
+				isa = PBXFrameworksBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
+			};
+		/* End PBXFrameworksBuildPhase section */
+		
+		/* Begin PBXGroup section */
+			3152F8052CBD343000D025F5 /* Frameworks */ = {
+				isa = PBXGroup;
+				children = (
+							3152F8062CBD343000D025F5 /* WidgetKit.framework */,
+							3152F8082CBD343000D025F5 /* SwiftUI.framework */,
+							);
+							name = Frameworks;
+							sourceTree = "<group>";
+			};
+			3152F80A2CBD343000D025F5 /* nAPPfa widget */ = {
+				isa = PBXGroup;
+				children = (
+							3152F80B2CBD343000D025F5 /* nAPPfa_widgetBundle.swift */,
+							3152F80D2CBD343000D025F5 /* nAPPfa_widgetLiveActivity.swift */,
+							3152F80F2CBD343000D025F5 /* nAPPfa_widget.swift */,
+							3152F8112CBD343000D025F5 /* AppIntent.swift */,
+							3152F8132CBD343300D025F5 /* Assets.xcassets */,
+							3152F8152CBD343300D025F5 /* Info.plist */,
+							);
+							path = "nAPPfa widget";
+							sourceTree = "<group>";
+			};
+			7705B7272C00621500111DBE = {
+				isa = PBXGroup;
+				children = (
+							7705B7322C00621500111DBE /* Napha Training App */,
+							7705B7432C00621700111DBE /* Napha Training AppTests */,
+							7705B74D2C00621700111DBE /* Napha Training AppUITests */,
+							3152F80A2CBD343000D025F5 /* nAPPfa widget */,
+							3152F8052CBD343000D025F5 /* Frameworks */,
+							7705B7312C00621500111DBE /* Products */,
+							);
+							sourceTree = "<group>";
+			};
+			7705B7312C00621500111DBE /* Products */ = {
+				isa = PBXGroup;
+				children = (
+							7705B7302C00621500111DBE /* Napha Training App.app */,
+							7705B7402C00621700111DBE /* Napha Training AppTests.xctest */,
+							7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */,
+							3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */,
+							);
+							name = Products;
+							sourceTree = "<group>";
+			};
+			7705B7322C00621500111DBE /* Napha Training App */ = {
+				isa = PBXGroup;
+				children = (
+							3101A6C52CA422370082724C /* Profile.swift */,
+							314BCB0E2C73369200F43C37 /* StartingTabView.swift */,
+							A9E411132C8EE6E50014AF7A /* Statistics.swift */,
+							7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */,
+							31B526912C65C54C007D413C /* SplashScreen.swift */,
+							7705B7352C00621500111DBE /* ContentView.swift */,
+							A9793E692C734063008BF2BC /* CustomTabBar.swift */,
+							77BA9C1B2C29673A0045BA5B /* Home.swift */,
+							77B0B38A2C60C15E002102AA /* Workout.swift */,
+							B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */,
+							3134209A2C5C838200AEF150 /* Scheduling .swift */,
+							77BA9C1D2C296A960045BA5B /* Goal Page.swift */,
+							77BFA6192C36E8830072B92E /* Settings.swift */,
+							313420962C5B9E7800AEF150 /* Age_Gender.swift */,
+							311B2D642C983CCA0054CB58 /* AutoCalc.swift */,
+							77BA9C192C29670B0045BA5B /* Login.swift */,
+							7705B7372C00621700111DBE /* Assets.xcassets */,
+							7705B7392C00621700111DBE /* Preview Content */,
+							);
+							path = "Napha Training App";
+							sourceTree = "<group>";
+			};
+			7705B7392C00621700111DBE /* Preview Content */ = {
+				isa = PBXGroup;
+				children = (
+							7705B73A2C00621700111DBE /* Preview Assets.xcassets */,
+							);
+							path = "Preview Content";
+							sourceTree = "<group>";
+			};
+			7705B7432C00621700111DBE /* Napha Training AppTests */ = {
+				isa = PBXGroup;
+				children = (
+							7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */,
+							);
+							path = "Napha Training AppTests";
+							sourceTree = "<group>";
+			};
+			7705B74D2C00621700111DBE /* Napha Training AppUITests */ = {
+				isa = PBXGroup;
+				children = (
+							7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */,
+							7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */,
+							);
+							path = "Napha Training AppUITests";
+							sourceTree = "<group>";
+			};
+		/* End PBXGroup section */
+		
+		/* Begin PBXNativeTarget section */
+			3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */ = {
+				isa = PBXNativeTarget;
+				buildConfigurationList = 3152F81C2CBD343300D025F5 /* Build configuration list for PBXNativeTarget "nAPPfa widgetExtension" */;
+				buildPhases = (
+							   3152F8002CBD343000D025F5 /* Sources */,
+							   3152F8012CBD343000D025F5 /* Frameworks */,
+							   3152F8022CBD343000D025F5 /* Resources */,
+							   );
+							   buildRules = (
+											 );
+											 dependencies = (
+															 );
+															 name = "nAPPfa widgetExtension";
+															 productName = "nAPPfa widgetExtension";
+															 productReference = 3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */;
+															 productType = "com.apple.product-type.app-extension";
+			};
+			7705B72F2C00621500111DBE /* Napha Training App */ = {
+				isa = PBXNativeTarget;
+				buildConfigurationList = 7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training App" */;
+				buildPhases = (
+							   7705B72C2C00621500111DBE /* Sources */,
+							   7705B72D2C00621500111DBE /* Frameworks */,
+							   7705B72E2C00621500111DBE /* Resources */,
+							   3152F8192CBD343300D025F5 /* Embed Foundation Extensions */,
+							   );
+							   buildRules = (
+											 );
+											 dependencies = (
+															 3152F8172CBD343300D025F5 /* PBXTargetDependency */,
+															 );
+															 name = "Napha Training App";
+															 packageProductDependencies = (
+																						   );
+																						   productName = "Napha Training App";
+																						   productReference = 7705B7302C00621500111DBE /* Napha Training App.app */;
+																						   productType = "com.apple.product-type.application";
+			};
+			7705B73F2C00621700111DBE /* Napha Training AppTests */ = {
+				isa = PBXNativeTarget;
+				buildConfigurationList = 7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppTests" */;
+				buildPhases = (
+							   7705B73C2C00621700111DBE /* Sources */,
+							   7705B73D2C00621700111DBE /* Frameworks */,
+							   7705B73E2C00621700111DBE /* Resources */,
+							   );
+							   buildRules = (
+											 );
+											 dependencies = (
+															 7705B7422C00621700111DBE /* PBXTargetDependency */,
+															 );
+															 name = "Napha Training AppTests";
+															 productName = "Napha Training AppTests";
+															 productReference = 7705B7402C00621700111DBE /* Napha Training AppTests.xctest */;
+															 productType = "com.apple.product-type.bundle.unit-test";
+			};
+			7705B7492C00621700111DBE /* Napha Training AppUITests */ = {
+				isa = PBXNativeTarget;
+				buildConfigurationList = 7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppUITests" */;
+				buildPhases = (
+							   7705B7462C00621700111DBE /* Sources */,
+							   7705B7472C00621700111DBE /* Frameworks */,
+							   7705B7482C00621700111DBE /* Resources */,
+							   );
+							   buildRules = (
+											 );
+											 dependencies = (
+															 7705B74C2C00621700111DBE /* PBXTargetDependency */,
+															 );
+															 name = "Napha Training AppUITests";
+															 productName = "Napha Training AppUITests";
+															 productReference = 7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */;
+															 productType = "com.apple.product-type.bundle.ui-testing";
+			};
+		/* End PBXNativeTarget section */
+		
+		/* Begin PBXProject section */
+			7705B7282C00621500111DBE /* Project object */ = {
+				isa = PBXProject;
+				attributes = {
+					BuildIndependentTargetsInParallel = 1;
+					LastSwiftUpdateCheck = 1540;
+					LastUpgradeCheck = 2650;
+					TargetAttributes = {
+						3152F8032CBD343000D025F5 = {
+							CreatedOnToolsVersion = 15.4;
+						};
+						7705B72F2C00621500111DBE = {
+							CreatedOnToolsVersion = 15.4;
+						};
+						7705B73F2C00621700111DBE = {
+							CreatedOnToolsVersion = 15.4;
+							TestTargetID = 7705B72F2C00621500111DBE;
+						};
+						7705B7492C00621700111DBE = {
+							CreatedOnToolsVersion = 15.4;
+							TestTargetID = 7705B72F2C00621500111DBE;
+						};
 					};
 				};
+				buildConfigurationList = 7705B72B2C00621500111DBE /* Build configuration list for PBXProject "Napha Training App" */;
+				compatibilityVersion = "Xcode 14.0";
+				developmentRegion = en;
+				hasScannedForEncodings = 0;
+				knownRegions = (
+								en,
+								Base,
+								);
+								mainGroup = 7705B7272C00621500111DBE;
+								packageReferences = (
+													 );
+													 productRefGroup = 7705B7312C00621500111DBE /* Products */;
+													 projectDirPath = "";
+													 projectRoot = "";
+													 targets = (
+																7705B72F2C00621500111DBE /* Napha Training App */,
+																7705B73F2C00621700111DBE /* Napha Training AppTests */,
+																7705B7492C00621700111DBE /* Napha Training AppUITests */,
+																3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */,
+																);
 			};
-			buildConfigurationList = 7705B72B2C00621500111DBE /* Build configuration list for PBXProject "Napha Training App" */;
-			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 7705B7272C00621500111DBE;
-			packageReferences = (
-			);
-			productRefGroup = 7705B7312C00621500111DBE /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				7705B72F2C00621500111DBE /* Napha Training App */,
-				7705B73F2C00621700111DBE /* Napha Training AppTests */,
-				7705B7492C00621700111DBE /* Napha Training AppUITests */,
-				3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		3152F8022CBD343000D025F5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B72E2C00621500111DBE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7705B73B2C00621700111DBE /* Preview Assets.xcassets in Resources */,
-				7705B7382C00621700111DBE /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B73E2C00621700111DBE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B7482C00621700111DBE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		3152F8002CBD343000D025F5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B72C2C00621500111DBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77BFA61A2C36E8830072B92E /* Settings.swift in Sources */,
-				77BA9C1E2C296A960045BA5B /* Goal Page.swift in Sources */,
-				31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */,
-				77B0B38B2C60C15E002102AA /* Workout.swift in Sources */,
-				B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */,
-				A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */,
-				A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */,
-				77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */,
-				31B526922C65C54C007D413C /* SplashScreen.swift in Sources */,
-				3100167D2FE6E24C00300583 /* Profile.swift in Sources */,
-				31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */,
-				31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */,
-				7705B7362C00621500111DBE /* ContentView.swift in Sources */,
-				31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */,
-				77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */,
-				7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B73C2C00621700111DBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7705B7452C00621700111DBE /* Napha_Training_AppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7705B7462C00621700111DBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */,
-				7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3152F8172CBD343300D025F5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */;
-			targetProxy = 3152F8162CBD343300D025F5 /* PBXContainerItemProxy */;
-		};
-		7705B7422C00621700111DBE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7705B72F2C00621500111DBE /* Napha Training App */;
-			targetProxy = 7705B7412C00621700111DBE /* PBXContainerItemProxy */;
-		};
-		7705B74C2C00621700111DBE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7705B72F2C00621500111DBE /* Napha Training App */;
-			targetProxy = 7705B74B2C00621700111DBE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		3152F81A2CBD343300D025F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "nAPPfa widget/nAPPfa widget.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q5X3YFN7M4;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "nAPPfa widget/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nAPPfa widget";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App.nAPPfa-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+		/* End PBXProject section */
+		
+		/* Begin PBXResourcesBuildPhase section */
+			3152F8022CBD343000D025F5 /* Resources */ = {
+				isa = PBXResourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Debug;
-		};
-		3152F81B2CBD343300D025F5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "nAPPfa widget/nAPPfa widget.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q5X3YFN7M4;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "nAPPfa widget/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nAPPfa widget";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App.nAPPfa-widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+			7705B72E2C00621500111DBE /* Resources */ = {
+				isa = PBXResourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 7705B73B2C00621700111DBE /* Preview Assets.xcassets in Resources */,
+						 7705B7382C00621700111DBE /* Assets.xcassets in Resources */,
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Release;
-		};
-		7705B7522C00621700111DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			7705B73E2C00621700111DBE /* Resources */ = {
+				isa = PBXResourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Debug;
-		};
-		7705B7532C00621700111DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
+			7705B7482C00621700111DBE /* Resources */ = {
+				isa = PBXResourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Release;
-		};
-		7705B7552C00621700111DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Napha Training App/Napha Training App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Napha Training App/Preview Content\"";
-				DEVELOPMENT_TEAM = Q5X3YFN7M4;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Napha-Training-App-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+		/* End PBXResourcesBuildPhase section */
+		
+		/* Begin PBXSourcesBuildPhase section */
+			3152F8002CBD343000D025F5 /* Sources */ = {
+				isa = PBXSourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Debug;
-		};
-		7705B7562C00621700111DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Napha Training App/Napha Training App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Napha Training App/Preview Content\"";
-				DEVELOPMENT_TEAM = Q5X3YFN7M4;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Napha-Training-App-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+			7705B72C2C00621500111DBE /* Sources */ = {
+				isa = PBXSourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 77BFA61A2C36E8830072B92E /* Settings.swift in Sources */,
+						 77BA9C1E2C296A960045BA5B /* Goal Page.swift in Sources */,
+						 31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */,
+						 77B0B38B2C60C15E002102AA /* Workout.swift in Sources */,
+						 B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */,
+						 A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */,
+						 A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */,
+						 77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */,
+						 31B526922C65C54C007D413C /* SplashScreen.swift in Sources */,
+						 3100167D2FE6E24C00300583 /* Profile.swift in Sources */,
+						 31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */,
+						 31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */,
+						 7705B7362C00621500111DBE /* ContentView.swift in Sources */,
+						 31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */,
+						 77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */,
+						 7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */,
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Release;
-		};
-		7705B7582C00621700111DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napha Training App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Napha Training App";
+			7705B73C2C00621700111DBE /* Sources */ = {
+				isa = PBXSourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 7705B7452C00621700111DBE /* Napha_Training_AppTests.swift in Sources */,
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Debug;
-		};
-		7705B7592C00621700111DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napha Training App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Napha Training App";
+			7705B7462C00621700111DBE /* Sources */ = {
+				isa = PBXSourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+						 7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */,
+						 7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */,
+						 );
+						 runOnlyForDeploymentPostprocessing = 0;
 			};
-			name = Release;
-		};
-		7705B75B2C00621700111DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Napha Training App";
+		/* End PBXSourcesBuildPhase section */
+		
+		/* Begin PBXTargetDependency section */
+			3152F8172CBD343300D025F5 /* PBXTargetDependency */ = {
+				isa = PBXTargetDependency;
+				target = 3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */;
+				targetProxy = 3152F8162CBD343300D025F5 /* PBXContainerItemProxy */;
 			};
-			name = Debug;
-		};
-		7705B75C2C00621700111DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Napha Training App";
+			7705B7422C00621700111DBE /* PBXTargetDependency */ = {
+				isa = PBXTargetDependency;
+				target = 7705B72F2C00621500111DBE /* Napha Training App */;
+				targetProxy = 7705B7412C00621700111DBE /* PBXContainerItemProxy */;
 			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		3152F81C2CBD343300D025F5 /* Build configuration list for PBXNativeTarget "nAPPfa widgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3152F81A2CBD343300D025F5 /* Debug */,
-				3152F81B2CBD343300D025F5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7705B72B2C00621500111DBE /* Build configuration list for PBXProject "Napha Training App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7705B7522C00621700111DBE /* Debug */,
-				7705B7532C00621700111DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7705B7552C00621700111DBE /* Debug */,
-				7705B7562C00621700111DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7705B7582C00621700111DBE /* Debug */,
-				7705B7592C00621700111DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7705B75B2C00621700111DBE /* Debug */,
-				7705B75C2C00621700111DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
+			7705B74C2C00621700111DBE /* PBXTargetDependency */ = {
+				isa = PBXTargetDependency;
+				target = 7705B72F2C00621500111DBE /* Napha Training App */;
+				targetProxy = 7705B74B2C00621700111DBE /* PBXContainerItemProxy */;
+			};
+		/* End PBXTargetDependency section */
+		
+		/* Begin XCBuildConfiguration section */
+			3152F81A2CBD343300D025F5 /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+					ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+					CODE_SIGN_ENTITLEMENTS = "nAPPfa widget/nAPPfa widget.entitlements";
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					DEVELOPMENT_TEAM = Q5X3YFN7M4;
+					GENERATE_INFOPLIST_FILE = YES;
+					INFOPLIST_FILE = "nAPPfa widget/Info.plist";
+					INFOPLIST_KEY_CFBundleDisplayName = "nAPPfa widget";
+					INFOPLIST_KEY_NSHumanReadableCopyright = "";
+					LD_RUNPATH_SEARCH_PATHS = (
+											   "$(inherited)",
+											   "@executable_path/Frameworks",
+											   "@executable_path/../../Frameworks",
+											   );
+											   MARKETING_VERSION = 1.0;
+											   PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App.nAPPfa-widget";
+											   PRODUCT_NAME = "$(TARGET_NAME)";
+											   SKIP_INSTALL = YES;
+											   SWIFT_EMIT_LOC_STRINGS = YES;
+											   SWIFT_VERSION = 5.0;
+											   TARGETED_DEVICE_FAMILY = "1,2";
+				};
+				name = Debug;
+			};
+			3152F81B2CBD343300D025F5 /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+					ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+					CODE_SIGN_ENTITLEMENTS = "nAPPfa widget/nAPPfa widget.entitlements";
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					DEVELOPMENT_TEAM = Q5X3YFN7M4;
+					GENERATE_INFOPLIST_FILE = YES;
+					INFOPLIST_FILE = "nAPPfa widget/Info.plist";
+					INFOPLIST_KEY_CFBundleDisplayName = "nAPPfa widget";
+					INFOPLIST_KEY_NSHumanReadableCopyright = "";
+					LD_RUNPATH_SEARCH_PATHS = (
+											   "$(inherited)",
+											   "@executable_path/Frameworks",
+											   "@executable_path/../../Frameworks",
+											   );
+											   MARKETING_VERSION = 1.0;
+											   PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App.nAPPfa-widget";
+											   PRODUCT_NAME = "$(TARGET_NAME)";
+											   SKIP_INSTALL = YES;
+											   SWIFT_EMIT_LOC_STRINGS = YES;
+											   SWIFT_VERSION = 5.0;
+											   TARGETED_DEVICE_FAMILY = "1,2";
+				};
+				name = Release;
+			};
+			7705B7522C00621700111DBE /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ALWAYS_SEARCH_USER_PATHS = NO;
+					ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+					CLANG_ANALYZER_NONNULL = YES;
+					CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+					CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+					CLANG_ENABLE_MODULES = YES;
+					CLANG_ENABLE_OBJC_ARC = YES;
+					CLANG_ENABLE_OBJC_WEAK = YES;
+					CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+					CLANG_WARN_BOOL_CONVERSION = YES;
+					CLANG_WARN_COMMA = YES;
+					CLANG_WARN_CONSTANT_CONVERSION = YES;
+					CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+					CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+					CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+					CLANG_WARN_EMPTY_BODY = YES;
+					CLANG_WARN_ENUM_CONVERSION = YES;
+					CLANG_WARN_INFINITE_RECURSION = YES;
+					CLANG_WARN_INT_CONVERSION = YES;
+					CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+					CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+					CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+					CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+					CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+					CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+					CLANG_WARN_STRICT_PROTOTYPES = YES;
+					CLANG_WARN_SUSPICIOUS_MOVE = YES;
+					CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+					CLANG_WARN_UNREACHABLE_CODE = YES;
+					CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+					COPY_PHASE_STRIP = NO;
+					DEBUG_INFORMATION_FORMAT = dwarf;
+					ENABLE_STRICT_OBJC_MSGSEND = YES;
+					ENABLE_TESTABILITY = YES;
+					ENABLE_USER_SCRIPT_SANDBOXING = YES;
+					GCC_C_LANGUAGE_STANDARD = gnu17;
+					GCC_DYNAMIC_NO_PIC = NO;
+					GCC_NO_COMMON_BLOCKS = YES;
+					GCC_OPTIMIZATION_LEVEL = 0;
+					GCC_PREPROCESSOR_DEFINITIONS = (
+													"DEBUG=1",
+													"$(inherited)",
+													);
+													GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+													GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+													GCC_WARN_UNDECLARED_SELECTOR = YES;
+													GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+													GCC_WARN_UNUSED_FUNCTION = YES;
+													GCC_WARN_UNUSED_VARIABLE = YES;
+													IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+													LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+													MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+													MTL_FAST_MATH = YES;
+													ONLY_ACTIVE_ARCH = YES;
+													SDKROOT = iphoneos;
+													STRING_CATALOG_GENERATE_SYMBOLS = YES;
+													SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+													SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				};
+				name = Debug;
+			};
+			7705B7532C00621700111DBE /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ALWAYS_SEARCH_USER_PATHS = NO;
+					ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+					CLANG_ANALYZER_NONNULL = YES;
+					CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+					CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+					CLANG_ENABLE_MODULES = YES;
+					CLANG_ENABLE_OBJC_ARC = YES;
+					CLANG_ENABLE_OBJC_WEAK = YES;
+					CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+					CLANG_WARN_BOOL_CONVERSION = YES;
+					CLANG_WARN_COMMA = YES;
+					CLANG_WARN_CONSTANT_CONVERSION = YES;
+					CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+					CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+					CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+					CLANG_WARN_EMPTY_BODY = YES;
+					CLANG_WARN_ENUM_CONVERSION = YES;
+					CLANG_WARN_INFINITE_RECURSION = YES;
+					CLANG_WARN_INT_CONVERSION = YES;
+					CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+					CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+					CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+					CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+					CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+					CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+					CLANG_WARN_STRICT_PROTOTYPES = YES;
+					CLANG_WARN_SUSPICIOUS_MOVE = YES;
+					CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+					CLANG_WARN_UNREACHABLE_CODE = YES;
+					CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+					COPY_PHASE_STRIP = NO;
+					DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+					ENABLE_NS_ASSERTIONS = NO;
+					ENABLE_STRICT_OBJC_MSGSEND = YES;
+					ENABLE_USER_SCRIPT_SANDBOXING = YES;
+					GCC_C_LANGUAGE_STANDARD = gnu17;
+					GCC_NO_COMMON_BLOCKS = YES;
+					GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+					GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+					GCC_WARN_UNDECLARED_SELECTOR = YES;
+					GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+					GCC_WARN_UNUSED_FUNCTION = YES;
+					GCC_WARN_UNUSED_VARIABLE = YES;
+					IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+					LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+					MTL_ENABLE_DEBUG_INFO = NO;
+					MTL_FAST_MATH = YES;
+					SDKROOT = iphoneos;
+					STRING_CATALOG_GENERATE_SYMBOLS = YES;
+					SWIFT_COMPILATION_MODE = wholemodule;
+					VALIDATE_PRODUCT = YES;
+				};
+				name = Release;
+			};
+			7705B7552C00621700111DBE /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+					CODE_SIGN_ENTITLEMENTS = "Napha Training App/Napha Training App.entitlements";
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					DEVELOPMENT_ASSET_PATHS = "\"Napha Training App/Preview Content\"";
+					DEVELOPMENT_TEAM = Q5X3YFN7M4;
+					ENABLE_PREVIEWS = YES;
+					GENERATE_INFOPLIST_FILE = YES;
+					INFOPLIST_FILE = "Napha Training App/Napha-Training-App-Info.plist";
+					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+					INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+					LD_RUNPATH_SEARCH_PATHS = (
+											   "$(inherited)",
+											   "@executable_path/Frameworks",
+											   );
+											   MARKETING_VERSION = 1.0;
+											   PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App";
+											   PRODUCT_NAME = "$(TARGET_NAME)";
+											   SWIFT_EMIT_LOC_STRINGS = YES;
+											   SWIFT_VERSION = 5.0;
+											   TARGETED_DEVICE_FAMILY = "1,2";
+				};
+				name = Debug;
+			};
+			7705B7562C00621700111DBE /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+					CODE_SIGN_ENTITLEMENTS = "Napha Training App/Napha Training App.entitlements";
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					DEVELOPMENT_ASSET_PATHS = "\"Napha Training App/Preview Content\"";
+					DEVELOPMENT_TEAM = Q5X3YFN7M4;
+					ENABLE_PREVIEWS = YES;
+					GENERATE_INFOPLIST_FILE = YES;
+					INFOPLIST_FILE = "Napha Training App/Napha-Training-App-Info.plist";
+					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+					INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+					LD_RUNPATH_SEARCH_PATHS = (
+											   "$(inherited)",
+											   "@executable_path/Frameworks",
+											   );
+											   MARKETING_VERSION = 1.0;
+											   PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-App";
+											   PRODUCT_NAME = "$(TARGET_NAME)";
+											   SWIFT_EMIT_LOC_STRINGS = YES;
+											   SWIFT_VERSION = 5.0;
+											   TARGETED_DEVICE_FAMILY = "1,2";
+				};
+				name = Release;
+			};
+			7705B7582C00621700111DBE /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					BUNDLE_LOADER = "$(TEST_HOST)";
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					GENERATE_INFOPLIST_FILE = YES;
+					IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+					MARKETING_VERSION = 1.0;
+					PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppTests";
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SWIFT_EMIT_LOC_STRINGS = NO;
+					SWIFT_VERSION = 5.0;
+					TARGETED_DEVICE_FAMILY = "1,2";
+					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napha Training App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Napha Training App";
+				};
+				name = Debug;
+			};
+			7705B7592C00621700111DBE /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					BUNDLE_LOADER = "$(TEST_HOST)";
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					GENERATE_INFOPLIST_FILE = YES;
+					IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+					MARKETING_VERSION = 1.0;
+					PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppTests";
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SWIFT_EMIT_LOC_STRINGS = NO;
+					SWIFT_VERSION = 5.0;
+					TARGETED_DEVICE_FAMILY = "1,2";
+					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napha Training App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Napha Training App";
+				};
+				name = Release;
+			};
+			7705B75B2C00621700111DBE /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					GENERATE_INFOPLIST_FILE = YES;
+					MARKETING_VERSION = 1.0;
+					PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppUITests";
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SWIFT_EMIT_LOC_STRINGS = NO;
+					SWIFT_VERSION = 5.0;
+					TARGETED_DEVICE_FAMILY = "1,2";
+					TEST_TARGET_NAME = "Napha Training App";
+				};
+				name = Debug;
+			};
+			7705B75C2C00621700111DBE /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					GENERATE_INFOPLIST_FILE = YES;
+					MARKETING_VERSION = 1.0;
+					PRODUCT_BUNDLE_IDENTIFIER = "k.Napha-Training-AppUITests";
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					SWIFT_EMIT_LOC_STRINGS = NO;
+					SWIFT_VERSION = 5.0;
+					TARGETED_DEVICE_FAMILY = "1,2";
+					TEST_TARGET_NAME = "Napha Training App";
+				};
+				name = Release;
+			};
+		/* End XCBuildConfiguration section */
+		
+		/* Begin XCConfigurationList section */
+			3152F81C2CBD343300D025F5 /* Build configuration list for PBXNativeTarget "nAPPfa widgetExtension" */ = {
+				isa = XCConfigurationList;
+				buildConfigurations = (
+									   3152F81A2CBD343300D025F5 /* Debug */,
+									   3152F81B2CBD343300D025F5 /* Release */,
+									   );
+									   defaultConfigurationIsVisible = 0;
+									   defaultConfigurationName = Release;
+			};
+			7705B72B2C00621500111DBE /* Build configuration list for PBXProject "Napha Training App" */ = {
+				isa = XCConfigurationList;
+				buildConfigurations = (
+									   7705B7522C00621700111DBE /* Debug */,
+									   7705B7532C00621700111DBE /* Release */,
+									   );
+									   defaultConfigurationIsVisible = 0;
+									   defaultConfigurationName = Release;
+			};
+			7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training App" */ = {
+				isa = XCConfigurationList;
+				buildConfigurations = (
+									   7705B7552C00621700111DBE /* Debug */,
+									   7705B7562C00621700111DBE /* Release */,
+									   );
+									   defaultConfigurationIsVisible = 0;
+									   defaultConfigurationName = Release;
+			};
+			7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppTests" */ = {
+				isa = XCConfigurationList;
+				buildConfigurations = (
+									   7705B7582C00621700111DBE /* Debug */,
+									   7705B7592C00621700111DBE /* Release */,
+									   );
+									   defaultConfigurationIsVisible = 0;
+									   defaultConfigurationName = Release;
+			};
+			7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppUITests" */ = {
+				isa = XCConfigurationList;
+				buildConfigurations = (
+									   7705B75B2C00621700111DBE /* Debug */,
+									   7705B75C2C00621700111DBE /* Release */,
+									   );
+									   defaultConfigurationIsVisible = 0;
+									   defaultConfigurationName = Release;
+			};
+		/* End XCConfigurationList section */
 	};
 	rootObject = 7705B7282C00621500111DBE /* Project object */;
 }

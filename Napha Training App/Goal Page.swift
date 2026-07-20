@@ -21,13 +21,17 @@ struct Goal_Page: View {
 	@State private var validationError: String = ""
 	@State private var showValidationAlert = false
 	
-	/// Snapshot captured on appear; restored by Cancel to discard in-flight edits.
+	//Snapshot captured on appear; restored by Cancel to discard in-flight edits.
 	@State private var snapshotPrev: [String] = []
 	@State private var snapshotTarg: [String] = []
 	@State private var snapshotEnabled: [Bool] = []
 	@State private var snapshotGoals: [[String]] = []
 	
 	private let gradeOptions = ["Not set", "A", "B", "C", "D", "E", "F", "NA"]
+	
+	private func stationDisplayName(for station: NAPFAStation) -> String {
+		station.displayName(age: Age, sex: Sex)
+	}
 	
 	var body: some View {
 		Group {
@@ -209,7 +213,7 @@ struct Goal_Page: View {
 			
 			VStack(spacing: 10) {
 				ForEach($goalDrafts) { $goal in
-					GoalDraftEditor(goal: $goal) {
+					GoalDraftEditor(goal: $goal, age: Age, sex: Sex) {
 						if let index = goalDrafts.firstIndex(where: { $0.id == goal.id }) {
 							goalDrafts.remove(at: index)
 							saveIfOnboarding()
@@ -284,7 +288,7 @@ struct Goal_Page: View {
 			}
 			
 			ForEach($goalDrafts) { $goal in
-				GoalDraftEditor(goal: $goal) {
+				GoalDraftEditor(goal: $goal, age: Age, sex: Sex) {
 					if let index = goalDrafts.firstIndex(where: { $0.id == goal.id }) {
 						goalDrafts.remove(at: index)
 						saveIfOnboarding()
@@ -335,7 +339,7 @@ struct Goal_Page: View {
 						.foregroundStyle(.blue)
 					
 					VStack(alignment: .leading, spacing: 2) {
-						Text(station.rawValue)
+						Text(stationDisplayName(for: station))
 							.font(.body.weight(.semibold))
 						Text(station.shortTip)
 							.font(.caption)
@@ -496,12 +500,12 @@ struct Goal_Page: View {
 				let isTargetSet = targetGrade != "" && targetGrade != "Not set"
 				
 				if !isPreviousSet {
-					validationError = "Please set a previous grade for \(NAPFAStation.allCases[index].rawValue)"
+					validationError = "Please set a previous grade for \(stationDisplayName(for: NAPFAStation.allCases[index]))"
 					showValidationAlert = true
 					return false
 				}
 				if !isTargetSet {
-					validationError = "Please set a target grade for \(NAPFAStation.allCases[index].rawValue)"
+					validationError = "Please set a target grade for \(stationDisplayName(for: NAPFAStation.allCases[index]))"
 					showValidationAlert = true
 					return false
 				}
@@ -573,6 +577,8 @@ struct Goal_Page: View {
 
 private struct GoalDraftEditor: View {
 	@Binding var goal: GoalDraft
+	let age: Int
+	let sex: Bool
 	var onDelete: () -> Void
 	
 	var body: some View {
@@ -591,7 +597,7 @@ private struct GoalDraftEditor: View {
 				
 				Picker("Station", selection: $goal.station) {
 					ForEach(NAPFAStation.allCases) { station in
-						Text(station.rawValue).tag(station.rawValue)
+						Text(station.displayName(age: age, sex: sex)).tag(station.rawValue)
 					}
 				}
 				.pickerStyle(.menu)
@@ -654,11 +660,21 @@ private struct NAPFAStandardsView: View {
 			StandardColumn(title: "Points", width: 58, value: \.points)
 		]
 		
+		// Preserve the previous female wording while applying the age-based
+		// transition to straight pull-ups at 15 for both sexes. Males display
+		// a combined label when younger than 15.
+		let pullUpTitle: String
+		if isMale {
+			pullUpTitle = age >= 15 ? "Pull-ups" : "Pull-ups / Inclined"
+		} else {
+			pullUpTitle = age >= 15 ? "Pull-ups" : "Inclined Pull-ups in 30 sec"
+		}
+		
 		let stationColumns: [(NAPFAStation, StandardColumn)] = [
 			(.sitUps, StandardColumn(title: "Sit-ups in 1 min", width: 92, value: \.sitUps)),
 			(.standingBroadJump, StandardColumn(title: "Standing Broad Jump", width: 112, value: \.jump)),
 			(.sitAndReach, StandardColumn(title: "Sit & Reach Distance", width: 104, value: \.reach)),
-			(.inclinedPullUps, StandardColumn(title: isMale ? "Pull-ups / Inclined" : "Inclined Pull-ups in 30 sec", width: 118, value: \.pullUps)),
+			(.inclinedPullUps, StandardColumn(title: pullUpTitle, width: 118, value: \.pullUps)),
 			(.shuttleRun, StandardColumn(title: "4 x 10m Shuttle Run Time", width: 120, value: \.shuttle)),
 			(.run, StandardColumn(title: "2.4 km Run-Walk time", width: 130, value: \.run))
 		]

@@ -167,7 +167,7 @@ struct Statistics: View {
 							.foregroundStyle(.blue)
 							.frame(width: 30)
 						
-						Text(NAPFAStation.allCases[index].rawValue)
+						Text(NAPFAStation.allCases[index].displayName(age: info.Age, sex: info.Gender))
 							.font(.subheadline.weight(.semibold))
 						
 						Spacer()
@@ -207,7 +207,7 @@ struct Statistics: View {
 						VStack(alignment: .leading, spacing: 3) {
 							Text(goal.text)
 								.font(.body.weight(.semibold))
-							Text(goal.station)
+							Text(NAPFAStation(rawValue: goal.station)?.displayName(age: info.Age, sex: info.Gender) ?? goal.station)
 								.font(.footnote)
 								.foregroundStyle(.secondary)
 						}
