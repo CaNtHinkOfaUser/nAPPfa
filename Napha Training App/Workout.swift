@@ -29,6 +29,14 @@ struct Workout: View {
 	@State private var isExtraSet = false
 	@State private var showExtraSetPrompt = false
 	@State private var intensityLabel = ""
+	@State private var isBaselineSession = false
+	@State private var baselineEntry = BaselineEntry()
+	@State private var savedBaseline: String?
+	@FocusState private var focusedEntry: EntryField?
+	
+	private enum EntryField {
+		case amount, seconds
+	}
 	
 	private var currentStep: WorkoutStep? {
 		sessionSteps.indices.contains(currentIndex) ? sessionSteps[currentIndex] : nil
@@ -97,7 +105,7 @@ struct Workout: View {
 					.font(.largeTitle.weight(.bold))
 					.padding(.top, 8)
 				
-				Text("Sets adapt to your previous and target grades.")
+				Text("Sets adapt to your grades and the time left before your NAPFA test.")
 					.font(.subheadline)
 					.foregroundStyle(.secondary)
 				
@@ -119,7 +127,7 @@ struct Workout: View {
 		let index = NAPFAStation.allCases.firstIndex(of: station) ?? 0
 		let prev = WorkoutPlanner.grade(at: index, in: info.prev)
 		let targ = WorkoutPlanner.grade(at: index, in: info.targ)
-		let level = WorkoutPlanner.intensity(previous: prev, target: targ)
+		let assessment = WorkoutPlanner.assessment(for: station, info: info)
 		
 		return VStack(alignment: .leading, spacing: 12) {
 			HStack(spacing: 12) {
@@ -131,23 +139,64 @@ struct Workout: View {
 				VStack(alignment: .leading, spacing: 4) {
 					Text(station.displayName(age: info.Age, sex: info.Gender))
 						.font(.headline)
-					Text("\(level.rawValue) · \(display(prev)) → \(display(targ))")
-						.font(.caption.weight(.semibold))
-						.foregroundStyle(.secondary)
+					if assessment.hasMeasuredBaseline {
+						Text("\(assessment.intensity.rawValue) · \(display(prev)) → \(display(targ))")
+							.font(.caption.weight(.semibold))
+							.foregroundStyle(.secondary)
+						Text(assessment.summary)
+							.font(.caption)
+							.foregroundStyle(assessment.needsMoreTime ? Color.orange : Color.secondary)
+					} else {
+						Text("Baseline test · \(display(prev)) → \(display(targ))")
+							.font(.caption.weight(.semibold))
+							.foregroundStyle(.secondary)
+						Text("Test yourself first so the plan starts from your real result")
+							.font(.caption)
+							.foregroundStyle(.secondary)
+					}
 				}
 				Spacer()
 			}
 			
-			Button {
-				startWorkout(station)
-			} label: {
-				Label("Start", systemImage: "play.fill")
-					.frame(maxWidth: .infinity)
+			if assessment.hasMeasuredBaseline {
+				HStack(spacing: 10) {
+					Button {
+						startWorkout(station)
+					} label: {
+						Label("Start", systemImage: "play.fill")
+							.frame(maxWidth: .infinity)
+					}
+					.buttonStyle(.borderedProminent)
+					
+					Button {
+						startBaseline(station)
+					} label: {
+						Label("Re-test", systemImage: "stopwatch")
+					}
+					.buttonStyle(.bordered)
+				}
+			} else {
+				Button {
+					startBaseline(station)
+				} label: {
+					Label("Start baseline test", systemImage: "stopwatch")
+						.frame(maxWidth: .infinity)
+				}
+				.buttonStyle(.borderedProminent)
+				
+				if !prev.isEmpty {
+					Button {
+						startWorkout(station)
+					} label: {
+						Text("Skip for now, use previous grade")
+							.frame(maxWidth: .infinity)
+					}
+					.buttonStyle(.bordered)
+				}
 			}
-			.buttonStyle(.borderedProminent)
 		}
 		.padding(16)
-		.background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
 		.popUpCard()
 	}
 	
@@ -176,14 +225,17 @@ struct Workout: View {
 					.foregroundStyle(.secondary)
 			}
 			
-			Text("\(currentIndex + 1)")
-				.font(.system(size: currentIndex == 0 ? 80 : 56, weight: .black, design: .rounded))
-				.contentTransition(.numericText())
-			
-			Image(systemName: step.station.icon)
-				.font(.system(size: 72, weight: .semibold))
-				.foregroundStyle(.blue)
-				.symbolEffect(.pulse, options: .repeating.speed(0.35))
+			// The keyboard needs the room while a baseline result is being typed.
+			if focusedEntry == nil {
+				Text("\(currentIndex + 1)")
+					.font(.system(size: currentIndex == 0 ? 80 : 56, weight: .black, design: .rounded))
+					.contentTransition(.numericText())
+				
+				Image(systemName: step.station.icon)
+					.font(.system(size: 72, weight: .semibold))
+					.foregroundStyle(.blue)
+					.symbolEffect(.pulse, options: .repeating.speed(0.35))
+			}
 			
 			Text(step.name)
 				.font(.title.weight(.bold))
@@ -194,6 +246,10 @@ struct Workout: View {
 				.foregroundStyle(.secondary)
 				.multilineTextAlignment(.center)
 				.padding(.horizontal, 8)
+			
+			if step.recordsBaseline {
+				baselineEntryField(for: step.station)
+			}
 			
 			Spacer(minLength: 8)
 			
@@ -214,8 +270,46 @@ struct Workout: View {
 						.frame(maxWidth: .infinity)
 				}
 				.buttonStyle(.borderedProminent)
+				.disabled(step.recordsBaseline && baselineEntry.value(for: step.station) == nil)
 			}
 			.padding(.bottom, 16)
+		}
+		.toolbar {
+			ToolbarItemGroup(placement: .keyboard) {
+				Spacer()
+				Button("Done") { focusedEntry = nil }
+			}
+		}
+	}
+	
+	private func baselineEntryField(for station: NAPFAStation) -> some View {
+		let value = baselineEntry.value(for: station)
+		let grade = value.map { NAPFAGradeCalculator.grade(for: station, age: info.Age, sex: info.Gender, value: $0) }
+		
+		return VStack(spacing: 8) {
+			HStack(spacing: 8) {
+				if station == .run {
+					TextField("min", text: $baselineEntry.amount)
+						.focused($focusedEntry, equals: .amount)
+					Text(":")
+					TextField("sec", text: $baselineEntry.seconds)
+						.focused($focusedEntry, equals: .seconds)
+				} else {
+					TextField(station == .shuttleRun ? "11.5" : "0", text: $baselineEntry.amount)
+						.focused($focusedEntry, equals: .amount)
+					Text(station == .shuttleRun ? "sec" : station.unit)
+						.foregroundStyle(.secondary)
+				}
+			}
+			.keyboardType(station == .shuttleRun ? .decimalPad : .numberPad)
+			.font(.title2.weight(.semibold))
+			.multilineTextAlignment(.center)
+			.padding(12)
+			.background(Color(.tertiarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+			
+			Text(grade.map { "Grade \($0)" } ?? "Enter your result to finish")
+				.font(.subheadline.weight(.semibold))
+				.foregroundStyle(grade == nil ? Color.secondary : Color.blue)
 		}
 	}
 	
@@ -274,7 +368,7 @@ struct Workout: View {
 				.foregroundStyle(.green)
 				.symbolEffect(.bounce, value: sessionCompleted)
 			
-			Text("Workout complete")
+			Text(isBaselineSession ? "Baseline recorded" : "Workout complete")
 				.font(.largeTitle.weight(.bold))
 			
 			Text(timeString(elapsed))
@@ -287,16 +381,25 @@ struct Workout: View {
 					.foregroundStyle(.secondary)
 			}
 			
+			if let savedBaseline {
+				Text(savedBaseline)
+					.font(.headline)
+					.foregroundStyle(.blue)
+					.multilineTextAlignment(.center)
+			}
+			
 			Spacer()
 			
 			VStack(spacing: 12) {
-				Button {
-					addExtraSet()
-				} label: {
-					Label("Add extra set", systemImage: "plus.circle.fill")
-						.frame(maxWidth: .infinity)
+				if !isBaselineSession {
+					Button {
+						addExtraSet()
+					} label: {
+						Label("Add extra set", systemImage: "plus.circle.fill")
+							.frame(maxWidth: .infinity)
+					}
+					.buttonStyle(.bordered)
 				}
-				.buttonStyle(.bordered)
 				
 				Button {
 					finishWorkout()
@@ -311,7 +414,7 @@ struct Workout: View {
 		}
 		.onAppear {
 			recordCompletionIfNeeded()
-			if !isExtraSet {
+			if !isExtraSet && !isBaselineSession {
 				showExtraSetPrompt = true
 			}
 		}
@@ -347,12 +450,23 @@ struct Workout: View {
 	}
 	
 	private func startWorkout(_ station: NAPFAStation) {
+		let assessment = WorkoutPlanner.assessment(for: station, info: info)
+		let label = assessment.daysLeft == 0 ? "Test day" : "\(assessment.intensity.rawValue) · \(assessment.phase.rawValue)"
+		beginSession(station, steps: WorkoutPlanner.plan(for: assessment), label: label, isBaseline: false)
+	}
+	
+	private func startBaseline(_ station: NAPFAStation) {
+		baselineEntry = BaselineEntry()
+		let steps = WorkoutPlanner.baselineTest(for: station, age: info.Age, isMale: info.Gender)
+		beginSession(station, steps: steps, label: "Baseline test", isBaseline: true)
+	}
+	
+	private func beginSession(_ station: NAPFAStation, steps: [WorkoutStep], label: String, isBaseline: Bool) {
 		selectedStation = station
-		let index = NAPFAStation.allCases.firstIndex(of: station) ?? 0
-		let prev = WorkoutPlanner.grade(at: index, in: info.prev)
-		let targ = WorkoutPlanner.grade(at: index, in: info.targ)
-		intensityLabel = WorkoutPlanner.intensity(previous: prev, target: targ).rawValue
-		sessionSteps = WorkoutPlanner.plan(for: station, info: info)
+		intensityLabel = label
+		sessionSteps = steps
+		isBaselineSession = isBaseline
+		savedBaseline = nil
 		currentIndex = 0
 		elapsed = 0
 		breakRemaining = 45
@@ -395,6 +509,12 @@ struct Workout: View {
 	}
 	
 	private func completeSession() {
+		if isBaselineSession, let station = selectedStation, let value = baselineEntry.value(for: station) {
+			WorkoutPlanner.recordBaselineResult(value, for: station, info: &info)
+			let grade = NAPFAGradeCalculator.grade(for: station, age: info.Age, sex: info.Gender, value: value)
+			savedBaseline = "Your starting point: \(station.formattedScore(value)), grade \(grade)"
+		}
+		focusedEntry = nil
 		isWorkingOut = false
 		isBreak = false
 		sessionCompleted = true
@@ -432,6 +552,8 @@ struct Workout: View {
 		isBreak = false
 		sessionCompleted = false
 		isExtraSet = false
+		isBaselineSession = false
+		savedBaseline = nil
 		sessionSteps = []
 		selectedStation = nil
 	}

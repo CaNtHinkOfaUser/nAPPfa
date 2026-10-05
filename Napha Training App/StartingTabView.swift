@@ -87,7 +87,7 @@ struct StartingTabView: View {
 					.font(.largeTitle.weight(.bold))
 				
 				
-				Text(canFinish ? "Your profile, goals, and schedule are saved. You can change them anytime from Home or Settings." : "Please complete your profile, goals, and workout schedule before starting training.")
+				Text(canFinish ? "Your profile, goals, and schedule are saved. On day one, open the Workout tab and do a quick baseline test for each station, so your plan starts from your real results." : "Please complete your profile, goals, and workout schedule before starting training.")
 					.font(.body)
 					.foregroundStyle(.secondary)
 					.multilineTextAlignment(.center)
@@ -102,7 +102,7 @@ struct StartingTabView: View {
 					}
 					.padding(14)
 					.frame(maxWidth: .infinity, alignment: .center)
-					.background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+					.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
 					.popUpCard()
 				}
 				

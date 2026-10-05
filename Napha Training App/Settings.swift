@@ -17,6 +17,7 @@ struct Settings: View {
 	@State private var goalSheetSettings = false
 	@State private var ageSheetSettings = false
 	@State private var autoCalcSettings = false
+	@State private var standardsSettings = false
 	@State private var appeared = false
 	@AppStorage(AppKeys.darkModeEnabled) private var darkModeEnabled = false
 	
@@ -32,6 +33,9 @@ struct Settings: View {
 						}
 						SettingsRow(title: "Auto calculation", subtitle: "Raw score to grade", icon: "candybarphone", color: .blue) {
 							autoCalcSettings = true
+						}
+						SettingsRow(title: "NAPFA standards", subtitle: "Grade tables by age and sex", icon: "tablecells", color: .purple) {
+							standardsSettings = true
 						}
 						SettingsRow(title: "Scheduling", subtitle: "Days, times, reminders", icon: "calendar.badge.clock", color: .green) {
 							SchedSheet = true
@@ -72,6 +76,11 @@ struct Settings: View {
 			}
 			.fullScreenCover(isPresented: $autoCalcSettings) {
 				AutoCalcView(info: $info)
+			}
+			.fullScreenCover(isPresented: $standardsSettings) {
+				NavigationStack {
+					NAPFAStandardsView(isMale: info.Gender, age: info.Age, stations: AppState.enabledGoalStations(from: info))
+				}
 			}
 			.fullScreenCover(isPresented: $ageSheetSettings) {
 				Age_Gender(start: .constant(false), info: $info, ageFirstTime: $ftSettings, ageSheet: $AgeSheet)
@@ -127,7 +136,7 @@ struct Settings: View {
 			}
 		}
 		.padding(16)
-		.background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -184,7 +193,7 @@ struct Settings: View {
 			let prev = WorkoutPlanner.grade(at: index, in: info.prev)
 			let targ = WorkoutPlanner.grade(at: index, in: info.targ)
 			guard !prev.isEmpty, !targ.isEmpty else { return nil }
-			return WorkoutPlanner.intensity(previous: prev, target: targ)
+			return WorkoutPlanner.assessment(for: NAPFAStation.allCases[index], info: info).intensity
 		}
 		guard let top = levels.max(by: { $0.multiplier < $1.multiplier }) else {
 			return "Not set"
@@ -211,7 +220,7 @@ struct Settings: View {
 			VStack(spacing: 0) {
 				rows()
 			}
-			.background(.background, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+			.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
 			.popUpCard()
 		}
 	}

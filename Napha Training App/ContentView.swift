@@ -141,6 +141,9 @@ enum AppKeys {
 	static let widgetStreak = "widgetStreak"
 	static let widgetGoal = "widgetGoal"
 	static let darkModeEnabled = "darkModeEnabled"
+	static let baselineDates = "baselineDates"
+	static let pullUpGradesReviewed = "pullUpGradesReviewed"
+	static let baselineResults = "baselineResults"
 }
 
 enum NAPFAStation: String, CaseIterable, Identifiable {
@@ -158,7 +161,7 @@ enum NAPFAStation: String, CaseIterable, Identifiable {
 		case .sitUps: return "figure.core.training"
 		case .standingBroadJump: return "figure.jumprope"
 		case .sitAndReach: return "figure.flexibility"
-		case .inclinedPullUps: return "figure.strengthtraining.traditional"
+		case .inclinedPullUps: return "figure.play"
 		case .shuttleRun: return "figure.run"
 		case .run: return "figure.run.circle"
 		}
@@ -204,15 +207,16 @@ enum NAPFAStation: String, CaseIterable, Identifiable {
 		}
 	}
 	
+	/// NAPFA swaps inclined pull-ups for full pull-ups for males aged 15 and above.
+	/// Females do inclined pull-ups at every age.
+	func isFullPullUp(age: Int, isMale: Bool) -> Bool {
+		self == .inclinedPullUps && isMale && age >= 15
+	}
+	
 	func displayName(age: Int? = nil, sex: Bool? = nil) -> String {
-		// For presentation purposes, treat inclined pull-ups as straight pull-ups
-		// once the user's calculated age reaches 15. Keep stored enum values
-		// unchanged; this only affects displayed text.
-		guard self == .inclinedPullUps else { return rawValue }
-		if let age = age, age >= 15 {
-			return "Pull-ups"
-		}
-		return rawValue
+		// Stored values keep the enum's raw value; only the displayed name changes.
+		guard let age, let sex, isFullPullUp(age: age, isMale: sex) else { return rawValue }
+		return "Pull-ups"
 	}
 	
 	func displayName(for info: data) -> String {
@@ -480,6 +484,28 @@ enum AppState {
 		return birthday.month == today.month && birthday.day == today.day ? "Happy birthday!" : nil
 	}
 	
+	/// Whole years between the two days, ignoring time of day so the age ticks over
+	/// at the start of the birthday.
+	static func age(from birthdate: Date, now: Date = Date()) -> Int {
+		let calendar = Calendar.current
+		return calendar.dateComponents([.year], from: calendar.startOfDay(for: birthdate), to: calendar.startOfDay(for: now)).year ?? 0
+	}
+	
+	/// Starting test date before the user picks one: far enough out to plan for,
+	/// rather than today, which would make every station a test-day session.
+	static func defaultNAPFADate(from now: Date = Date()) -> Date {
+		Calendar.current.date(byAdding: .weekOfYear, value: 12, to: now) ?? now
+	}
+	
+	/// Age worked out from the saved birthdate, so it stays correct after a birthday
+	/// instead of keeping whatever age was saved with the profile.
+	static func currentAge(now: Date = Date()) -> Int? {
+		guard let birthdate = UserDefaults.standard.object(forKey: AppKeys.birthdate) as? Date else {
+			return nil
+		}
+		return age(from: birthdate, now: now)
+	}
+	
 	static func isProfileComplete() -> Bool {
 		let defaults = UserDefaults.standard
 		return defaults.bool(forKey: AppKeys.profileCompleted)
@@ -728,17 +754,15 @@ enum NotificationCoordinator {
 struct ContentView: View {
 	@State var info = data(
 		Age: 12,
-		Gender: false,
+		Gender: true,
 		prev: ["", "", "", "", "", ""],
 		targ: ["", "", "", "", "", ""],
 		schedule: [],
-		NAPFA_Date: Date.now,
+		NAPFA_Date: AppState.defaultNAPFADate(),
 		Goals: []
 	)
 	@State var selectedTimesCV: [Date] = []
 	@State var selectedDaysCV: [Int] = []
-	@State var Sex: Bool = true
-	@State var age: Int = 12
 	@State var prevWorkout = ""
 	@State var firstTime = true
 	@State var GoalSheetCV = false
@@ -767,8 +791,8 @@ struct ContentView: View {
 				info: $info,
 				ageFirstTime: $firstTime,
 				ageSheet: $AgeSheetCV,
-				Sex: $Sex,
-				Age: $age,
+				Sex: $info.Gender,
+				Age: $info.Age,
 				goalSheet: $GoalSheetCV,
 				schedSheet: $SchedSheetCV,
 				selectedDays: $selectedDaysCV,
@@ -783,8 +807,13 @@ struct ContentView: View {
 			refreshScheduleNotifications()
 		}
 		.onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+			refreshAge()
 			routeFromNotificationFlags()
 			refreshScheduleNotifications()
+		}
+		.onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
+			// Fires at midnight, so a birthday is picked up even if the app stays open.
+			refreshAge()
 		}
 		.onChange(of: showLogin) {
 			if showLogin == false {
@@ -840,8 +869,8 @@ struct ContentView: View {
 				SchedSheet: $SchedSheetCV,
 				selectedTimedSettings: $selectedTimesCV,
 				selectedDaysSettings: $selectedDaysCV,
-				Sex: $Sex,
-				age: $age,
+				Sex: $info.Gender,
+				age: $info.Age,
 				ftSettings: $firstTime
 			)
 		case .progression:
@@ -862,19 +891,28 @@ struct ContentView: View {
 		
 		selectedTimesCV = defaults.object(forKey: AppKeys.selectedTimes) as? [Date] ?? selectedTimesCV
 		selectedDaysCV = defaults.object(forKey: AppKeys.selectedDays) as? [Int] ?? selectedDaysCV
-		Sex = defaults.object(forKey: AppKeys.sex) as? Bool ?? Sex
-		age = defaults.object(forKey: AppKeys.age) as? Int ?? age
 		prevWorkout = defaults.string(forKey: AppKeys.previousWorkout) ?? prevWorkout
 		
-		info.Gender = Sex
-		info.Age = age
+		info.Gender = defaults.object(forKey: AppKeys.sex) as? Bool ?? info.Gender
+		info.Age = defaults.object(forKey: AppKeys.age) as? Int ?? info.Age
+		refreshAge()
 		info.NAPFA_Date = defaults.object(forKey: AppKeys.napfaDate) as? Date ?? info.NAPFA_Date
 		info.prev = defaults.object(forKey: AppKeys.previousGrades) as? [String] ?? info.prev
 		info.targ = defaults.object(forKey: AppKeys.targetGrades) as? [String] ?? info.targ
 		info.Goals = defaults.object(forKey: AppKeys.goals) as? [[String]] ?? info.Goals
+		// Grades saved before plans tracked their start date begin their plan today.
+		WorkoutPlanner.updateBaselineDates(previous: info.prev)
 		
 		_ = AppState.currentStreak(selectedDays: selectedDaysCV, selectedTimes: selectedTimesCV)
 		AppState.persistWidgetSummary(selectedDays: selectedDaysCV, selectedTimes: selectedTimesCV)
+	}
+	
+	/// The saved age only changes when the profile is saved, so recompute it from the
+	/// birthdate; otherwise a 15th birthday would never switch on full pull-ups.
+	private func refreshAge() {
+		guard let age = AppState.currentAge(), age != info.Age else { return }
+		info.Age = age
+		UserDefaults.standard.set(age, forKey: AppKeys.age)
 	}
 	
 	private func refreshScheduleNotifications() {

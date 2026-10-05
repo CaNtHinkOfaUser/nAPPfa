@@ -106,9 +106,19 @@ struct Home: View {
 	@State private var showGoalSheet = false
 	@State private var streak = 0
 	@State private var nextWorkout: Date?
+	@AppStorage(AppKeys.pullUpGradesReviewed) private var pullUpGradesReviewed = false
 	
 	private var goals: [GoalDraft] {
 		GoalDraft.fromSaved(info.Goals)
+	}
+	
+	/// Turning 15 swaps inclined pull-ups for full pull-ups (males), so a grade or baseline
+	/// from inclined pull-ups no longer reflects where the user is starting from.
+	private var needsPullUpRetest: Bool {
+		guard !pullUpGradesReviewed,
+			  NAPFAStation.inclinedPullUps.isFullPullUp(age: info.Age, isMale: info.Gender),
+			  let index = NAPFAStation.allCases.firstIndex(of: .inclinedPullUps) else { return false }
+		return !WorkoutPlanner.grade(at: index, in: info.prev).isEmpty
 	}
 	
 	private var schedule: [(day: Int, time: Date)] {
@@ -129,6 +139,19 @@ struct Home: View {
 							.padding(10)
 							.frame(maxWidth: .infinity, alignment: .leading)
 							.background(.pink.opacity(0.12), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+					}
+					
+					if needsPullUpRetest {
+						Button(action: onWorkoutNow) {
+							Label("NAPFA switches you to full pull-ups from 15. Tap to do a pull-up baseline test.", systemImage: "figure.play")
+								.font(.caption.weight(.semibold))
+								.foregroundStyle(.orange)
+								.lineLimit(2)
+								.padding(10)
+								.frame(maxWidth: .infinity, alignment: .leading)
+								.background(.orange.opacity(0.12), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+						}
+						.buttonStyle(.plain)
 					}
 					
 					HStack(spacing: 10) {
@@ -202,7 +225,7 @@ struct Home: View {
 				Image(systemName: "target")
 					.font(.title3.weight(.semibold))
 					.frame(width: 40, height: 40)
-					.background(.background, in: Circle())
+					.background(Color(.secondarySystemGroupedBackground), in: Circle())
 			}
 			.accessibilityLabel("Edit goals")
 		}
@@ -223,7 +246,7 @@ struct Home: View {
 		}
 		.padding(12)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-		.background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -252,7 +275,7 @@ struct Home: View {
 					.font(.subheadline.weight(.bold))
 				Spacer()
 				if !prevWorkout.isEmpty {
-					Text("Last: \(prevWorkout)")
+					Text("Last: \(NAPFAStation(rawValue: prevWorkout)?.displayName(for: info) ?? prevWorkout)")
 						.font(.caption2)
 						.foregroundStyle(.secondary)
 						.lineLimit(1)
@@ -289,7 +312,7 @@ struct Home: View {
 		}
 		.padding(14)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-		.background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -329,7 +352,7 @@ struct Home: View {
 		}
 		.padding(12)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-		.background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -374,7 +397,7 @@ struct Home: View {
 		}
 		.padding(12)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-		.background(.background, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	

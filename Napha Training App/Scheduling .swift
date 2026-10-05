@@ -17,7 +17,7 @@ struct Scheduling_: View {
     @Binding var schedSheet: Bool
 
     @State private var times: [Date] = Array(repeating: Date(), count: 7)
-    @State private var NAPFA_Date: Date = Date.now
+    @State private var NAPFA_Date: Date = AppState.defaultNAPFADate()
     @State private var savedStatus = "Saved"
     @State private var remindersEnabled = true
     @State private var reminderOneHour = true
@@ -28,7 +28,7 @@ struct Scheduling_: View {
     @State private var snapshotDays: [Int] = []
     @State private var snapshotTimes: [Date] = []
     @State private var snapshotTimesByDay: [Date] = Array(repeating: Date(), count: 7)
-    @State private var snapshotNAPFA: Date = Date.now
+    @State private var snapshotNAPFA: Date = AppState.defaultNAPFADate()
     @State private var snapshotRemindersEnabled = true
     @State private var snapshotOneHour = true
     @State private var snapshotTenMinutes = true
@@ -105,7 +105,7 @@ struct Scheduling_: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .modifier(PopUpCard())
     }
 
@@ -133,7 +133,7 @@ struct Scheduling_: View {
                         }
                         .frame(maxWidth: .infinity, minHeight: 58)
                         .foregroundStyle(selectedDays.contains(day) ? .white : .primary)
-                        .background(selectedDays.contains(day) ? Color.blue : Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        .background(selectedDays.contains(day) ? Color.blue : Color(.tertiarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel(AppState.dayName(day))
@@ -148,7 +148,7 @@ struct Scheduling_: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .modifier(PopUpCard())
     }
 
@@ -172,14 +172,14 @@ struct Scheduling_: View {
                                 .labelsHidden()
                         }
                         .padding(12)
-                        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .background(Color(.tertiarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
                 }
             }
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .modifier(PopUpCard())
     }
 
@@ -203,7 +203,7 @@ struct Scheduling_: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
         .modifier(PopUpCard())
     }
 

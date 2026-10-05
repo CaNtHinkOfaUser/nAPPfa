@@ -28,6 +28,7 @@
 			A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9793E692C734063008BF2BC /* CustomTabBar.swift */; };
 			A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E411132C8EE6E50014AF7A /* Statistics.swift */; };
 			B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */; };
+			B1C2D3E42F10000100000003 /* Standards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E42F10000100000004 /* Standards.swift */; };
 		/* End PBXBuildFile section */
 		
 		/* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 			A9793E692C734063008BF2BC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 			A9E411132C8EE6E50014AF7A /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 			B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlanner.swift; sourceTree = "<group>"; };
+			B1C2D3E42F10000100000004 /* Standards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standards.swift; sourceTree = "<group>"; };
 		/* End PBXFileReference section */
 		
 		/* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 							77BA9C1B2C29673A0045BA5B /* Home.swift */,
 							77B0B38A2C60C15E002102AA /* Workout.swift */,
 							B1C2D3E42F10000100000002 /* WorkoutPlanner.swift */,
+							B1C2D3E42F10000100000004 /* Standards.swift */,
 							3134209A2C5C838200AEF150 /* Scheduling .swift */,
 							77BA9C1D2C296A960045BA5B /* Goal Page.swift */,
 							77BFA6192C36E8830072B92E /* Settings.swift */,
@@ -406,6 +409,7 @@
 						 31F381F62FE04C3E006BDF18 /* StartingTabView.swift in Sources */,
 						 77B0B38B2C60C15E002102AA /* Workout.swift in Sources */,
 						 B1C2D3E42F10000100000001 /* WorkoutPlanner.swift in Sources */,
+						 B1C2D3E42F10000100000003 /* Standards.swift in Sources */,
 						 A9793E6A2C734063008BF2BC /* CustomTabBar.swift in Sources */,
 						 A9E411142C8EE6E50014AF7A /* Statistics.swift in Sources */,
 						 77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */,

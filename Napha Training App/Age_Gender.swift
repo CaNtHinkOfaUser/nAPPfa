@@ -24,7 +24,7 @@ struct Age_Gender: View {
 	
 	private var age: Int {
 		guard let birthdate else { return 0 }
-		return calendar.dateComponents([.year], from: birthdate, to: Date()).year ?? 0
+		return AppState.age(from: birthdate)
 	}
 	
 	var body: some View {
@@ -44,6 +44,9 @@ struct Age_Gender: View {
 						Section {
 							profileFields
 						}
+						// profileFields draws its own card, so the row behind it stays clear.
+						.listRowBackground(Color.clear)
+						.listRowInsets(EdgeInsets())
 					}
 					.scrollContentBackground(.hidden)
 					.background(Color(.systemGroupedBackground))
@@ -117,7 +120,7 @@ struct Age_Gender: View {
 		}
 		.padding(18)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-		.background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
 		.popUpCard()
 		.onAppear {
 			if start {
@@ -303,7 +306,7 @@ struct GenderButton: View {
 			}
 			.padding()
 			.frame(maxWidth: .infinity, minHeight: 100)
-			.background(isSelected ? themeColor : Color.white)
+			.background(isSelected ? themeColor : Color(.systemBackground))
 			.cornerRadius(10)
 			.overlay(
 				RoundedRectangle(cornerRadius: 10)

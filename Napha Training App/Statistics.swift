@@ -89,7 +89,7 @@ struct Statistics: View {
 			let prev = WorkoutPlanner.grade(at: index, in: info.prev)
 			let targ = WorkoutPlanner.grade(at: index, in: info.targ)
 			guard !prev.isEmpty, !targ.isEmpty else { return nil }
-			return WorkoutPlanner.intensity(previous: prev, target: targ)
+			return WorkoutPlanner.assessment(for: NAPFAStation.allCases[index], info: info).intensity
 		}
 		guard let top = levels.max(by: { $0.multiplier < $1.multiplier }) else {
 			return "Not set"
@@ -147,7 +147,7 @@ struct Statistics: View {
 			WeeklyBars()
 		}
 		.padding(18)
-		.background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -185,7 +185,7 @@ struct Statistics: View {
 			}
 		}
 		.padding(18)
-		.background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -217,7 +217,7 @@ struct Statistics: View {
 			}
 		}
 		.padding(18)
-		.background(.background, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
 		.modifier(PopUpCard())
 	}
 	
@@ -242,7 +242,7 @@ private struct StatTile: View {
 				.foregroundStyle(.secondary)
 		}
 		.frame(maxWidth: .infinity, minHeight: 82)
-		.background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+		.background(Color(.tertiarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
 	}
 }
 

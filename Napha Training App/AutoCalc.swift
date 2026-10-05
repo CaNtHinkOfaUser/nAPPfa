@@ -22,7 +22,7 @@ struct AutoCalcView: View {
 				Section("Result") {
 					Slider(
 						value: activeValue,
-						in: selectedStation.sliderRange,
+						in: sliderRange,
 						step: selectedStation.sliderStep
 					)
 					
@@ -60,6 +60,11 @@ struct AutoCalcView: View {
 		}
 	}
 	
+	private var sliderRange: ClosedRange<Double> {
+		// Full pull-up results are far lower than inclined ones, so use a tighter range.
+		selectedStation.isFullPullUp(age: info.Age, isMale: info.Gender) ? 0...20 : selectedStation.sliderRange
+	}
+	
 	private var valueText: String {
 		selectedStation.formattedScore(activeValue.wrappedValue)
 	}
@@ -74,7 +79,7 @@ struct AutoCalcView: View {
 	}
 }
 
-private enum NAPFAGradeCalculator {
+enum NAPFAGradeCalculator {
 	private static let gradeLetters = ["A", "B", "C", "D", "E"]
 	
 	private static let thresholds: [NAPFAStation: [Bool: [Int: [Double]]]] = [
@@ -260,9 +265,25 @@ private enum NAPFAGradeCalculator {
 		return age
 	}
 	
+	private static func ageKey(for station: NAPFAStation, age: Int) -> Int {
+		station == .run ? max(normalizedAge(age), 12) : normalizedAge(age)
+	}
+	
+	/// The result a grade needs: the fewest reps or cm, or the slowest time.
+	/// F and NA have no threshold, so they get one grade band below E.
+	static func score(for grade: String, station: NAPFAStation, age: Int, sex: Bool) -> Double? {
+		guard let row = thresholds[station]?[sex]?[ageKey(for: station, age: age)], row.count >= 2 else { return nil }
+		let letter = grade.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+		if let index = gradeLetters.firstIndex(of: letter), row.indices.contains(index) {
+			return row[index]
+		}
+		let lowest = row[row.count - 1]
+		let belowLowest = lowest - (row[row.count - 2] - lowest)
+		return station.lowerIsBetter ? belowLowest : max(0, belowLowest)
+	}
+	
 	static func grade(for station: NAPFAStation, age: Int, sex: Bool, value: Double) -> String {
-		let ageKey = station == .run ? max(normalizedAge(age), 12) : normalizedAge(age)
-		guard let row = thresholds[station]?[sex]?[ageKey] else { return "N/A" }
+		guard let row = thresholds[station]?[sex]?[ageKey(for: station, age: age)] else { return "N/A" }
 		
 		for (letter, threshold) in zip(gradeLetters, row) {
 			if station.lowerIsBetter {
@@ -276,7 +297,7 @@ private enum NAPFAGradeCalculator {
 	}
 }
 
-private extension NAPFAStation {
+extension NAPFAStation {
 	var sliderRange: ClosedRange<Double> {
 		switch self {
 		case .sitUps:
