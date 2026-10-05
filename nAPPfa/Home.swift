@@ -251,21 +251,23 @@ struct Home: View {
 	}
 	
 	private var streakTile: some View {
-		VStack(alignment: .center, spacing: 0) {
-			Text("Streak")
-				.font(.caption.weight(.bold))
+		VStack(alignment: .center, spacing: 2) {
 			GeometryReader { proxy in
 				StreakFlame(streak: streak, size: min(proxy.size.width, proxy.size.height))
 					.frame(maxWidth: .infinity, maxHeight: .infinity)
 			}
-			Text(streak == 1 ? "day" : "days")
-				.font(.subheadline.weight(.semibold))
+			Text("day streak")
+				.font(.subheadline.weight(.heavy))
 		}
 		.foregroundStyle(.black)
 		.padding(12)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-		.background(Color.yellow, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-		.modifier(PopUpCard())
+		// Shadow on the card shape only, so the flat flame and number stay crisp.
+		.background {
+			RoundedRectangle(cornerRadius: 18, style: .continuous)
+				.fill(Color.yellow)
+				.modifier(PopUpCard())
+		}
 		.accessibilityElement(children: .ignore)
 		.accessibilityLabel("Streak: \(streak) \(streak == 1 ? "day" : "days")")
 	}
@@ -425,8 +427,9 @@ struct Home: View {
 	}
 }
 
-/// The streak count sitting on a flickering flame. The flame goes grey and still when
-/// the streak is 0, and stops flickering when Reduce Motion is on.
+/// Duolingo-style streak: a flat flame with the count in front of its base. The count's
+/// outline is the flame's colour, so the two read as one shape. The flame flickers while
+/// the streak is alive, and goes grey and still at 0 or when Reduce Motion is on.
 private struct StreakFlame: View {
 	let streak: Int
 	let size: CGFloat
@@ -434,48 +437,73 @@ private struct StreakFlame: View {
 	
 	private var isLit: Bool { streak > 0 }
 	
+	private var flameColor: Color {
+		isLit ? Color(red: 1, green: 0.5, blue: 0) : Color(.systemGray)
+	}
+	
 	var body: some View {
-		TimelineView(.animation(minimumInterval: 1 / 30, paused: reduceMotion || !isLit)) { timeline in
-			let time = isLit && !reduceMotion ? timeline.date.timeIntervalSinceReferenceDate : 0
-			// Two out-of-step waves so the flicker never looks like a simple loop.
-			let flicker = 0.035 * sin(time * 7.3) + 0.02 * sin(time * 12.9)
-			let sway = 2.5 * sin(time * 3.1)
-			let flame = size * 0.88
-			
-			ZStack {
-				if isLit {
-					Circle()
-						.fill(RadialGradient(colors: [.orange.opacity(0.45), .clear], center: .center, startRadius: 0, endRadius: flame * 0.55))
-						.frame(width: flame * 1.1, height: flame * 1.1)
-						.scaleEffect(1 + flicker * 2)
-						.offset(y: flame * 0.12)
-				}
+		ZStack(alignment: .bottom) {
+			TimelineView(.animation(minimumInterval: 1 / 30, paused: reduceMotion || !isLit)) { timeline in
+				let time = isLit && !reduceMotion ? timeline.date.timeIntervalSinceReferenceDate : 0
+				// Two out-of-step waves so the flicker never looks like a simple loop.
+				let flicker = 0.03 * sin(time * 7.3) + 0.015 * sin(time * 12.9)
+				let sway = 2 * sin(time * 3.1)
 				
 				Image(systemName: "flame.fill")
 					.resizable()
 					.scaledToFit()
-					.frame(width: flame, height: flame)
-					.foregroundStyle(
-						LinearGradient(
-							colors: isLit ? [Color(red: 0.93, green: 0.2, blue: 0.08), .orange] : [Color(.systemGray), Color(.systemGray3)],
-							startPoint: .bottom,
-							endPoint: .top
-						)
-					)
-					.scaleEffect(x: 1 - flicker * 0.6, y: 1 + flicker, anchor: .bottom)
+					.foregroundStyle(flameColor)
+					.scaleEffect(x: 1 - flicker * 0.5, y: 1 + flicker, anchor: .bottom)
 					.rotationEffect(.degrees(sway), anchor: .bottom)
-				
-				Text("\(streak)")
-					.font(.system(size: flame * 0.42, weight: .black, design: .rounded))
-					.foregroundStyle(.white)
-					.minimumScaleFactor(0.5)
-					.lineLimit(1)
-					.frame(width: flame * 0.62)
-					.shadow(color: Color(red: 0.6, green: 0.12, blue: 0).opacity(0.55), radius: 2, y: 1)
-					.offset(y: flame * 0.16)
 			}
-			.frame(width: size, height: size)
+			.frame(height: size * 0.86)
+			.frame(maxHeight: .infinity, alignment: .top)
+			
+			// Kept outside the timeline so the outlined digits aren't redrawn every frame.
+			StreakNumber(
+				text: "\(streak)",
+				fontSize: size * (streak < 100 ? 0.5 : 0.36),
+				outlineColor: flameColor
+			)
+			.offset(y: size * 0.06)
 		}
+		.frame(width: size, height: size)
+	}
+}
+
+/// Chunky white digits with a thick outline, drawn as the digits in the outline colour
+/// nudged out in three rings of directions so the outline stays smooth and solid.
+private struct StreakNumber: View {
+	let text: String
+	let fontSize: CGFloat
+	let outlineColor: Color
+	
+	private var font: Font {
+		.system(size: fontSize, weight: .black, design: .rounded)
+	}
+	
+	var body: some View {
+		let stroke = max(2, fontSize * 0.12)
+		ZStack {
+			ForEach([stroke, stroke * 0.66, stroke * 0.33], id: \.self) { radius in
+				ForEach(0..<24, id: \.self) { step in
+					let angle = Double(step) / 24 * 2 * .pi
+					Text(text)
+						.font(font)
+						.foregroundStyle(outlineColor)
+						.offset(x: cos(angle) * radius, y: sin(angle) * radius)
+				}
+			}
+			Text(text)
+				.font(font)
+				.foregroundStyle(.white)
+		}
+		.lineLimit(1)
+		.fixedSize()
+		// Room for the outline, which drawingGroup would otherwise clip.
+		.padding(stroke)
+		.drawingGroup()
+		.padding(-stroke)
 	}
 }
 

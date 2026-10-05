@@ -8,6 +8,7 @@ import SwiftUI
 struct SplashScreen: View {
     @State private var isActive = false
     @State private var contentOpacity = 1.0
+    @AppStorage(AppKeys.darkModeEnabled) private var darkModeEnabled = false
 
     var body: some View {
         Group {
@@ -49,6 +50,9 @@ struct SplashScreen: View {
                 }
             }
         }
+        // Applied here rather than only in ContentView so the splash matches the app's
+        // dark mode setting too.
+        .preferredColorScheme(darkModeEnabled ? .dark : nil)
     }
 }
 
