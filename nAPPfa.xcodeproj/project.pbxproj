@@ -13,13 +13,13 @@
 			31F381F72FE04C44006BDF18 /* Age_Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313420962C5B9E7800AEF150 /* Age_Gender.swift */; };
 			31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311B2D642C983CCA0054CB58 /* AutoCalc.swift */; };
 			31F381F92FE04C50006BDF18 /* Scheduling .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134209A2C5C838200AEF150 /* Scheduling .swift */; };
-			7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */; };
+			7705B7342C00621500111DBE /* nAPPfaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7332C00621500111DBE /* nAPPfaApp.swift */; };
 			7705B7362C00621500111DBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7352C00621500111DBE /* ContentView.swift */; };
 			7705B7382C00621700111DBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B7372C00621700111DBE /* Assets.xcassets */; };
 			7705B73B2C00621700111DBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7705B73A2C00621700111DBE /* Preview Assets.xcassets */; };
-			7705B7452C00621700111DBE /* Napha_Training_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */; };
-			7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */; };
-			7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */; };
+			7705B7452C00621700111DBE /* nAPPfaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7442C00621700111DBE /* nAPPfaTests.swift */; };
+			7705B74F2C00621700111DBE /* nAPPfaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B74E2C00621700111DBE /* nAPPfaUITests.swift */; };
+			7705B7512C00621700111DBE /* nAPPfaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705B7502C00621700111DBE /* nAPPfaUITestsLaunchTests.swift */; };
 			77B0B38B2C60C15E002102AA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0B38A2C60C15E002102AA /* Workout.swift */; };
 			77BA9C1A2C29670B0045BA5B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C192C29670B0045BA5B /* Login.swift */; };
 			77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA9C1B2C29673A0045BA5B /* Home.swift */; };
@@ -44,14 +44,14 @@
 				containerPortal = 7705B7282C00621500111DBE /* Project object */;
 				proxyType = 1;
 				remoteGlobalIDString = 7705B72F2C00621500111DBE;
-				remoteInfo = "Napha Training App";
+				remoteInfo = "nAPPfa";
 			};
 			7705B74B2C00621700111DBE /* PBXContainerItemProxy */ = {
 				isa = PBXContainerItemProxy;
 				containerPortal = 7705B7282C00621500111DBE /* Project object */;
 				proxyType = 1;
 				remoteGlobalIDString = 7705B72F2C00621500111DBE;
-				remoteInfo = "Napha Training App";
+				remoteInfo = "nAPPfa";
 			};
 		/* End PBXContainerItemProxy section */
 		
@@ -84,16 +84,16 @@
 			3152F8132CBD343300D025F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 			3152F8152CBD343300D025F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 			31B526912C65C54C007D413C /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-			7705B7302C00621500111DBE /* Napha Training App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Napha Training App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-			7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppApp.swift; sourceTree = "<group>"; };
+			7705B7302C00621500111DBE /* nAPPfa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nAPPfa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+			7705B7332C00621500111DBE /* nAPPfaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfaApp.swift; sourceTree = "<group>"; };
 			7705B7352C00621500111DBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 			7705B7372C00621700111DBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 			7705B73A2C00621700111DBE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-			7705B7402C00621700111DBE /* Napha Training AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Napha Training AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-			7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppTests.swift; sourceTree = "<group>"; };
-			7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Napha Training AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-			7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITests.swift; sourceTree = "<group>"; };
-			7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napha_Training_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+			7705B7402C00621700111DBE /* nAPPfaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nAPPfaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+			7705B7442C00621700111DBE /* nAPPfaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfaTests.swift; sourceTree = "<group>"; };
+			7705B74A2C00621700111DBE /* nAPPfaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nAPPfaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+			7705B74E2C00621700111DBE /* nAPPfaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfaUITests.swift; sourceTree = "<group>"; };
+			7705B7502C00621700111DBE /* nAPPfaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nAPPfaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 			77B0B38A2C60C15E002102AA /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 			77BA9C192C29670B0045BA5B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 			77BA9C1B2C29673A0045BA5B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -162,9 +162,9 @@
 			7705B7272C00621500111DBE = {
 				isa = PBXGroup;
 				children = (
-							7705B7322C00621500111DBE /* Napha Training App */,
-							7705B7432C00621700111DBE /* Napha Training AppTests */,
-							7705B74D2C00621700111DBE /* Napha Training AppUITests */,
+							7705B7322C00621500111DBE /* nAPPfa */,
+							7705B7432C00621700111DBE /* nAPPfaTests */,
+							7705B74D2C00621700111DBE /* nAPPfaUITests */,
 							3152F80A2CBD343000D025F5 /* nAPPfa widget */,
 							3152F8052CBD343000D025F5 /* Frameworks */,
 							7705B7312C00621500111DBE /* Products */,
@@ -174,21 +174,21 @@
 			7705B7312C00621500111DBE /* Products */ = {
 				isa = PBXGroup;
 				children = (
-							7705B7302C00621500111DBE /* Napha Training App.app */,
-							7705B7402C00621700111DBE /* Napha Training AppTests.xctest */,
-							7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */,
+							7705B7302C00621500111DBE /* nAPPfa.app */,
+							7705B7402C00621700111DBE /* nAPPfaTests.xctest */,
+							7705B74A2C00621700111DBE /* nAPPfaUITests.xctest */,
 							3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */,
 							);
 							name = Products;
 							sourceTree = "<group>";
 			};
-			7705B7322C00621500111DBE /* Napha Training App */ = {
+			7705B7322C00621500111DBE /* nAPPfa */ = {
 				isa = PBXGroup;
 				children = (
 							3101A6C52CA422370082724C /* Profile.swift */,
 							314BCB0E2C73369200F43C37 /* StartingTabView.swift */,
 							A9E411132C8EE6E50014AF7A /* Statistics.swift */,
-							7705B7332C00621500111DBE /* Napha_Training_AppApp.swift */,
+							7705B7332C00621500111DBE /* nAPPfaApp.swift */,
 							31B526912C65C54C007D413C /* SplashScreen.swift */,
 							7705B7352C00621500111DBE /* ContentView.swift */,
 							A9793E692C734063008BF2BC /* CustomTabBar.swift */,
@@ -205,7 +205,7 @@
 							7705B7372C00621700111DBE /* Assets.xcassets */,
 							7705B7392C00621700111DBE /* Preview Content */,
 							);
-							path = "Napha Training App";
+							path = "nAPPfa";
 							sourceTree = "<group>";
 			};
 			7705B7392C00621700111DBE /* Preview Content */ = {
@@ -216,21 +216,21 @@
 							path = "Preview Content";
 							sourceTree = "<group>";
 			};
-			7705B7432C00621700111DBE /* Napha Training AppTests */ = {
+			7705B7432C00621700111DBE /* nAPPfaTests */ = {
 				isa = PBXGroup;
 				children = (
-							7705B7442C00621700111DBE /* Napha_Training_AppTests.swift */,
+							7705B7442C00621700111DBE /* nAPPfaTests.swift */,
 							);
-							path = "Napha Training AppTests";
+							path = "nAPPfaTests";
 							sourceTree = "<group>";
 			};
-			7705B74D2C00621700111DBE /* Napha Training AppUITests */ = {
+			7705B74D2C00621700111DBE /* nAPPfaUITests */ = {
 				isa = PBXGroup;
 				children = (
-							7705B74E2C00621700111DBE /* Napha_Training_AppUITests.swift */,
-							7705B7502C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift */,
+							7705B74E2C00621700111DBE /* nAPPfaUITests.swift */,
+							7705B7502C00621700111DBE /* nAPPfaUITestsLaunchTests.swift */,
 							);
-							path = "Napha Training AppUITests";
+							path = "nAPPfaUITests";
 							sourceTree = "<group>";
 			};
 		/* End PBXGroup section */
@@ -253,9 +253,9 @@
 															 productReference = 3152F8042CBD343000D025F5 /* nAPPfa widgetExtension.appex */;
 															 productType = "com.apple.product-type.app-extension";
 			};
-			7705B72F2C00621500111DBE /* Napha Training App */ = {
+			7705B72F2C00621500111DBE /* nAPPfa */ = {
 				isa = PBXNativeTarget;
-				buildConfigurationList = 7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training App" */;
+				buildConfigurationList = 7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "nAPPfa" */;
 				buildPhases = (
 							   7705B72C2C00621500111DBE /* Sources */,
 							   7705B72D2C00621500111DBE /* Frameworks */,
@@ -267,16 +267,16 @@
 											 dependencies = (
 															 3152F8172CBD343300D025F5 /* PBXTargetDependency */,
 															 );
-															 name = "Napha Training App";
+															 name = "nAPPfa";
 															 packageProductDependencies = (
 																						   );
-																						   productName = "Napha Training App";
-																						   productReference = 7705B7302C00621500111DBE /* Napha Training App.app */;
+																						   productName = "nAPPfa";
+																						   productReference = 7705B7302C00621500111DBE /* nAPPfa.app */;
 																						   productType = "com.apple.product-type.application";
 			};
-			7705B73F2C00621700111DBE /* Napha Training AppTests */ = {
+			7705B73F2C00621700111DBE /* nAPPfaTests */ = {
 				isa = PBXNativeTarget;
-				buildConfigurationList = 7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppTests" */;
+				buildConfigurationList = 7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "nAPPfaTests" */;
 				buildPhases = (
 							   7705B73C2C00621700111DBE /* Sources */,
 							   7705B73D2C00621700111DBE /* Frameworks */,
@@ -287,14 +287,14 @@
 											 dependencies = (
 															 7705B7422C00621700111DBE /* PBXTargetDependency */,
 															 );
-															 name = "Napha Training AppTests";
-															 productName = "Napha Training AppTests";
-															 productReference = 7705B7402C00621700111DBE /* Napha Training AppTests.xctest */;
+															 name = "nAPPfaTests";
+															 productName = "nAPPfaTests";
+															 productReference = 7705B7402C00621700111DBE /* nAPPfaTests.xctest */;
 															 productType = "com.apple.product-type.bundle.unit-test";
 			};
-			7705B7492C00621700111DBE /* Napha Training AppUITests */ = {
+			7705B7492C00621700111DBE /* nAPPfaUITests */ = {
 				isa = PBXNativeTarget;
-				buildConfigurationList = 7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppUITests" */;
+				buildConfigurationList = 7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "nAPPfaUITests" */;
 				buildPhases = (
 							   7705B7462C00621700111DBE /* Sources */,
 							   7705B7472C00621700111DBE /* Frameworks */,
@@ -305,9 +305,9 @@
 											 dependencies = (
 															 7705B74C2C00621700111DBE /* PBXTargetDependency */,
 															 );
-															 name = "Napha Training AppUITests";
-															 productName = "Napha Training AppUITests";
-															 productReference = 7705B74A2C00621700111DBE /* Napha Training AppUITests.xctest */;
+															 name = "nAPPfaUITests";
+															 productName = "nAPPfaUITests";
+															 productReference = 7705B74A2C00621700111DBE /* nAPPfaUITests.xctest */;
 															 productType = "com.apple.product-type.bundle.ui-testing";
 			};
 		/* End PBXNativeTarget section */
@@ -336,7 +336,7 @@
 						};
 					};
 				};
-				buildConfigurationList = 7705B72B2C00621500111DBE /* Build configuration list for PBXProject "Napha Training App" */;
+				buildConfigurationList = 7705B72B2C00621500111DBE /* Build configuration list for PBXProject "nAPPfa" */;
 				compatibilityVersion = "Xcode 14.0";
 				developmentRegion = en;
 				hasScannedForEncodings = 0;
@@ -351,9 +351,9 @@
 													 projectDirPath = "";
 													 projectRoot = "";
 													 targets = (
-																7705B72F2C00621500111DBE /* Napha Training App */,
-																7705B73F2C00621700111DBE /* Napha Training AppTests */,
-																7705B7492C00621700111DBE /* Napha Training AppUITests */,
+																7705B72F2C00621500111DBE /* nAPPfa */,
+																7705B73F2C00621700111DBE /* nAPPfaTests */,
+																7705B7492C00621700111DBE /* nAPPfaUITests */,
 																3152F8032CBD343000D025F5 /* nAPPfa widgetExtension */,
 																);
 			};
@@ -420,7 +420,7 @@
 						 7705B7362C00621500111DBE /* ContentView.swift in Sources */,
 						 31F381F82FE04C48006BDF18 /* AutoCalc.swift in Sources */,
 						 77BA9C1C2C29673A0045BA5B /* Home.swift in Sources */,
-						 7705B7342C00621500111DBE /* Napha_Training_AppApp.swift in Sources */,
+						 7705B7342C00621500111DBE /* nAPPfaApp.swift in Sources */,
 						 );
 						 runOnlyForDeploymentPostprocessing = 0;
 			};
@@ -428,7 +428,7 @@
 				isa = PBXSourcesBuildPhase;
 				buildActionMask = 2147483647;
 				files = (
-						 7705B7452C00621700111DBE /* Napha_Training_AppTests.swift in Sources */,
+						 7705B7452C00621700111DBE /* nAPPfaTests.swift in Sources */,
 						 );
 						 runOnlyForDeploymentPostprocessing = 0;
 			};
@@ -436,8 +436,8 @@
 				isa = PBXSourcesBuildPhase;
 				buildActionMask = 2147483647;
 				files = (
-						 7705B74F2C00621700111DBE /* Napha_Training_AppUITests.swift in Sources */,
-						 7705B7512C00621700111DBE /* Napha_Training_AppUITestsLaunchTests.swift in Sources */,
+						 7705B74F2C00621700111DBE /* nAPPfaUITests.swift in Sources */,
+						 7705B7512C00621700111DBE /* nAPPfaUITestsLaunchTests.swift in Sources */,
 						 );
 						 runOnlyForDeploymentPostprocessing = 0;
 			};
@@ -451,12 +451,12 @@
 			};
 			7705B7422C00621700111DBE /* PBXTargetDependency */ = {
 				isa = PBXTargetDependency;
-				target = 7705B72F2C00621500111DBE /* Napha Training App */;
+				target = 7705B72F2C00621500111DBE /* nAPPfa */;
 				targetProxy = 7705B7412C00621700111DBE /* PBXContainerItemProxy */;
 			};
 			7705B74C2C00621700111DBE /* PBXTargetDependency */ = {
 				isa = PBXTargetDependency;
-				target = 7705B72F2C00621500111DBE /* Napha Training App */;
+				target = 7705B72F2C00621500111DBE /* nAPPfa */;
 				targetProxy = 7705B74B2C00621700111DBE /* PBXContainerItemProxy */;
 			};
 		/* End PBXTargetDependency section */
@@ -644,14 +644,15 @@
 				buildSettings = {
 					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-					CODE_SIGN_ENTITLEMENTS = "Napha Training App/Napha Training App.entitlements";
+					CODE_SIGN_ENTITLEMENTS = "nAPPfa/nAPPfa.entitlements";
 					CODE_SIGN_STYLE = Automatic;
 					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_ASSET_PATHS = "\"Napha Training App/Preview Content\"";
+					DEVELOPMENT_ASSET_PATHS = "\"nAPPfa/Preview Content\"";
 					DEVELOPMENT_TEAM = Q5X3YFN7M4;
 					ENABLE_PREVIEWS = YES;
 					GENERATE_INFOPLIST_FILE = YES;
-					INFOPLIST_FILE = "Napha Training App/Napha-Training-App-Info.plist";
+					INFOPLIST_FILE = "nAPPfa/nAPPfa-Info.plist";
+					INFOPLIST_KEY_CFBundleDisplayName = nAPPfa;
 					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 					INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -674,14 +675,15 @@
 				buildSettings = {
 					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-					CODE_SIGN_ENTITLEMENTS = "Napha Training App/Napha Training App.entitlements";
+					CODE_SIGN_ENTITLEMENTS = "nAPPfa/nAPPfa.entitlements";
 					CODE_SIGN_STYLE = Automatic;
 					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_ASSET_PATHS = "\"Napha Training App/Preview Content\"";
+					DEVELOPMENT_ASSET_PATHS = "\"nAPPfa/Preview Content\"";
 					DEVELOPMENT_TEAM = Q5X3YFN7M4;
 					ENABLE_PREVIEWS = YES;
 					GENERATE_INFOPLIST_FILE = YES;
-					INFOPLIST_FILE = "Napha Training App/Napha-Training-App-Info.plist";
+					INFOPLIST_FILE = "nAPPfa/nAPPfa-Info.plist";
+					INFOPLIST_KEY_CFBundleDisplayName = nAPPfa;
 					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 					INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -713,7 +715,7 @@
 					SWIFT_EMIT_LOC_STRINGS = NO;
 					SWIFT_VERSION = 5.0;
 					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napha Training App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Napha Training App";
+					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nAPPfa.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/nAPPfa";
 				};
 				name = Debug;
 			};
@@ -731,7 +733,7 @@
 					SWIFT_EMIT_LOC_STRINGS = NO;
 					SWIFT_VERSION = 5.0;
 					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napha Training App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Napha Training App";
+					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nAPPfa.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/nAPPfa";
 				};
 				name = Release;
 			};
@@ -747,7 +749,7 @@
 					SWIFT_EMIT_LOC_STRINGS = NO;
 					SWIFT_VERSION = 5.0;
 					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_TARGET_NAME = "Napha Training App";
+					TEST_TARGET_NAME = "nAPPfa";
 				};
 				name = Debug;
 			};
@@ -763,7 +765,7 @@
 					SWIFT_EMIT_LOC_STRINGS = NO;
 					SWIFT_VERSION = 5.0;
 					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_TARGET_NAME = "Napha Training App";
+					TEST_TARGET_NAME = "nAPPfa";
 				};
 				name = Release;
 			};
@@ -779,7 +781,7 @@
 									   defaultConfigurationIsVisible = 0;
 									   defaultConfigurationName = Release;
 			};
-			7705B72B2C00621500111DBE /* Build configuration list for PBXProject "Napha Training App" */ = {
+			7705B72B2C00621500111DBE /* Build configuration list for PBXProject "nAPPfa" */ = {
 				isa = XCConfigurationList;
 				buildConfigurations = (
 									   7705B7522C00621700111DBE /* Debug */,
@@ -788,7 +790,7 @@
 									   defaultConfigurationIsVisible = 0;
 									   defaultConfigurationName = Release;
 			};
-			7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training App" */ = {
+			7705B7542C00621700111DBE /* Build configuration list for PBXNativeTarget "nAPPfa" */ = {
 				isa = XCConfigurationList;
 				buildConfigurations = (
 									   7705B7552C00621700111DBE /* Debug */,
@@ -797,7 +799,7 @@
 									   defaultConfigurationIsVisible = 0;
 									   defaultConfigurationName = Release;
 			};
-			7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppTests" */ = {
+			7705B7572C00621700111DBE /* Build configuration list for PBXNativeTarget "nAPPfaTests" */ = {
 				isa = XCConfigurationList;
 				buildConfigurations = (
 									   7705B7582C00621700111DBE /* Debug */,
@@ -806,7 +808,7 @@
 									   defaultConfigurationIsVisible = 0;
 									   defaultConfigurationName = Release;
 			};
-			7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "Napha Training AppUITests" */ = {
+			7705B75A2C00621700111DBE /* Build configuration list for PBXNativeTarget "nAPPfaUITests" */ = {
 				isa = XCConfigurationList;
 				buildConfigurations = (
 									   7705B75B2C00621700111DBE /* Debug */,

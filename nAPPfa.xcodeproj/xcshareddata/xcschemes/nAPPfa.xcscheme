@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7705B72F2C00621500111DBE"
-               BuildableName = "Napha Training App.app"
-               BlueprintName = "Napha Training App"
-               ReferencedContainer = "container:Napha Training App.xcodeproj">
+               BuildableName = "nAPPfa.app"
+               BlueprintName = "nAPPfa"
+               ReferencedContainer = "container:nAPPfa.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7705B73F2C00621700111DBE"
-               BuildableName = "Napha Training AppTests.xctest"
-               BlueprintName = "Napha Training AppTests"
-               ReferencedContainer = "container:Napha Training App.xcodeproj">
+               BuildableName = "nAPPfaTests.xctest"
+               BlueprintName = "nAPPfaTests"
+               ReferencedContainer = "container:nAPPfa.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7705B7492C00621700111DBE"
-               BuildableName = "Napha Training AppUITests.xctest"
-               BlueprintName = "Napha Training AppUITests"
-               ReferencedContainer = "container:Napha Training App.xcodeproj">
+               BuildableName = "nAPPfaUITests.xctest"
+               BlueprintName = "nAPPfaUITests"
+               ReferencedContainer = "container:nAPPfa.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7705B72F2C00621500111DBE"
-            BuildableName = "Napha Training App.app"
-            BlueprintName = "Napha Training App"
-            ReferencedContainer = "container:Napha Training App.xcodeproj">
+            BuildableName = "nAPPfa.app"
+            BlueprintName = "nAPPfa"
+            ReferencedContainer = "container:nAPPfa.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7705B72F2C00621500111DBE"
-            BuildableName = "Napha Training App.app"
-            BlueprintName = "Napha Training App"
-            ReferencedContainer = "container:Napha Training App.xcodeproj">
+            BuildableName = "nAPPfa.app"
+            BlueprintName = "nAPPfa"
+            ReferencedContainer = "container:nAPPfa.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

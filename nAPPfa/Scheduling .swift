@@ -1,6 +1,6 @@
 //
 //  Scheduling .swift
-//  Napha Training App
+//  nAPPfa
 //
 //  Created by Ishaan on 2/8/24.
 //

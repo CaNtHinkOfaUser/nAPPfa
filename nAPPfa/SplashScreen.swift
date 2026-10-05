@@ -1,6 +1,6 @@
 //
 //  SplashScreen.swift
-//  Napha Training App
+//  nAPPfa
 //
 
 import SwiftUI
@@ -23,7 +23,7 @@ struct SplashScreen: View {
                     .ignoresSafeArea()
 
                     VStack(spacing: 16) {
-                        Image("naapfa_logo")
+                        Image("nAPPfa_logo")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)

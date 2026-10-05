@@ -1,6 +1,6 @@
 //
 //  Home.swift
-//  Napha Training App
+//  nAPPfa
 //
 
 import SwiftUI
@@ -75,7 +75,7 @@ struct AppLogoHeader: View {
 	
 	var body: some View {
 		HStack(spacing: 12) {
-			Image("naapfa_logo")
+			Image("nAPPfa_logo")
 				.resizable()
 				.scaledToFit()
 				.frame(width: 48, height: 48)
@@ -251,13 +251,13 @@ struct Home: View {
 	}
 	
 	private var streakTile: some View {
-		VStack(alignment: .center, spacing: 2) {
-			Label("Streak", systemImage: "flame.fill")
+		VStack(alignment: .center, spacing: 0) {
+			Text("Streak")
 				.font(.caption.weight(.bold))
-			Text("\(streak)")
-				.font(.system(size: 56, weight: .black, design: .rounded))
-				.minimumScaleFactor(0.8)
-				.lineLimit(1)
+			GeometryReader { proxy in
+				StreakFlame(streak: streak, size: min(proxy.size.width, proxy.size.height))
+					.frame(maxWidth: .infinity, maxHeight: .infinity)
+			}
 			Text(streak == 1 ? "day" : "days")
 				.font(.subheadline.weight(.semibold))
 		}
@@ -266,6 +266,8 @@ struct Home: View {
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 		.background(Color.yellow, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
 		.modifier(PopUpCard())
+		.accessibilityElement(children: .ignore)
+		.accessibilityLabel("Streak: \(streak) \(streak == 1 ? "day" : "days")")
 	}
 	
 	private var nextWorkoutTile: some View {
@@ -420,6 +422,60 @@ struct Home: View {
 		let targGrade = hasTarg ? info.targ[index] : "Not set"
 		
 		return "\(prevGrade) → \(targGrade)"
+	}
+}
+
+/// The streak count sitting on a flickering flame. The flame goes grey and still when
+/// the streak is 0, and stops flickering when Reduce Motion is on.
+private struct StreakFlame: View {
+	let streak: Int
+	let size: CGFloat
+	@Environment(\.accessibilityReduceMotion) private var reduceMotion
+	
+	private var isLit: Bool { streak > 0 }
+	
+	var body: some View {
+		TimelineView(.animation(minimumInterval: 1 / 30, paused: reduceMotion || !isLit)) { timeline in
+			let time = isLit && !reduceMotion ? timeline.date.timeIntervalSinceReferenceDate : 0
+			// Two out-of-step waves so the flicker never looks like a simple loop.
+			let flicker = 0.035 * sin(time * 7.3) + 0.02 * sin(time * 12.9)
+			let sway = 2.5 * sin(time * 3.1)
+			let flame = size * 0.88
+			
+			ZStack {
+				if isLit {
+					Circle()
+						.fill(RadialGradient(colors: [.orange.opacity(0.45), .clear], center: .center, startRadius: 0, endRadius: flame * 0.55))
+						.frame(width: flame * 1.1, height: flame * 1.1)
+						.scaleEffect(1 + flicker * 2)
+						.offset(y: flame * 0.12)
+				}
+				
+				Image(systemName: "flame.fill")
+					.resizable()
+					.scaledToFit()
+					.frame(width: flame, height: flame)
+					.foregroundStyle(
+						LinearGradient(
+							colors: isLit ? [Color(red: 0.93, green: 0.2, blue: 0.08), .orange] : [Color(.systemGray), Color(.systemGray3)],
+							startPoint: .bottom,
+							endPoint: .top
+						)
+					)
+					.scaleEffect(x: 1 - flicker * 0.6, y: 1 + flicker, anchor: .bottom)
+					.rotationEffect(.degrees(sway), anchor: .bottom)
+				
+				Text("\(streak)")
+					.font(.system(size: flame * 0.42, weight: .black, design: .rounded))
+					.foregroundStyle(.white)
+					.minimumScaleFactor(0.5)
+					.lineLimit(1)
+					.frame(width: flame * 0.62)
+					.shadow(color: Color(red: 0.6, green: 0.12, blue: 0).opacity(0.55), radius: 2, y: 1)
+					.offset(y: flame * 0.16)
+			}
+			.frame(width: size, height: size)
+		}
 	}
 }
 

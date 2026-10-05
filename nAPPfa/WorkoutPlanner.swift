@@ -1,6 +1,6 @@
 //
 //  WorkoutPlanner.swift
-//  Napha Training App
+//  nAPPfa
 //
 
 import Foundation

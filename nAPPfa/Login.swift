@@ -20,7 +20,7 @@ struct StartingPage: View {
                     VStack(spacing: 24) {
                         Spacer(minLength: max(20, proxy.size.height * 0.08))
 
-                        Image("naapfa_logo")
+                        Image("nAPPfa_logo")
                             .resizable()
                             .scaledToFit()
                             .frame(

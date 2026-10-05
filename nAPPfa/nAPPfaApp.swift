@@ -1,6 +1,6 @@
 //
-//  Napha_Training_AppApp.swift
-//  Napha Training App
+//  nAPPfaApp.swift
+//  nAPPfa
 //
 //  Created by Kui Jun on 24/5/24.
 //
@@ -10,7 +10,7 @@ import UserNotifications
 
 @main
 
-struct Napha_Training_AppApp: App {
+struct nAPPfaApp: App {
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	static var isRunningForPreviews: Bool {
 		ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
@@ -21,7 +21,7 @@ struct Napha_Training_AppApp: App {
 		static var orientationLock = UIInterfaceOrientationMask.all //By default you want all your views to rotate freely
 		
 		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-			guard !Napha_Training_AppApp.isRunningForPreviews else { return true }
+			guard !nAPPfaApp.isRunningForPreviews else { return true }
 			UNUserNotificationCenter.current().delegate = self
 			NotificationCoordinator.configureCategories()
 			// Request permission proactively so notifications can be scheduled later.
@@ -44,7 +44,7 @@ struct Napha_Training_AppApp: App {
 	}
 	var body: some Scene {
 		WindowGroup {
-			if Napha_Training_AppApp.isRunningForPreviews {
+			if nAPPfaApp.isRunningForPreviews {
 				ContentView()
 			} else {
 				SplashScreen()

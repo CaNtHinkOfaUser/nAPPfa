@@ -1,13 +1,13 @@
 //
-//  Napha_Training_AppUITestsLaunchTests.swift
-//  Napha Training AppUITests
+//  nAPPfaUITestsLaunchTests.swift
+//  nAPPfaUITests
 //
 //  Created by Kui Jun on 24/5/24.
 //
 
 import XCTest
 
-final class Napha_Training_AppUITestsLaunchTests: XCTestCase {
+final class nAPPfaUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

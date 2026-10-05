@@ -1,6 +1,6 @@
 //
 //  Statistics.swift
-//  Napha Training App
+//  nAPPfa
 //
 //  Created by Alvarez Marco Lorenzo Tanzon on 9/9/24.
 //

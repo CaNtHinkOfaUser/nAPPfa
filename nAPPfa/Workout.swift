@@ -1,6 +1,6 @@
 //
 //  Workout.swift
-//  Napha Training App
+//  nAPPfa
 //
 
 import SwiftUI

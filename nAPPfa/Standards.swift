@@ -1,6 +1,6 @@
 //
 //  Standards.swift
-//  Napha Training App
+//  nAPPfa
 //
 
 import SwiftUI
@@ -47,6 +47,11 @@ struct NAPFAStandardsView: View {
 	@Environment(\.dismiss) private var dismiss
 	@State private var scope = Scope.mine
 	@State private var showsMaleTable: Bool
+	@State private var zoom: CGFloat = 1
+	@GestureState private var pinch: CGFloat = 1
+	@ScaledMetric(relativeTo: .caption) private var baseFontSize: CGFloat = 12
+	
+	private static let zoomRange: ClosedRange<CGFloat> = 0.6...2.5
 	
 	init(isMale: Bool, age: Int, stations: [NAPFAStation]) {
 		self.isMale = isMale
@@ -57,6 +62,11 @@ struct NAPFAStandardsView: View {
 	
 	private var tableIsMale: Bool {
 		scope == .mine ? isMale : showsMaleTable
+	}
+	
+	/// Zoom while a pinch is in progress, kept inside the allowed range.
+	private var liveZoom: CGFloat {
+		Self.clampedZoom(zoom * pinch)
 	}
 	
 	/// The secondary tables cover ages 12 to 19.
@@ -134,17 +144,48 @@ struct NAPFAStandardsView: View {
 						.pickerStyle(.segmented)
 					}
 					
-					Text(caption)
-						.font(.subheadline)
-						.foregroundStyle(.secondary)
+					HStack(spacing: 16) {
+						Text(caption)
+							.font(.subheadline)
+							.foregroundStyle(.secondary)
+						Spacer(minLength: 0)
+						Button {
+							setZoom(zoom / 1.25)
+						} label: {
+							Image(systemName: "minus.magnifyingglass")
+						}
+						.disabled(zoom <= Self.zoomRange.lowerBound)
+						.accessibilityLabel("Zoom out")
+						Button {
+							setZoom(zoom * 1.25)
+						} label: {
+							Image(systemName: "plus.magnifyingglass")
+						}
+						.disabled(zoom >= Self.zoomRange.upperBound)
+						.accessibilityLabel("Zoom in")
+					}
+					.font(.title3)
 					
 					ScrollView(.horizontal, showsIndicators: !fits) {
-						table(widths: widths)
+						table(widths: widths, zoom: liveZoom)
 					}
 					.scrollDisabled(fits)
+					// Pinch to zoom; simultaneous so one-finger scrolling still works.
+					.simultaneousGesture(
+						MagnifyGesture()
+							.updating($pinch) { value, pinch, _ in
+								pinch = value.magnification
+							}
+							.onEnded { value in
+								zoom = Self.clampedZoom(zoom * value.magnification)
+							}
+					)
 				}
 				.padding(18)
 			}
+		}
+		.onChange(of: scope) {
+			zoom = 1
 		}
 		.background(Color(.systemGroupedBackground))
 		.navigationTitle("NAPFA Standards")
@@ -158,17 +199,28 @@ struct NAPFAStandardsView: View {
 	}
 	
 	/// Scales every column by the same factor so the table fills the width of whatever
-	/// screen it is on. Columns never shrink below 70% of their natural width; past that
-	/// the table scrolls sideways instead of squashing the text.
+	/// screen it is on, then applies the zoom. Before zooming, columns never shrink below
+	/// 70% of their natural width; past that the table scrolls sideways instead of
+	/// squashing the text.
 	private func columnWidths(fitting available: CGFloat) -> [CGFloat] {
 		let natural = columns.map(\.width)
 		let total = natural.reduce(0, +)
 		guard total > 0, available > 0 else { return natural }
-		let scale = max(available / total, 0.7)
+		let scale = max(available / total, 0.7) * liveZoom
 		return natural.map { $0 * scale }
 	}
 	
-	private func table(widths: [CGFloat]) -> some View {
+	private static func clampedZoom(_ zoom: CGFloat) -> CGFloat {
+		min(max(zoom, zoomRange.lowerBound), zoomRange.upperBound)
+	}
+	
+	private func setZoom(_ newZoom: CGFloat) {
+		withAnimation(.snappy(duration: 0.25)) {
+			zoom = Self.clampedZoom(newZoom)
+		}
+	}
+	
+	private func table(widths: [CGFloat], zoom: CGFloat) -> some View {
 		let columns = columns
 		let rows = rows
 		let groups = ageGroups(of: rows)
@@ -176,13 +228,13 @@ struct NAPFAStandardsView: View {
 		return VStack(spacing: 0) {
 			HStack(spacing: 0) {
 				ForEach(columns.indices, id: \.self) { index in
-					cell(columns[index].title, width: widths[index], isHeader: true)
+					cell(columns[index].title, width: widths[index], zoom: zoom, isHeader: true)
 				}
 			}
 			ForEach(rows.indices, id: \.self) { rowIndex in
 				HStack(spacing: 0) {
 					ForEach(columns.indices, id: \.self) { index in
-						cell(columns[index].value(rows[rowIndex]), width: widths[index], isShaded: groups[rowIndex] % 2 == 1)
+						cell(columns[index].value(rows[rowIndex]), width: widths[index], zoom: zoom, isShaded: groups[rowIndex] % 2 == 1)
 					}
 				}
 			}
@@ -203,15 +255,15 @@ struct NAPFAStandardsView: View {
 		}
 	}
 	
-	private func cell(_ text: String, width: CGFloat, isHeader: Bool = false, isShaded: Bool = false) -> some View {
+	private func cell(_ text: String, width: CGFloat, zoom: CGFloat, isHeader: Bool = false, isShaded: Bool = false) -> some View {
 		Text(text)
-			.font(isHeader ? .caption.weight(.bold) : .caption)
+			.font(.system(size: baseFontSize * zoom, weight: isHeader ? .bold : .regular))
 			.multilineTextAlignment(.center)
 			.lineLimit(3)
 			.minimumScaleFactor(0.72)
-			.padding(.horizontal, 4)
+			.padding(.horizontal, 4 * zoom)
 			.frame(width: width)
-			.frame(minHeight: isHeader ? 58 : 30)
+			.frame(minHeight: (isHeader ? 58 : 30) * zoom)
 			.background(isHeader || isShaded ? Color(.tertiarySystemGroupedBackground) : Color(.secondarySystemGroupedBackground))
 			.border(Color.primary.opacity(0.15), width: 0.5)
 	}

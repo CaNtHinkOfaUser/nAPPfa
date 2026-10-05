@@ -1,14 +1,14 @@
 //
-//  Napha_Training_AppTests.swift
-//  Napha Training AppTests
+//  nAPPfaTests.swift
+//  nAPPfaTests
 //
 //  Created by Kui Jun on 24/5/24.
 //
 
 import XCTest
-@testable import Napha_Training_App
+@testable import nAPPfa
 
-final class Napha_Training_AppTests: XCTestCase {
+final class nAPPfaTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

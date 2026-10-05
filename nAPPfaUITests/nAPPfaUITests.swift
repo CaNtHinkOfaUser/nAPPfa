@@ -1,13 +1,13 @@
 //
-//  Napha_Training_AppUITests.swift
-//  Napha Training AppUITests
+//  nAPPfaUITests.swift
+//  nAPPfaUITests
 //
 //  Created by Kui Jun on 24/5/24.
 //
 
 import XCTest
 
-final class Napha_Training_AppUITests: XCTestCase {
+final class nAPPfaUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
